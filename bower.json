@@ -1,5 +1,5 @@
 {
-  "name": "sass-hidpi",
+  "name": "sass-mq",
   "description": "mq() is a Sass mixin that helps manipulating media queries in an elegant way.",
   "keywords": [
     "responsive",
