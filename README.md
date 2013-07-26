@@ -4,8 +4,8 @@
 Stylesheets") mixin that helps manipulating media queries in an elegant
 way.
 
-Media queries are compiled in `em` units but as developers and designers we 
-often think in pixels, so the `mq()` mixins accepts both.
+As developers and designers we think in pixels and device families, so the
+`mq()` mixin accepts pixels, ems, keywords… and compiles into ems.
 
 ## How to Use It
 
@@ -14,11 +14,12 @@ web"): `bower install sass-mq`
    OR [Download _mq.scss](https://raw.github.com/guardian/sass-mq/master/_mq.scss)
    to your Sass project.
 2. Import the partial in your Sass files: `@import 'path/to/mq';`
-3. Override default settings with your own before the file is imported:
+3. Override default settings with your own preferences before the file is
+imported:
 
 ```scss
-// To enable support for browsers that do not support @media queries,
-// (IE <= 8, Firefox <= 3, Opera <= 9) set $responsive to false
+// To output rules for browsers that do not support @media queries
+// (IE <= 8, Firefox <= 3, Opera <= 9), set $responsive to false
 // Create a separate stylesheet served exclusively to these browsers,
 // meaning @media queries will be rasterized, relying on the cascade itself
 $responsive: true;
@@ -38,23 +39,35 @@ $breakpoints: (
 ) !default;
 
 ```
-
+4. Play around with `mq()` (see below)
 
 ### Responsive mode ON (default)
 
+By default, `mq()` outputs @media queries and takes three parameters:
+
+- `$from`: inclusive `min-width` boundary
+- `$to`: exclusive `max-width` boundary
+- `$and`: additional custom directives
+
+Note that `$to` as a keyword is a hard limit. It's not applying styles to the
+device (see examples below).
+
 ```scss
-$responsive: true;
-.test {
+.element {
+    // Apply styling to mobile and upwards
     @include mq($from: mobile) {
         color: red;
     }
+    // Apply styling up to devices smaller than tablets (exclude tablets)
     @include mq($to: tablet) {
         color: blue;
     }
+    // Same thing, in landscape orientation
     @include mq($to: tablet, $and: '(orientation: landscape)') {
         color: hotpink;
     }
-    @include mq(mobile, tablet) {
+    // Apply styling to tablets up to "desktop" (exclude desktop)
+    @include mq(tablet, desktop) {
         color: green;
     }
 }
@@ -65,19 +78,18 @@ $responsive: true;
 ```scss
 $responsive: false; // Responsive mode is active by default
 .test {
+    // `min-width` directives are compiled:
     @include mq($from: mobile) {
         color: red;
     }
 
-    // Won't be compiled
+    // But these calls won't be compiled:
     @include mq($to: tablet) {
         color: blue;
     }
-
     @include mq($to: tablet, $and: '(orientation: landscape)') {
         color: hotpink;
     }
-
     @include mq(mobile, tablet) {
         color: green;
     }
