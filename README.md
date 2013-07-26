@@ -13,8 +13,8 @@ As developers and designers we think in pixels and device families, so the
 web"): `bower install sass-mq`  
    OR [Download _mq.scss](https://raw.github.com/guardian/sass-mq/master/_mq.scss)
    to your Sass project.
-2. Import the partial in your Sass files: `@import 'path/to/mq';`
-3. Override default settings with your own preferences before the file is
+2. Import the partial in your Sass files and override
+default settings with your own preferences before the file is
 imported:
 
 ```scss
@@ -38,8 +38,9 @@ $breakpoints: (
     (mobileLandscape 480px)
 ) !default;
 
+@import 'path/to/mq';
 ```
-4. Play around with `mq()` (see below)
+3. Play around with `mq()` (see below)
 
 ### Responsive mode ON (default)
 
