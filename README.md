@@ -43,7 +43,7 @@ $breakpoints: (
 
 ### Responsive mode ON (default)
 
-By default, `mq()` outputs @media queries and takes three parameters:
+`mq()` takes up to three optional parameters:
 
 - `$from`: inclusive `min-width` boundary
 - `$to`: exclusive `max-width` boundary
@@ -74,6 +74,13 @@ device (see examples below).
 ```
 
 ### Responsive mode OFF
+
+To enable support for browsers that do not support @media queries,
+(IE <= 8, Firefox <= 3, Opera <= 9) set $responsive to false.
+
+Tip: create a separate stylesheet served exclusively to these browsers,
+when @media queries will be rasterized, the browsers will rely on the cascade
+itself. Learn more about this technique on [Jake's blog](http://jakearchibald.github.io/sass-ie/ "IE-friendly mobile-first CSS with Sass 3.2").
 
 ```scss
 $responsive: false; // Responsive mode is active by default
