@@ -10,7 +10,7 @@ As developers and designers we think in pixels and device families, so the
 ## How to Use It
 
 1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the 
-web"): `bower install sass-mq`  
+web"): `bower install sass-mq --save-dev`  
    OR [Download _mq.scss](https://raw.github.com/guardian/sass-mq/master/_mq.scss)
    to your Sass project.
 2. Import the partial in your Sass files and override
