@@ -77,21 +77,22 @@ device (see examples below).
 ### Responsive mode OFF
 
 To enable support for browsers that do not support @media queries,
-(IE <= 8, Firefox <= 3, Opera <= 9) set $responsive to false.
+(IE <= 8, Firefox <= 3, Opera <= 9) set `$responsive: false`.
 
 Tip: create a separate stylesheet served exclusively to these browsers,
-when @media queries will be rasterized, the browsers will rely on the cascade
-itself. Learn more about this technique on [Jake's blog](http://jakearchibald.github.io/sass-ie/ "IE-friendly mobile-first CSS with Sass 3.2").
+for example with conditional comments.
+When @media queries are rasterized, browsers rely on the cascade
+itself. Learn more about this technique on [Jake’s blog](http://jakearchibald.github.io/sass-ie/ "IE-friendly mobile-first CSS with Sass 3.2").
 
 ```scss
-$responsive: false; // Responsive mode is active by default
+$responsive: false;
 .test {
     // `min-width` directives are compiled:
     @include mq($from: mobile) {
         color: red;
     }
 
-    // But these calls won't be compiled:
+    // But these calls won’t be compiled:
     @include mq($to: tablet) {
         color: blue;
     }
@@ -113,7 +114,7 @@ $responsive: false; // Responsive mode is active by default
         WARNING: Assuming 10 to be in pixels, attempting to convert it into pixels for you
                  on line 24 of ../_mq.scss
 
-4. if `test.css` hasn't changed (run a `git diff` on it), tests pass
+4. if `test.css` hasn’t changed (run a `git diff` on it), tests pass
 
 ## Inspired by…
 
