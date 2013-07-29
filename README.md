@@ -36,7 +36,7 @@ $breakpoints: (
     // Tweakpoints
     (desktopAd 810px)
     (mobileLandscape 480px)
-) !default;
+);
 
 @import 'path/to/mq';
 ```
@@ -46,8 +46,8 @@ $breakpoints: (
 
 `mq()` takes up to three optional parameters:
 
-- `$from`: inclusive `min-width` boundary
-- `$to`: exclusive `max-width` boundary
+- `$from`: _inclusive_ `min-width` boundary
+- `$to`: _exclusive_ `max-width` boundary
 - `$and`: additional custom directives
 
 Note that `$to` as a keyword is a hard limit. It's not applying styles to the
