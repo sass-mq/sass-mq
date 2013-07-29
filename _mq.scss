@@ -1,13 +1,13 @@
 // To enable support for browsers that do not support @media queries,
-// (IE <= 8, Firefox <= 3, Opera <= 9) set $responsive to false
+// (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
 // Create a separate stylesheet served exclusively to these browsers,
 // meaning @media queries will be rasterized, relying on the cascade itself
-$responsive: true !default;
+$mq-responsive: true !default;
 
 // Name your breakpoints in a way that creates a ubiquitous language
 // across team members. It will improve communication between
 // stakeholders, designers, developers, and testers.
-$breakpoints: (
+$mq-breakpoints: (
     (mobile  300px)
     (tablet  600px)
     (desktop 900px)
@@ -30,7 +30,7 @@ $breakpoints: (
 }
 
 @function retrieve-breakpoint-width($name) {
-    @each $breakpoint in $breakpoints {
+    @each $breakpoint in $mq-breakpoints {
         $breakpoint-name:  nth($breakpoint, 1);
         $breakpoint-width: nth($breakpoint, 2);
 
@@ -88,7 +88,7 @@ $breakpoints: (
 
     // Responsive support is disabled, rasterize the output outside @media blocks
     // The browser will rely on the cascade itself.
-    @if ($responsive == false) {
+    @if ($mq-responsive == false) {
         // Output rules in min-width statements only
         @if ($from and $to == false and $and == false) {
             @content;

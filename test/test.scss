@@ -1,4 +1,4 @@
-$breakpoints: (
+$mq-breakpoints: (
     (mobile  320px)
     (tablet  640px)
 );
@@ -45,7 +45,7 @@ $breakpoints: (
 }
 
 
-$responsive: false;
+$mq-responsive: false;
 
 .responsive-disabled {
     @include mq($from: mobile) {

@@ -19,15 +19,15 @@ imported:
 
 ```scss
 // To output rules for browsers that do not support @media queries
-// (IE <= 8, Firefox <= 3, Opera <= 9), set $responsive to false
+// (IE <= 8, Firefox <= 3, Opera <= 9), set $mq-responsive to false
 // Create a separate stylesheet served exclusively to these browsers,
 // meaning @media queries will be rasterized, relying on the cascade itself
-$responsive: true;
+$mq-responsive: true;
 
 // Name your breakpoints in a way that creates a ubiquitous language
 // across team members. It will improve communication between
 // stakeholders, designers, developers, and testers.
-$breakpoints: (
+$mq-breakpoints: (
     (mobile  300px)
     (tablet  600px)
     (desktop 900px)
@@ -77,7 +77,7 @@ device (see examples below).
 ### Responsive mode OFF
 
 To enable support for browsers that do not support @media queries,
-(IE <= 8, Firefox <= 3, Opera <= 9) set `$responsive: false`.
+(IE <= 8, Firefox <= 3, Opera <= 9) set `$mq-responsive: false`.
 
 Tip: create a separate stylesheet served exclusively to these browsers,
 for example with conditional comments.
@@ -85,7 +85,7 @@ When @media queries are rasterized, browsers rely on the cascade
 itself. Learn more about this technique on [Jake’s blog](http://jakearchibald.github.io/sass-ie/ "IE-friendly mobile-first CSS with Sass 3.2").
 
 ```scss
-$responsive: false;
+$mq-responsive: false;
 .test {
     // `min-width` directives are compiled:
     @include mq($from: mobile) {
