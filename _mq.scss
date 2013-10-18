@@ -14,6 +14,11 @@ $mq-breakpoints: (
     (wide    1260px)
 ) !default;
 
+// Define the breakpoint from the $mq-breakpoints list that should
+// be used as the target width when outputting a static stylesheet
+// (i.e. when $mq-responsive is set to 'false').
+$mq-static-breakpoint: "desktop" !default;
+
 
 @function mq-px2em($px, $base-font-size: 16px) {
     @if (unitless($px)) {
@@ -85,11 +90,19 @@ $mq-breakpoints: (
     // Responsive support is disabled, rasterize the output outside @media blocks
     // The browser will rely on the cascade itself.
     @if ($mq-responsive == false) {
-        // Output rules in min-width statements only
-        @if ($from and $to == false and $and == false) {
-            @content;
+        $static-breakpoint-width: mq-retrieve-breakpoint-width($mq-static-breakpoint);
+        @if type-of($static-breakpoint-width) == number {
+            $target-width: mq-px2em($static-breakpoint-width);
+            // Output only rules that start at or span our target width
+            @if ($and == false and ($min-width <= $target-width) and (($to == false) or ($max-width >= $target-width))) {
+                @content;
+            }
+        } @else {
+            // Throw a warning if $mq-static-breakpoint is not in the $mq-breakpoints list
+            @warn "No static styles will be output: #{$static-breakpoint-width}";
         }
     }
+
     // Responsive support is enabled, output rules inside @media queries
     @else {
         @if $min-width != 0 { $mediaQuery: '#{$mediaQuery} and (min-width: #{$min-width})'; }
