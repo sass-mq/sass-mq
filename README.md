@@ -7,6 +7,11 @@ way.
 As developers and designers we think in pixels and device families, so the
 `mq()` mixin accepts pixels, ems, keywords… and compiles into ems.
 
+We use `mq()` at [the Guardian](http://www.theguardian.com/uk?view=mobile)
+to effortlessly support older browsers and elegantly abstract media queries,
+as illustrated in this article posted on the Guardian's developer blog:
+[Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8).
+
 ## How to Use It
 
 1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the 
