@@ -139,7 +139,7 @@ $mq-breakpoints: mq-add-breakpoint(tvscreen, 1920px);
 - https://github.com/bits-sass/helpers-responsive/blob/master/_responsive.scss
 - https://gist.github.com/magsout/5978325
 
-## Good Reads on Mobile-first CSS With Legacy Browser Support
+## On Mobile-first CSS With Legacy Browser Support
 
 - http://jakearchibald.github.io/sass-ie/
 - http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
