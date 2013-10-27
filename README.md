@@ -133,8 +133,15 @@ $mq-breakpoints: mq-add-breakpoint(tvscreen, 1920px);
 
 4. if `test.css` hasn’t changed (run a `git diff` on it), tests pass
 
-## Inspired by…
+## Inspired By…
 
 - https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_conditionals.scss
 - https://github.com/bits-sass/helpers-responsive/blob/master/_responsive.scss
 - https://gist.github.com/magsout/5978325
+
+## Good Reads on Mobile-first CSS With Legacy Browser Support
+
+- http://jakearchibald.github.io/sass-ie/
+- http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+- http://cognition.happycog.com/article/fall-back-to-the-cascade
+- http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8
