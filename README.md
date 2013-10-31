@@ -45,7 +45,7 @@ $mq-breakpoints: (
 // Define the breakpoint from the $mq-breakpoints list that should
 // be used as the target width when outputting a static stylesheet
 // (i.e. when $mq-responsive is set to 'false').
-$mq-static-breakpoint: "desktop";
+$mq-static-breakpoint: desktop;
 
 @import 'path/to/mq';
 ```
@@ -97,17 +97,17 @@ itself. Learn more about this technique on [Jake’s blog](http://jakearchibald.
 To avoid rasterizing styles intended for displays larger than what those
 older browsers typically run on, set `$mq-static-breakpoint` to match
 a breakpoint from the `$mq-breakpoints` list. The default is
-`"desktop"`.
+`desktop`.
 
 The static output will only include `@media` queries that start at or
 span this breakpoint and which have no custom `$and` directives:
 
 ```scss
 $mq-responsive:        false;
-$mq-static-breakpoint: "desktop";
+$mq-static-breakpoint: desktop;
 
 .static {
-    // Queries that span or start at "desktop" are compiled:
+    // Queries that span or start at desktop are compiled:
     @include mq($from: mobile) {
         color: lawngreen;
     }
