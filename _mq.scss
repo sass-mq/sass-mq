@@ -17,7 +17,7 @@ $mq-breakpoints: (
 // Define the breakpoint from the $mq-breakpoints list that should
 // be used as the target width when outputting a static stylesheet
 // (i.e. when $mq-responsive is set to 'false').
-$mq-static-breakpoint: "desktop" !default;
+$mq-static-breakpoint: desktop !default;
 
 
 @function mq-px2em($px, $base-font-size: 16px) {
