@@ -82,7 +82,7 @@ $mq-breakpoints: (
         content: "hidpi-screen";
     }
     // Add a custom breakpoint
-    $mq-breakpoints: mq-add-breakpoint(cinema, 4096px);
+    $mq-breakpoints: mq-add-breakpoint(cinema, 4096px) !global;
     @include mq(cinema) {
         content: "from-cinema";
     }
