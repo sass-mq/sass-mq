@@ -31,14 +31,14 @@ as illustrated in this article posted on the Guardian's developer blog:
     // across team members. It will improve communication between
     // stakeholders, designers, developers, and testers.
     $mq-breakpoints: (
-        (mobile  300px)
-        (tablet  600px)
-        (desktop 900px)
-        (wide    1260px)
+        mobile:  300px,
+        tablet:  600px,
+        desktop: 900px,
+        wide:    1260px,
 
         // Tweakpoints
-        (desktopAd 810px)
-        (mobileLandscape 480px)
+        desktopAd: 810px,
+        mobileLandscape: 480px
     );
 
     // Define the breakpoint from the $mq-breakpoints list that should
