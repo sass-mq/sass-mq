@@ -1,26 +1,26 @@
 /* Responsive styles for devices that understand media queries */
-@media all and (max-width: 19.9375em) {
+@media all and (max-width: 19.99em) {
   .responsive:after {
     content: "to-mobile"; } }
 @media all and (min-width: 20em) {
   .responsive:after {
     content: "from-mobile"; } }
-@media all and (min-width: 20em) and (max-width: 39.9375em) {
+@media all and (min-width: 20em) and (max-width: 39.99em) {
   .responsive:after {
     content: "from-mobile-to-tablet"; } }
 @media all and (min-width: 40em) {
   .responsive:after {
     content: "from-640"; } }
-@media all and (max-width: 39.9375em) {
+@media all and (max-width: 39.99em) {
   .responsive:after {
     content: "to-tablet"; } }
-@media all and (max-width: 39.9375em) and (orientation: landscape) {
+@media all and (max-width: 39.99em) and (orientation: landscape) {
   .responsive:after {
     content: "to-tablet-and-orientation-landscape"; } }
 @media all and (min-width: 40em) {
   .responsive:after {
     content: "from-tablet"; } }
-@media all and (min-width: 40em) and (max-width: 63.9375em) {
+@media all and (min-width: 40em) and (max-width: 63.99em) {
   .responsive:after {
     content: "from-tablet-to-desktop"; } }
 @media all and (min-width: 48em) and (max-width: 63.9375em) and (orientation: portrait) {
@@ -35,13 +35,13 @@
 @media all and (max-width: 68.75em) {
   .responsive:after {
     content: "to-1100px"; } }
-@media all and (min-width: 64em) and (max-width: 74.9375em) {
+@media all and (min-width: 64em) and (max-width: 74.99em) {
   .responsive:after {
     content: "from-desktop-to-widescreen"; } }
 @media all and (min-width: 75em) {
   .responsive:after {
     content: "from-widescreen"; } }
-@media all and (min-width: 75em) and (max-width: 119.9375em) {
+@media all and (min-width: 75em) and (max-width: 119.99em) {
   .responsive:after {
     content: "from-widescreen-to-tvscreen"; } }
 @media all and (min-width: 120em) {
@@ -53,7 +53,7 @@
 @media all and (min-width: 256em) {
   .responsive:after {
     content: "from-cinema"; } }
-@media all and (max-width: 255.9375em) {
+@media all and (max-width: 255.99em) {
   .responsive:after {
     content: "to-cinema"; } }
 

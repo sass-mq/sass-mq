@@ -83,7 +83,7 @@ $mq-static-breakpoint: desktop !default;
         @if type-of($to) == number {
             $max-width: mq-px2em($to);
         } @else {
-            $max-width: mq-px2em(mq-retrieve-breakpoint-width($to) - 1px);
+            $max-width: mq-px2em(mq-retrieve-breakpoint-width($to)) - .01em;
         }
     }
 
