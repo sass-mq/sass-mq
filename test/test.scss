@@ -1,11 +1,11 @@
 // A set of breakpoints that includes larger screens than we would
 // normally target with static styles for older browsers.
 $mq-breakpoints: (
-    (mobile      320px)
-    (tablet      640px)
-    (desktop    1024px)
-    (widescreen 1200px)
-    (tvscreen   1920px)
+    mobile:      320px,
+    tablet:      640px,
+    desktop:    1024px,
+    widescreen: 1200px,
+    tvscreen:   1920px
 );
 
 // Include media query handling
