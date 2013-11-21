@@ -8,6 +8,9 @@ $mq-breakpoints: (
     (tvscreen   1920px)
 );
 
+/* Show active breakpoint in top right corner of viewport */
+$mq-show-breakpoints: true;
+
 // Include media query handling
 @import '../mq';
 

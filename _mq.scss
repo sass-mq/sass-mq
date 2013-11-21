@@ -19,6 +19,9 @@ $mq-breakpoints: (
 // (i.e. when $mq-responsive is set to 'false').
 $mq-static-breakpoint: desktop !default;
 
+// If you want to display the currently active breakpoint in the top
+// right corner of your site during development, set this to 'true'.
+$mq-show-breakpoints: false !default;
 
 @function mq-px2em($px, $base-font-size: 16px) {
     @if (unitless($px)) {
@@ -124,4 +127,25 @@ $mq-static-breakpoint: desktop !default;
     $breakpoint: $name $breakpoint;
     $output: append($mq-breakpoints, $breakpoint, 'space');
     @return $output;
+}
+
+// Show active breakpoint in top right corner of the viewport
+@if ($mq-show-breakpoints == true) {
+  body:after {
+    background-color: #FCF8E3;
+    border-bottom: 1px solid #FBEED5;
+    border-left: 1px solid #FBEED5;
+    color: #C09853;
+    font: small-caption;
+    padding: 3px 6px;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @each $breakpoint in $mq-breakpoints {
+      @include mq(nth($breakpoint, 1)) {
+        content: '#{nth($breakpoint, 1)} ≥ #{nth($breakpoint, 2)} (#{mq-px2em(nth($breakpoint, 2))})';
+      }
+    }
+  }
 }
