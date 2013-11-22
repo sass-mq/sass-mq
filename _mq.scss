@@ -130,22 +130,23 @@ $mq-show-breakpoints: false !default;
 }
 
 // Show active breakpoint in top right corner of the viewport
-@if ($mq-show-breakpoints == true) {
-  body:after {
-    background-color: #FCF8E3;
-    border-bottom: 1px solid #FBEED5;
-    border-left: 1px solid #FBEED5;
-    color: #C09853;
-    font: small-caption;
-    padding: 3px 6px;
-    position: absolute;
-    right: 0;
-    top: 0;
+@if ($mq-show-breakpoints) {
+    body:before {
+        background-color: #FCF8E3;
+        border-bottom: 1px solid #FBEED5;
+        border-left: 1px solid #FBEED5;
+        color: #C09853;
+        font: small-caption;
+        padding: 3px 6px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 100;
 
-    @each $breakpoint in $mq-breakpoints {
-      @include mq(nth($breakpoint, 1)) {
-        content: '#{nth($breakpoint, 1)} ≥ #{nth($breakpoint, 2)} (#{mq-px2em(nth($breakpoint, 2))})';
-      }
+        @each $breakpoint in $mq-breakpoints {
+            @include mq(nth($breakpoint, 1)) {
+                content: '#{nth($breakpoint, 1)} ≥ #{nth($breakpoint, 2)} (#{mq-px2em(nth($breakpoint, 2))})';
+            }
+        }
     }
-  }
 }
