@@ -47,8 +47,9 @@ as illustrated in this article posted on the Guardian's developer blog:
     $mq-static-breakpoint: desktop;
 
     // If you want to display the currently active breakpoint in the top
-    // right corner of your site during development, set this to 'true'.
-    $mq-show-breakpoints: true;
+    // right corner of your site during development, add the breakpoints
+    // to this list, ordered by width, e.g. (mobile, tablet, desktop).
+    $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktopAd, desktop, wide);
 
     @import 'path/to/mq';
     ```
@@ -150,10 +151,11 @@ $mq-breakpoints: mq-add-breakpoint(tvscreen, 1920px);
 
 While developing, it can be nice to always know which breakpoint is
 active. To achieve this, set the `$mq-show-breakpoints` variable to
-`true`, and the name of the active breakpoint and its pixel and em
-values will be shown in the top right corner of the viewport.
+be a list of the breakpoints you want to debug, ordered by width.
+The name of the active breakpoint and its pixel and em values will
+then be shown in the top right corner of the viewport.
 
-![$mq-show-breakpoints: true](show-breakpoints.gif)
+![$mq-show-breakpoints](show-breakpoints.gif)
 
 ## Test
 
