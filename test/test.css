@@ -1,3 +1,35 @@
+@charset "UTF-8";
+/* Show active breakpoint in top right corner of viewport */
+body:before {
+  background-color: #FCF8E3;
+  border-bottom: 1px solid #FBEED5;
+  border-left: 1px solid #FBEED5;
+  color: #C09853;
+  font: small-caption;
+  padding: 3px 6px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 100; }
+  @media all and (min-width: 20em) {
+    body:before {
+      content: "mobile ≥ 320px (20em)"; } }
+  @media all and (min-width: 30em) {
+    body:before {
+      content: "mobileLandscape ≥ 480px (30em)"; } }
+  @media all and (min-width: 40em) {
+    body:before {
+      content: "tablet ≥ 640px (40em)"; } }
+  @media all and (min-width: 64em) {
+    body:before {
+      content: "desktop ≥ 1024px (64em)"; } }
+  @media all and (min-width: 75em) {
+    body:before {
+      content: "widescreen ≥ 1200px (75em)"; } }
+  @media all and (min-width: 120em) {
+    body:before {
+      content: "tvscreen ≥ 1920px (120em)"; } }
+
 /* Responsive styles for devices that understand media queries */
 @media all and (max-width: 19.99em) {
   .responsive:after {
