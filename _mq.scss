@@ -19,6 +19,10 @@ $mq-breakpoints: (
 // (i.e. when $mq-responsive is set to 'false').
 $mq-static-breakpoint: desktop !default;
 
+// If you want to display the currently active breakpoint in the top
+// right corner of your site during development, add the breakpoints
+// to this list, ordered by width, e.g. (mobile, tablet, desktop).
+$mq-show-breakpoints: () !default;
 
 @function mq-px2em($px, $base-font-size: 16px) {
     @if (unitless($px)) {
@@ -124,4 +128,34 @@ $mq-static-breakpoint: desktop !default;
     $breakpoint: $name $breakpoint;
     $output: append($mq-breakpoints, $breakpoint, 'space');
     @return $output;
+}
+
+// Show the active breakpoint in the top right corner of the viewport
+@if (length($mq-show-breakpoints) > 0) {
+    body:before {
+        background-color: #FCF8E3;
+        border-bottom: 1px solid #FBEED5;
+        border-left: 1px solid #FBEED5;
+        color: #C09853;
+        font: small-caption;
+        padding: 3px 6px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 100;
+
+        // Loop through the breakpoints that should be shown
+        @each $show-breakpoint in $mq-show-breakpoints {
+            // ...then loop through the master list of breakpoints
+            @each $breakpoint in $mq-breakpoints {
+                // ...to see if the name of any breakpoint matches the breakpoint to show
+                @if (nth($breakpoint, 1) == $show-breakpoint) {
+                    // ...and if it does, show it
+                    @include mq(nth($breakpoint, 1)) {
+                       content: "#{nth($breakpoint, 1)} ≥ #{nth($breakpoint, 2)} (#{mq-px2em(nth($breakpoint, 2))})";
+                    }
+                }
+            }
+        }
+    }
 }
