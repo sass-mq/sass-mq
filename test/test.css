@@ -14,12 +14,12 @@ body:before {
   @media all and (min-width: 20em) {
     body:before {
       content: "mobile ≥ 320px (20em)"; } }
+  @media all and (min-width: 30em) {
+    body:before {
+      content: "mobileLandscape ≥ 480px (30em)"; } }
   @media all and (min-width: 40em) {
     body:before {
       content: "tablet ≥ 640px (40em)"; } }
-  @media all and (min-width: 50em) {
-    body:before {
-      content: "tabletWide ≥ 800px (50em)"; } }
   @media all and (min-width: 64em) {
     body:before {
       content: "desktop ≥ 1024px (64em)"; } }

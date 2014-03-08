@@ -31,14 +31,14 @@ as illustrated in this article posted on the Guardian's developer blog:
     // across team members. It will improve communication between
     // stakeholders, designers, developers, and testers.
     $mq-breakpoints: (
-        (mobile  300px)
-        (tablet  600px)
-        (desktop 900px)
-        (wide    1260px)
+        mobile:  320px,
+        tablet:  740px,
+        desktop: 980px,
+        wide:    1300px,
 
         // Tweakpoints
-        (desktopAd 810px)
-        (mobileLandscape 480px)
+        desktopAd: 810px,
+        mobileLandscape: 480px
     );
 
     // Define the breakpoint from the $mq-breakpoints list that should
@@ -49,7 +49,7 @@ as illustrated in this article posted on the Guardian's developer blog:
     // If you want to display the currently active breakpoint in the top
     // right corner of your site during development, add the breakpoints
     // to this list, ordered by width, e.g. (mobile, tablet, desktop).
-    $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktopAd, desktop, wide);
+    $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 
     @import 'path/to/mq';
     ```

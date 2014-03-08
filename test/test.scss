@@ -2,18 +2,18 @@
 // normally target with static styles for older browsers.
 $mq-breakpoints: (
     // Base device classes
-    (mobile        320px)
-    (tablet        640px)
-    (desktop      1024px)
-    (widescreen   1200px)
-    (tvscreen     1920px)
+    mobile:      320px,
+    tablet:      640px,
+    desktop:    1024px,
+    widescreen: 1200px,
+    tvscreen:   1920px,
 
-    // Tweak points
-    (tabletWide    800px)
+    // Tweakpoints
+    mobileLandscape: 480px
 );
 
 /* Show active breakpoint in top right corner of viewport */
-$mq-show-breakpoints: (mobile, tablet, tabletWide, desktop, widescreen, tvscreen);
+$mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvscreen);
 
 // Include media query handling
 @import '../mq';
@@ -89,7 +89,7 @@ $mq-show-breakpoints: (mobile, tablet, tabletWide, desktop, widescreen, tvscreen
         content: "hidpi-screen";
     }
     // Add a custom breakpoint
-    $mq-breakpoints: mq-add-breakpoint(cinema, 4096px);
+    $mq-breakpoints: mq-add-breakpoint(cinema, 4096px) !global;
     @include mq(cinema) {
         content: "from-cinema";
     }
