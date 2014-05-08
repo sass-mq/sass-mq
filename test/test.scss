@@ -96,6 +96,14 @@ $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvs
     @include mq($to: cinema) {
         content: "to-cinema";
     }
+    // Add a custom height breakpoint
+    @include mq($to: 480px, $height: true) {
+        content: "to-iPhone4s";
+    }
+    // Add a custom height breakpoint
+    @include mq($to: 568px, $height: true) {
+        content: "to-iPhone5s";
+    }
 }
 
 /* Responsive styles for devices that understand media queries */
