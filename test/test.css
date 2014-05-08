@@ -88,6 +88,12 @@ body:before {
 @media all and (max-width: 255.99em) {
   .responsive:after {
     content: "to-cinema"; } }
+@media all and (max-height: 30em) {
+  .responsive:after {
+    content: "to-iPhone4s"; } }
+@media all and (max-height: 35.5em) {
+  .responsive:after {
+    content: "to-iPhone5s"; } }
 
 /* Rasterized styles that span or start at the "desktop" breakpoint */
 .static:after {
