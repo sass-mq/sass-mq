@@ -1,12 +1,20 @@
-// To enable support for browsers that do not support @media queries,
-// (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
-// Create a separate stylesheet served exclusively to these browsers,
-// meaning @media queries will be rasterized, relying on the cascade itself
+/**
+ * To enable support for browsers that do not support `@media` queries,
+ * (IE <= 8, Firefox <= 3, Opera <= 9) set `$mq-responsive` to false
+ * Create a separate stylesheet served exclusively to these browsers,
+ * meaning `@media` queries will be rasterized, relying on the cascade itself
+ * 
+ * @type Bool
+ */
 $mq-responsive: true !default;
 
-// Name your breakpoints in a way that creates a ubiquitous language
-// across team members. It will improve communication between
-// stakeholders, designers, developers, and testers.
+/**
+ * Name your breakpoints in a way that creates a ubiquitous language
+ * across team members. It will improve communication between
+ * stakeholders, designers, developers, and testers.
+ *
+ * @type Map
+ */
 $mq-breakpoints: (
     mobile:  320px,
     tablet:  740px,
@@ -14,16 +22,35 @@ $mq-breakpoints: (
     wide:    1300px
 ) !default;
 
-// Define the breakpoint from the $mq-breakpoints list that should
-// be used as the target width when outputting a static stylesheet
-// (i.e. when $mq-responsive is set to 'false').
+/**
+ * Define the breakpoint from the `$mq-breakpoints` list that should
+ * be used as the target width when outputting a static stylesheet
+ * (i.e. when `$mq-responsive` is set to 'false').
+ * 
+ * @type {String}
+ */
 $mq-static-breakpoint: desktop !default;
 
-// If you want to display the currently active breakpoint in the top
-// right corner of your site during development, add the breakpoints
-// to this list, ordered by width, e.g. (mobile, tablet, desktop).
+/**
+ * If you want to display the currently active breakpoint in the top
+ * right corner of your site during development, add the breakpoints
+ * to this list, ordered by width, e.g. (mobile, tablet, desktop).
+ *
+ * @type List
+ */
 $mq-show-breakpoints: () !default;
 
+/**
+ * Convert a pixel value to em.
+ * If `$px` is unitless, assume it's in pixels.
+ *
+ * @param {Number} $px - pixel value
+ * @param {Number} $base-font-size (16px) - base font size
+ *
+ * @requires {variable} base-font-size
+ *
+ * @return {Number} - em value
+ */
 @function mq-px2em($px, $base-font-size: 16px) {
     @if (unitless($px)) {
         @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
@@ -34,6 +61,15 @@ $mq-show-breakpoints: () !default;
     @return ($px / $base-font-size) * 1em;
 }
 
+/**
+ * Get breakpoint's width from name
+ *
+ * @param {String} $name - breakpoint's name
+ *
+ * @requires {variable} mq-breakpoints
+ *
+ * @throws Breakpoint `$name` does not exist
+ */
 @function mq-get-breakpoint-width($name) {
     @if(map-has-key($mq-breakpoints, $name)) {
         @return map-get($mq-breakpoints, $name);
@@ -42,26 +78,38 @@ $mq-show-breakpoints: () !default;
     }
 }
 
-// Media Query mixin
-// Usage:
-// .element {
-//     @include mq($from: mobile) {
-//         color: red;
-//     }
-//     @include mq($to: tablet) {
-//         color: blue;
-//     }
-//     @include mq(mobile, tablet) {
-//         color: green;
-//     }
-//     @include mq($from: tablet, $and: '(orientation: landscape)') {
-//         color: teal;
-//     }
-//     @include mq(950px) {
-//         color: hotpink;
-//     }
-// }
-
+/**
+ * Defines a new media query context
+ *
+ * @param {String | Bool} $from (false) - from
+ * @param {String | Bool} $to (false) - to
+ * @param {String | Bool} $and (false) - and
+ *
+ * @requires {function} mq-px2em
+ * @requires {function} mq-get-breakpoint-width
+ * @requires {variable} mq-static-breakpoint
+ *
+ * @throws No static styles will be output: `$static-breakpoint-width`
+ *
+ * @example
+ * .element {
+ *   @include mq($from: mobile) {
+ *       color: red;
+ *   }
+ *   @include mq($to: tablet) {
+ *       color: blue;
+ *   }
+ *   @include mq(mobile, tablet) {
+ *       color: green;
+ *   }
+ *   @include mq($from: tablet, $and: '(orientation: landscape)') {
+ *       color: teal;
+ *   }
+ *   @include mq(950px) {
+ *       color: hotpink;
+ *   }
+ * }
+ */
 @mixin mq($from: false, $to: false, $and: false) {
 
     // Initialize variables
@@ -117,8 +165,19 @@ $mq-show-breakpoints: () !default;
     }
 }
 
-// Add a breakpoint
-// Usage: $mq-breakpoints: mq-add-breakpoint(tvscreen, 1920px);
+/**
+ * Add a breakpoint
+ *
+ * @param {String} $name - breakpoint's name 
+ * @param {Number} $breakpoint - breakpoint's value
+ *
+ * @requires {variable} mq-breakpoints
+ * 
+ * @return {Map} - new breakpoint map 
+ *
+ * @example
+ * $mq-breakpoints: mq-add-breakpoint(tvscreen, 1920px);
+ */
 @function mq-add-breakpoint($name, $breakpoint) {
     $new-breakpoint: (#{$name}: $breakpoint);
     @return map-merge($mq-breakpoints, $new-breakpoint);
