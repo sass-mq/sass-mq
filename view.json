@@ -1,0 +1,16 @@
+{
+  "display": {
+    "access": ["public", "private"],
+    "alias": false,
+    "watermark": true
+   },
+
+  "package": {
+    "title": "SassMQ",
+    "name": "sass-mq",
+    "description": "mq() is a Sass mixin that helps manipulating media queries in an elegant way.",
+    "version": "2.0.0",
+    "license": "Apache License",
+    "homepage": "https://github.com/guardian/sass-mq"
+  }
+}
