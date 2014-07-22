@@ -1,0 +1,1441 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+
+  
+    
+      
+      
+    
+  
+
+
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8" />
+
+<title>SassMQ - v2.0.0</title>
+<link rel="stylesheet" href="assets/css/main.css" />
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width">
+<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible">
+
+<!-- Thanks to Sass-lang.com for the icons -->
+<link href="http://sass-lang.com/assets/img/ico/apple-touch-icon-144x144-precomposed-e674ce95.png" rel="apple-touch-icon-precomposed" sizes="144x144">
+<link href="http://sass-lang.com/assets/img/ico/apple-touch-icon-114x114-precomposed-19f81edf.png" rel="apple-touch-icon-precomposed" sizes="114x114">
+<link href="http://sass-lang.com/assets/img/ico/apple-touch-icon-72x72-precomposed-363e5ff9.png" rel="apple-touch-icon-precomposed" sizes="72x72">
+<link href="http://sass-lang.com/assets/img/ico/apple-touch-icon-57x57-precomposed-f3752e86.png" rel="apple-touch-icon-precomposed">
+<link href="http://sass-lang.com/assets/img/ico/favicon-0ccd2d9d.png" rel="shortcut icon">
+
+</head>
+<body>
+
+  
+  <aside class="sidebar" role="nav">
+    
+  <div class="sidebar__header">
+  <h1 class="sidebar__title">
+    
+      <a href="https://github.com/guardian/sass-mq">SassMQ - v2.0.0</a>
+    
+  </h1>
+</div>
+
+<div class="sidebar__body">
+  <ul class="list-unstyled">
+  
+  
+
+    
+    
+
+      
+      
+
+      
+      
+
+        <li class="sidebar__sub-heading"><a class="sidebar__link" href="#variable">Variables</a></li>
+
+        
+        
+
+          
+          <li class="sidebar__item  js-sassdoc__item" data-name="mq-responsive" data-type="variable">
+            <a class="sidebar__link" href="#variable-mq-responsive">mq-responsive
+            
+            
+            </a>
+          </li>
+
+        
+
+          
+          <li class="sidebar__item  js-sassdoc__item" data-name="mq-breakpoints" data-type="variable">
+            <a class="sidebar__link" href="#variable-mq-breakpoints">mq-breakpoints
+            
+            
+            </a>
+          </li>
+
+        
+
+          
+          <li class="sidebar__item  js-sassdoc__item" data-name="mq-static-breakpoint" data-type="variable">
+            <a class="sidebar__link" href="#variable-mq-static-breakpoint">mq-static-breakpoint
+            
+            
+            </a>
+          </li>
+
+        
+
+          
+          <li class="sidebar__item  js-sassdoc__item" data-name="mq-show-breakpoints" data-type="variable">
+            <a class="sidebar__link" href="#variable-mq-show-breakpoints">mq-show-breakpoints
+            
+            
+            </a>
+          </li>
+
+        
+
+      
+
+    
+
+      
+      
+
+      
+      
+
+        <li class="sidebar__sub-heading"><a class="sidebar__link" href="#function">Functions</a></li>
+
+        
+        
+
+          
+          <li class="sidebar__item  js-sassdoc__item" data-name="mq-px2em" data-type="function">
+            <a class="sidebar__link" href="#function-mq-px2em">mq-px2em
+            
+            
+            </a>
+          </li>
+
+        
+
+          
+          <li class="sidebar__item  js-sassdoc__item" data-name="mq-get-breakpoint-width" data-type="function">
+            <a class="sidebar__link" href="#function-mq-get-breakpoint-width">mq-get-breakpoint-width
+            
+            
+            </a>
+          </li>
+
+        
+
+          
+          <li class="sidebar__item  js-sassdoc__item" data-name="mq-add-breakpoint" data-type="function">
+            <a class="sidebar__link" href="#function-mq-add-breakpoint">mq-add-breakpoint
+            
+            
+            </a>
+          </li>
+
+        
+
+      
+
+    
+
+      
+      
+
+      
+      
+
+        <li class="sidebar__sub-heading"><a class="sidebar__link" href="#mixin">Mixins</a></li>
+
+        
+        
+
+          
+          <li class="sidebar__item  js-sassdoc__item" data-name="mq" data-type="mixin">
+            <a class="sidebar__link" href="#mixin-mq">mq
+            
+            
+            </a>
+          </li>
+
+        
+
+      
+
+    
+
+  
+  </ul>
+</div>
+
+
+  </aside>
+
+  
+  <article class="main" role="main">
+
+    
+    <header class="header" role="banner">
+  <div class="container">
+  
+    <div class="header__description">
+      <p>mq() is a Sass mixin that helps manipulating media queries in an elegant way.</p>
+    </div>
+  
+
+    <div class="sassdoc__searchbar  searchbar">
+       <label for="js-search-input" class="visually-hidden">Search</label>
+       <div class="searchbar__form" id="js-search">
+         <input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search" />
+         <ul class="searchbar__suggestions" id="js-search-suggestions"></ul>
+       </div>
+     </div>
+  </div>
+</header>
+
+    <div class="container">
+    
+
+  
+  
+
+    
+    
+
+      
+      
+
+      
+      
+        <section class="main__section">
+          <h1 class="main__heading" id="variable">Variables</h1>
+
+          
+          
+
+            
+            
+            
+            <section class="main__item  item" id="variable-mq-responsive">
+              <h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-mq-responsive">mq-responsive</a>
+
+  
+
+  
+
+  
+</h3>
+
+
+
+<pre class="item__code  language-scss"><code>$mq-responsive: true !default;</code></pre>
+
+  
+
+  
+  <h3 class="item__sub-heading">Description</h3>
+  
+  <div class="item__description"><p>To enable support for browsers that do not support <code>@media</code> queries,<br>(IE &lt;= 8, Firefox &lt;= 3, Opera &lt;= 9) set <code>$mq-responsive</code> to false<br>Create a separate stylesheet served exclusively to these browsers,<br>meaning <code>@media</code> queries will be rasterized, relying on the cascade itself</p></div>
+
+
+  
+  <h3 class="item__sub-heading">Type</h3>
+
+  <p>
+  
+    <code>Bool</code>
+  
+  </p>
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  	
+
+  
+
+  
+
+  
+  <h3 class="item__sub-heading">Found at</h3>
+
+  <p><code>stylesheets\stylesheets\_mq.scss</code></p>
+
+
+
+
+            </section>
+
+          
+
+            
+            
+            
+            <section class="main__item  item" id="variable-mq-breakpoints">
+              <h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-mq-breakpoints">mq-breakpoints</a>
+
+  
+
+  
+
+  
+</h3>
+
+
+
+<pre class="item__code  language-scss"><code>$mq-breakpoints: (
+    mobile:  320px,
+    tablet:  740px,
+    desktop: 980px,
+    wide:    1300px
+) !default;</code></pre>
+
+  
+
+  
+  <h3 class="item__sub-heading">Description</h3>
+  
+  <div class="item__description"><p>Name your breakpoints in a way that creates a ubiquitous language<br>across team members. It will improve communication between<br>stakeholders, designers, developers, and testers.</p></div>
+
+
+  
+  <h3 class="item__sub-heading">Type</h3>
+
+  <p>
+  
+    <code>Map</code>
+  
+  </p>
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled">
+    
+
+    <li><a href="#function-mq-get-breakpoint-width"><code>mq-get-breakpoint-width</code></a></li>
+  
+
+
+
+  
+  
+    
+
+    <li><a href="#function-mq-add-breakpoint"><code>mq-add-breakpoint</code></a></li>
+  
+
+
+
+
+</ul>
+
+
+
+  
+
+
+
+
+
+  	
+
+  
+
+  
+
+  
+  <h3 class="item__sub-heading">Found at</h3>
+
+  <p><code>stylesheets\stylesheets\_mq.scss</code></p>
+
+
+
+
+            </section>
+
+          
+
+            
+            
+            
+            <section class="main__item  item" id="variable-mq-static-breakpoint">
+              <h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-mq-static-breakpoint">mq-static-breakpoint</a>
+
+  
+
+  
+
+  
+</h3>
+
+
+
+<pre class="item__code  language-scss"><code>$mq-static-breakpoint: desktop !default;</code></pre>
+
+  
+
+  
+  <h3 class="item__sub-heading">Description</h3>
+  
+  <div class="item__description"><p>Define the breakpoint from the <code>$mq-breakpoints</code> list that should<br>be used as the target width when outputting a static stylesheet<br>(i.e. when <code>$mq-responsive</code> is set to &#39;false&#39;).</p></div>
+
+
+  
+  <h3 class="item__sub-heading">Type</h3>
+
+  <p>
+  
+    <code>{string}</code>
+  
+  </p>
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled">
+    
+
+    <li><a href="#mixin-mq"><code>mq</code></a></li>
+  
+
+
+
+
+</ul>
+
+
+
+  
+
+
+
+
+
+  	
+
+  
+
+  
+
+  
+  <h3 class="item__sub-heading">Found at</h3>
+
+  <p><code>stylesheets\stylesheets\_mq.scss</code></p>
+
+
+
+
+            </section>
+
+          
+
+            
+            
+            
+            <section class="main__item  item" id="variable-mq-show-breakpoints">
+              <h3 class="item__heading">
+  
+
+  <a class="item__name" href="#variable-mq-show-breakpoints">mq-show-breakpoints</a>
+
+  
+
+  
+
+  
+</h3>
+
+
+
+<pre class="item__code  language-scss"><code>$mq-show-breakpoints: () !default;</code></pre>
+
+  
+
+  
+  <h3 class="item__sub-heading">Description</h3>
+  
+  <div class="item__description"><p>If you want to display the currently active breakpoint in the top<br>right corner of your site during development, add the breakpoints<br>to this list, ordered by width, e.g. (mobile, tablet, desktop).</p></div>
+
+
+  
+  <h3 class="item__sub-heading">Type</h3>
+
+  <p>
+  
+    <code>List</code>
+  
+  </p>
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  	
+
+  
+
+  
+
+  
+  <h3 class="item__sub-heading">Found at</h3>
+
+  <p><code>stylesheets\stylesheets\_mq.scss</code></p>
+
+
+
+
+            </section>
+
+          
+        </section>
+
+      
+
+    
+
+      
+      
+
+      
+      
+        <section class="main__section">
+          <h1 class="main__heading" id="function">Functions</h1>
+
+          
+          
+
+            
+            
+            
+            <section class="main__item  item" id="function-mq-px2em">
+              <h3 class="item__heading">
+  
+
+  <a class="item__name" href="#function-mq-px2em">mq-px2em</a>
+
+  
+
+  
+
+  
+</h3>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+<pre class="item__code  language-scss"><code>@function mq-px2em($px, $base-font-size: 16px) { ... }</code></pre>
+
+
+
+  
+  <h3 class="item__sub-heading">Description</h3>
+  
+  <div class="item__description"><p>Convert a pixel value to em.<br>If <code>$px</code> is unitless, assume it&#39;s in pixels.</p></div>
+
+
+  <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$px</code></th>
+          <td data-label="desc"><p>pixel value</p></td>
+          <td data-label="type">
+          
+            Number
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$base-font-size</code></th>
+          <td data-label="desc"><p>base font size</p></td>
+          <td data-label="type">
+          
+            Number
+          
+          </td>
+          <td data-label="default">
+          
+            <code>16px</code>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+  <h3 class="item__sub-heading">Returns</h3>
+  <p class="sassdoc__item-description"><p>em value</p>
+  
+    Number
+  
+  </p>
+
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled">
+    
+
+    <li><a href="#mixin-mq"><code>mq</code></a></li>
+  
+
+
+
+
+</ul>
+
+
+
+  
+
+
+
+
+
+  	
+
+  
+
+  
+
+  
+  <h3 class="item__sub-heading">Found at</h3>
+
+  <p><code>stylesheets\stylesheets\_mq.scss</code></p>
+
+
+
+
+            </section>
+
+          
+
+            
+            
+            
+            <section class="main__item  item" id="function-mq-get-breakpoint-width">
+              <h3 class="item__heading">
+  
+
+  <a class="item__name" href="#function-mq-get-breakpoint-width">mq-get-breakpoint-width</a>
+
+  
+
+  
+
+  
+</h3>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+<pre class="item__code  language-scss"><code>@function mq-get-breakpoint-width($name) { ... }</code></pre>
+
+
+
+  
+  <h3 class="item__sub-heading">Description</h3>
+  
+  <div class="item__description"><p>Get breakpoint&#39;s width from name</p></div>
+
+
+  <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$name</code></th>
+          <td data-label="desc"><p>breakpoint&#39;s name</p></td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+
+  
+
+  
+  <h3 class="item__sub-heading">Throws</h3>
+
+  <ul class="list-unstyled">
+    
+      <li><p>Breakpoint <code>$name</code> does not exist</p></li>
+    
+  </ul>
+
+
+  
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li><a href="#variable-mq-breakpoints"><code>mq-breakpoints</code></a>  <div class="item__requires-description"></div></li>
+    
+  
+
+
+
+
+</ul>
+
+
+
+  
+
+
+
+  
+  
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled">
+    
+
+    <li><a href="#mixin-mq"><code>mq</code></a></li>
+  
+
+
+
+
+</ul>
+
+
+
+  
+
+
+
+
+
+  	
+
+  
+
+  
+
+  
+  <h3 class="item__sub-heading">Found at</h3>
+
+  <p><code>stylesheets\stylesheets\_mq.scss</code></p>
+
+
+
+
+            </section>
+
+          
+
+            
+            
+            
+            <section class="main__item  item" id="function-mq-add-breakpoint">
+              <h3 class="item__heading">
+  
+
+  <a class="item__name" href="#function-mq-add-breakpoint">mq-add-breakpoint</a>
+
+  
+
+  
+
+  
+</h3>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+<pre class="item__code  language-scss"><code>@function mq-add-breakpoint($name, $breakpoint) { ... }</code></pre>
+
+
+
+  
+  <h3 class="item__sub-heading">Description</h3>
+  
+  <div class="item__description"><p>Add a breakpoint</p></div>
+
+
+  <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$name</code></th>
+          <td data-label="desc"><p>breakpoint&#39;s name </p></td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$breakpoint</code></th>
+          <td data-label="desc"><p>breakpoint&#39;s value</p></td>
+          <td data-label="type">
+          
+            Number
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+  <h3 class="item__sub-heading">Returns</h3>
+  <p class="sassdoc__item-description"><p>new breakpoint map </p>
+  
+    Map
+  
+  </p>
+
+
+  
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+    <pre class="item__example"><code class="language-scss">
+$mq-breakpoints: mq-add-breakpoint(tvscreen, 1920px);</code></pre>
+  
+
+
+  
+
+  
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li><a href="#variable-mq-breakpoints"><code>mq-breakpoints</code></a>  <div class="item__requires-description"></div></li>
+    
+  
+
+
+
+
+</ul>
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  	
+
+  
+
+  
+
+  
+  <h3 class="item__sub-heading">Found at</h3>
+
+  <p><code>stylesheets\stylesheets\_mq.scss</code></p>
+
+
+
+
+            </section>
+
+          
+        </section>
+
+      
+
+    
+
+      
+      
+
+      
+      
+        <section class="main__section">
+          <h1 class="main__heading" id="mixin">Mixins</h1>
+
+          
+          
+
+            
+            
+            
+            <section class="main__item  item" id="mixin-mq">
+              <h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-mq">mq</a>
+
+  
+
+  
+
+  
+</h3>
+
+
+
+
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+<pre class="item__code  language-scss"><code>@mixin mq($from: false, $to: false, $and: false) { ... }</code></pre>
+
+
+
+  
+  <h3 class="item__sub-heading">Description</h3>
+  
+  <div class="item__description"><p>Defines a new media query context</p></div>
+
+
+  <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$from</code></th>
+          <td data-label="desc"><p>from</p></td>
+          <td data-label="type">
+          
+            String, Bool
+          
+          </td>
+          <td data-label="default">
+          
+            <code>false</code>
+          
+          </td>
+        </tr>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$to</code></th>
+          <td data-label="desc"><p>to</p></td>
+          <td data-label="type">
+          
+            String, Bool
+          
+          </td>
+          <td data-label="default">
+          
+            <code>false</code>
+          
+          </td>
+        </tr>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$and</code></th>
+          <td data-label="desc"><p>and</p></td>
+          <td data-label="type">
+          
+            String, Bool
+          
+          </td>
+          <td data-label="default">
+          
+            <code>false</code>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+
+  
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+    <pre class="item__example"><code class="language-scss">
+.element {
+  @include mq($from: mobile) {
+      color: red;
+  }
+  @include mq($to: tablet) {
+      color: blue;
+  }
+  @include mq(mobile, tablet) {
+      color: green;
+  }
+  @include mq($from: tablet, $and: &#39;(orientation: landscape)&#39;) {
+      color: teal;
+  }
+  @include mq(950px) {
+      color: hotpink;
+  }
+}</code></pre>
+  
+
+
+  
+  <h3 class="item__sub-heading">Throws</h3>
+
+  <ul class="list-unstyled">
+    
+      <li><p>No static styles will be output: <code>$static-breakpoint-width</code></p></li>
+    
+  </ul>
+
+
+  
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li><a href="#function-mq-px2em"><code>mq-px2em</code></a>  <div class="item__requires-description"></div></li>
+    
+  
+
+
+
+  
+    
+
+    
+      <li><a href="#function-mq-get-breakpoint-width"><code>mq-get-breakpoint-width</code></a>  <div class="item__requires-description"></div></li>
+    
+  
+
+
+
+  
+    
+
+    
+      <li><a href="#variable-mq-static-breakpoint"><code>mq-static-breakpoint</code></a>  <div class="item__requires-description"></div></li>
+    
+  
+
+
+
+
+</ul>
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  	
+
+  
+
+  
+
+  
+  <h3 class="item__sub-heading">Found at</h3>
+
+  <p><code>stylesheets\stylesheets\_mq.scss</code></p>
+
+
+
+
+            </section>
+
+          
+        </section>
+
+      
+
+    
+
+  
+
+
+    </div>
+
+    
+    
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+        <div class="footer__project-info  project-info">
+          <!-- Name and URL -->
+          
+            <a class="project-info__name" href="https://github.com/guardian/sass-mq">SassMQ</a>
+          
+
+          <!-- Version -->
+          <span class="project-info__version"> - v2.0.0</span>
+
+          <!-- License -->
+          
+          <span class="project-info__license">, under
+            
+              Apache License
+            
+            </span>
+          
+        </div>
+      
+
+      
+        <span class="footer__watermark">Built with <a href="https://github.com/SassDoc/sassdoc">SassDoc</a>.</span>
+      
+    </div>
+  </footer>
+
+
+  </article>
+
+
+  
+  <script src="assets/js/prism.min.js"></script>
+<script src="assets/js/fuse.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
