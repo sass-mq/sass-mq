@@ -40,7 +40,7 @@ $mq-show-breakpoints: () !default;
     @if(map-has-key($mq-breakpoints, $name)) {
         @return map-get($mq-breakpoints, $name);
     } @else {
-        @return 'Breakpoint #{$name} does not exist';
+        @warn "Breakpoint #{$name} does not exist";
     }
 }
 
