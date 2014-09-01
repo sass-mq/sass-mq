@@ -20,8 +20,19 @@ $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvs
 
 // Styles for responsive and static output, wrapped in a mixin for reuse.
 @mixin styles {
-    // Up to mobile
+
+    // Test $to deprecation
+    @debug 'Testing $to deprecation';
     @include mq($to: mobile) {
+        content: "to-mobile";
+    }
+    @debug 'Testing $to used with $until';
+    @include mq($to: mobile, $until: mobile) {
+        content: "to-mobile";
+    }
+
+    // Up to mobile
+    @include mq($until: mobile) {
         content: "to-mobile";
     }
     // From mobile and up
@@ -29,7 +40,7 @@ $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvs
         content: "from-mobile";
     }
     // From mobile to tablet (exclusive)
-    @include mq($from: mobile, $to: tablet) {
+    @include mq($from: mobile, $until: tablet) {
         content: "from-mobile-to-tablet";
     }
     // From unitless value
@@ -37,11 +48,11 @@ $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvs
         content: "from-640";
     }
     // Up to tablet
-    @include mq($to: tablet) {
+    @include mq($until: tablet) {
         content: "to-tablet";
     }
     // Combine upper limit and custom directive
-    @include mq($to: tablet, $and: '(orientation: landscape)') {
+    @include mq($until: tablet, $and: '(orientation: landscape)') {
         content: "to-tablet-and-orientation-landscape";
     }
     // From tablet and up
@@ -49,7 +60,7 @@ $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvs
         content: "from-tablet";
     }
     // From tablet to desktop (exclusive)
-    @include mq($from: tablet, $to: desktop) {
+    @include mq($from: tablet, $until: desktop) {
         content: "from-tablet-to-desktop";
     }
     // Combine unitless boundaries and custom directive
@@ -61,15 +72,15 @@ $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvs
         content: "from-desktop";
     }
     // From em value
-    @include mq($to: 70em) {
+    @include mq($until: 70em) {
         content: "to-70em";
     }
     // To pixel value
-    @include mq($to: 1100px) {
+    @include mq($until: 1100px) {
         content: "to-1100px";
     }
     // From desktop to widescreen (exclusive)
-    @include mq($from: desktop, $to: widescreen) {
+    @include mq($from: desktop, $until: widescreen) {
         content: "from-desktop-to-widescreen";
     }
     // From widescreen and up
@@ -77,7 +88,7 @@ $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvs
         content: "from-widescreen";
     }
     // From widescreen to tvscreen (exclusive)
-    @include mq($from: widescreen, $to: tvscreen) {
+    @include mq($from: widescreen, $until: tvscreen) {
         content: "from-widescreen-to-tvscreen";
     }
     // From tvscreen and up
@@ -93,7 +104,7 @@ $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvs
     @include mq(cinema) {
         content: "from-cinema";
     }
-    @include mq($to: cinema) {
+    @include mq($until: cinema) {
         content: "to-cinema";
     }
 }

@@ -34,6 +34,12 @@ body:before {
 @media all and (max-width: 19.99em) {
   .responsive:after {
     content: "to-mobile"; } }
+@media all and (max-width: 19.99em) {
+  .responsive:after {
+    content: "to-mobile"; } }
+@media all and (max-width: 19.99em) {
+  .responsive:after {
+    content: "to-mobile"; } }
 @media all and (min-width: 20em) {
   .responsive:after {
     content: "from-mobile"; } }
