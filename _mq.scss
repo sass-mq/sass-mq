@@ -68,8 +68,8 @@ $mq-show-breakpoints: () !default;
 
     // Deprecate use of $to for $until, because $until implies the exclusive
     // boundary that is in place, whereas $to is unclear.
-    @if($to) {
-        @if(not $until) {
+    @if $to {
+        @if not $until {
             @warn '$to is deprecated, you should use $until instead';
             $until: $to;
         } @else {
