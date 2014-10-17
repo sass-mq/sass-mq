@@ -159,7 +159,7 @@ then be shown in the top right corner of the viewport.
 ## Test
 
 1. cd into the `test` folder
-2. run `sass test.scss test.css --force`
+2. run `sass test.scss test.css --force --sourcemap=none` (or `node-sass test.scss test.css --force --sourcemap=none`)
 3. there should be a couple of warnings like this one, this is normal:
 
         WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels for you
