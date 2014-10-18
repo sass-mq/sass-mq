@@ -125,7 +125,7 @@ $mq-show-breakpoints: () !default;
 
         $mediaQuery: unquote(#{$mediaQuery});
 
-        @media all #{$mediaQuery} {
+        @media #{all+$mediaQuery} {
             @content;
         }
     }
@@ -134,7 +134,7 @@ $mq-show-breakpoints: () !default;
 // Add a breakpoint
 // Usage: $mq-breakpoints: mq-add-breakpoint(tvscreen, 1920px);
 @function mq-add-breakpoint($name, $breakpoint) {
-    $new-breakpoint: (#{$name}: $breakpoint);
+    $new-breakpoint: ($name: $breakpoint);
     @return map-merge($mq-breakpoints, $new-breakpoint);
 }
 
