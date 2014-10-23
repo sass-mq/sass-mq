@@ -26,11 +26,6 @@ $mq-static-breakpoint: desktop !default;
 // to this list, ordered by width, e.g. (mobile, tablet, desktop).
 $mq-show-breakpoints: () !default;
 
-// By default sass-mq uses an "all" media type
-// (eg @media all) – if you want to customise this
-// (eg @media screen or @media print), you can override this
-$mq-media-type: all !default;
-
 @function mq-px2em($px, $base-font-size: 16px) {
     @if (unitless($px)) {
         @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
@@ -130,7 +125,7 @@ $mq-media-type: all !default;
 
         $mediaQuery: unquote(#{$mediaQuery});
 
-        @media #{$mq-media-type+$mediaQuery} {
+        @media #{all+$mediaQuery} {
             @content;
         }
     }
