@@ -120,3 +120,19 @@ $mq-static-breakpoint: desktop;
 .static:after {
     @include styles;
 }
+
+/* Only style screen media type */
+$mq-responsive: true;
+$mq-media-type: screen;
+body {
+    @include mq($until: mobile) {
+        font-size: 1rem;
+    }
+}
+/* Only style print media type */
+$mq-media-type: print;
+body {
+    @include mq($until: mobile) {
+        font-size: 2rem;
+    }
+}
