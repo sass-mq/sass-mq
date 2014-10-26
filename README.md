@@ -16,8 +16,11 @@ as illustrated in this article posted on the Guardian's developer blog:
 
 1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the web"):
    `bower install sass-mq --save-dev`
+
+   OR install with [npm](https://www.npmjs.org/ "Node Packaged Modules"): `npm install sass-mq --save-dev`
+   
    OR [Download _mq.scss](https://raw.github.com/guardian/sass-mq/master/_mq.scss)
-   to your Sass project.
+   to your Sass project
 2. Import the partial in your Sass files and override default settings
    with your own preferences before the file is imported:
     ```scss
