@@ -123,9 +123,10 @@ $mq-show-breakpoints: () !default;
         @if $max-width != 0 { $mediaQuery: '#{$mediaQuery} and (max-width: #{$max-width})'; }
         @if $and            { $mediaQuery: '#{$mediaQuery} and #{$and}'; }
 
-        $mediaQuery: unquote(#{$mediaQuery});
+        // Remove prefix ' and ' (or fallback to '@media all')
+        $mediaQuery: if($mediaQuery != '', str-slice(unquote($mediaQuery), 6), 'all');
 
-        @media #{all+$mediaQuery} {
+        @media #{$mediaQuery} {
             @content;
         }
     }
