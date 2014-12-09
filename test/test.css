@@ -87,6 +87,9 @@ body:before {
 @media all and (max-width: 255.99em) {
   .responsive:after {
     content: "to-cinema"; } }
+@media all and (min-width: 56.25em) {
+  .responsive:after {
+    content: "custom-breakpoint-list"; } }
 
 /* Rasterized styles that span or start at the "desktop" breakpoint */
 .static:after {
@@ -97,12 +100,19 @@ body:before {
   content: "to-70em";
   content: "to-1100px";
   content: "from-desktop-to-widescreen";
-  content: "to-cinema"; }
+  content: "to-cinema";
+  content: "custom-breakpoint-list"; }
+
+.static-forced:after {
+  content: "Static, forced to tablet"; }
 
 /* Only style screen media type */
 @media screen and (max-width: 19.99em) {
   body {
     font-size: 1rem; } }
+@media screen, print and (max-width: 19.99em) {
+  body {
+    content: "screen-and-print"; } }
 
 /* Only style print media type */
 @media print and (max-width: 19.99em) {
