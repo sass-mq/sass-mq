@@ -199,6 +199,10 @@ then be shown in the top right corner of the viewport.
 ## Test
 
 1. run:
+    * Ruby Sass *and* LibSass:
+    
+            ./test.sh
+
     * Ruby Sass
     
             sass test/test.scss test/test.css --force --sourcemap=none --load-path=./
