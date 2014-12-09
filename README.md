@@ -1,6 +1,4 @@
-# Media Queries, with Style
-
-
+# Media Queries, with Style [![Build Status](https://travis-ci.org/kaelig/sass-mq.svg?branch=master)](https://travis-ci.org/kaelig/sass-mq)
 
 `mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
 Stylesheets") mixin that helps manipulating media queries in an elegant
