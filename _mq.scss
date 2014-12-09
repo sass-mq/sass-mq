@@ -12,6 +12,7 @@ $mq-base-font-size: 16px !default;
 /// meaning @media queries will be rasterized, relying on the cascade itself
 ///
 /// @type Boolean
+/// @link https://github.com/kaelig/sass-mq#responsive-mode-on-default Full documentation and examples
 $mq-responsive: true !default;
 
 /// Breakpoint list
@@ -20,6 +21,7 @@ $mq-responsive: true !default;
 /// stakeholders, designers, developers, and testers.
 ///
 /// @type Map
+/// @link https://github.com/kaelig/sass-mq#seeing-the-currently-active-breakpoint Full documentation and examples
 $mq-breakpoints: (
   mobile:  320px,
   tablet:  740px,
@@ -40,6 +42,7 @@ $mq-breakpoints: (
 /// $mq-static-breakpoint: tablet;
 ///
 /// @type String
+/// @link https://github.com/kaelig/sass-mq#adding-custom-breakpoints Full documentation and examples
 $mq-static-breakpoint: desktop !default;
 
 /// Show breakpoints in the top right corner
@@ -54,6 +57,7 @@ $mq-show-breakpoints: () !default;
 /// (eg @media screen or @media print), you can override this
 ///
 /// @type String
+/// @link https://github.com/kaelig/sass-mq#changing-media-type Full documentation and examples
 $mq-media-type: all !default;
 
 /// Convert pixels to ems
