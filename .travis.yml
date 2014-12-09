@@ -1,6 +1,6 @@
 language: ruby
 script:
-  - test.sh
+  - "./test.sh"
 
 before_install:
   - gem install sass
