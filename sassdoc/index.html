@@ -778,15 +778,10 @@
   // The browser will rely on the cascade itself.
   @if ($responsive == false) {
     $static-breakpoint-width: mq-get-breakpoint-width($static-breakpoint, $breakpoints);
-    @if type-of($static-breakpoint-width) == number {
-      $target-width: mq-px2em($static-breakpoint-width);
-      // Output only rules that start at or span our target width
-      @if ($and == false and ($min-width &lt;= $target-width) and (($until == false) or ($max-width &gt;= $target-width))) {
-        @content;
-      }
-    } @else {
-      // Throw a warning if $static-breakpoint is not in the $breakpoints list
-      @warn &quot;No static styles will be output: #{$static-breakpoint-width}&quot;;
+    $target-width: mq-px2em($static-breakpoint-width);
+    // Output only rules that start at or span our target width
+    @if ($and == false and ($min-width &lt;= $target-width) and (($until == false) or ($max-width &gt;= $target-width))) {
+      @content;
     }
   }
 
@@ -845,7 +840,7 @@
 </td>
           <td data-label="type">
           
-            String, Bool
+            String, Boolean
           
           </td>
           <td data-label="default">
@@ -861,7 +856,7 @@
 </td>
           <td data-label="type">
           
-            String, Bool
+            String, Boolean
           
           </td>
           <td data-label="default">
@@ -873,11 +868,12 @@
       
         <tr class="item__parameter">
           <th scope="row" data-label="name"><code>$and</code></th>
-          <td data-label="desc"><p>Additional media query parameters</p>
+          <td data-label="desc"><p>Additional media query parameters
+// Undocumented API, for advanced use only:</p>
 </td>
           <td data-label="type">
           
-            String, Bool
+            String, Boolean
           
           </td>
           <td data-label="default">
@@ -951,6 +947,32 @@
     
       <li>
         <a href="#variable-mq-breakpoints"><code>mq-breakpoints</code></a>
+        
+      </li>
+    
+  
+
+
+
+  
+    
+
+    
+      <li>
+        <a href="#variable-mq-media-type"><code>mq-media-type</code></a>
+        
+      </li>
+    
+  
+
+
+
+  
+    
+
+    
+      <li>
+        <a href="#variable-mq-static-breakpoint"><code>mq-static-breakpoint</code></a>
         
       </li>
     
@@ -1760,6 +1782,21 @@ be used as the target width for the fixed-width layout
 
 
 
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#mixin-mq"><code>mq</code></a></li>
+  
+
+
+
+
+</ul>
 
 
   
@@ -1983,6 +2020,21 @@ to this list, ordered by width, e.g. (mobile, tablet, desktop).</p>
 
 
 
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#mixin-mq"><code>mq</code></a></li>
+  
+
+
+
+
+</ul>
 
 
   
