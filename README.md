@@ -156,10 +156,46 @@ then be shown in the top right corner of the viewport.
 
 ![$mq-show-breakpoints](show-breakpoints.gif)
 
+### Changing media type
+
+By default, `mq()` uses `@media all` for its queries. If you want to
+control this (eg. to output styles for screens only), you can use the
+`$mq-media-type` config option to change it (defaults to `all`). Eg:
+
+#### SCSS
+```scss
+$mq-media-type: screen;
+
+.screen-only-element {
+    @include mq(mobile) {
+        width: 300px;
+    }
+}
+```
+
+#### CSS output
+```css
+@media screen and (max-width: 19.99em) {
+    .screen-only-element {
+        width: 300px;
+    }
+}
+```
+
+### Seeing the currently active breakpoint
+
+While developing, it can be nice to always know which breakpoint is
+active. To achieve this, set the `$mq-show-breakpoints` variable to
+be a list of the breakpoints you want to debug, ordered by width.
+The name of the active breakpoint and its pixel and em values will
+then be shown in the top right corner of the viewport.
+
+![$mq-show-breakpoints](show-breakpoints.gif)
+
 ## Test
 
 1. cd into the `test` folder
-2. run `sass test.scss test.css --force`
+2. run `sass test.scss test.css --force --sourcemap=none` (or `node-sass test.scss test.css --force --sourcemap=none`)
 3. there should be a couple of warnings like this one, this is normal:
 
         WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels for you
