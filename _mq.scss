@@ -29,17 +29,16 @@ $mq-breakpoints: (
   wide:    1300px
 ) !default;
 
-
 /// Static breakpoint (for fixed-width layouts)
 /// Define the breakpoint from $mq-breakpoints that should
 /// be used as the target width for the fixed-width layout
 /// (i.e. when $mq-responsive is set to 'false') in a old-ie.scss
 ///
 /// @example
-/// // Ignore all styles above tablet breakpoint,
-/// // and fix the layout at tablet width
-/// $mq-responsive: false;
-/// $mq-static-breakpoint: tablet;
+///  // Ignore all styles above tablet breakpoint,
+///  // and fix the layout at tablet width
+///  $mq-responsive: false;
+///  $mq-static-breakpoint: tablet;
 ///
 /// @type String
 /// @link https://github.com/kaelig/sass-mq#adding-custom-breakpoints Full documentation and examples
@@ -65,8 +64,8 @@ $mq-media-type: all !default;
 /// @param {Number} $base-font-size ($mq-base-font-size) - `<body>` font size
 ///
 /// @example
-/// $font-size-in-ems: mq-px2em(16px);
-/// el { font-size: mq-px2em(16px); }
+///  $font-size-in-ems: mq-px2em(16px);
+///  el { font-size: mq-px2em(16px); }
 ///
 /// @requires $mq-base-font-size
 /// @returns {Number}
@@ -84,8 +83,8 @@ $mq-media-type: all !default;
 /// @param {String} $name - Name of the breakpoint. One of $mq-breakpoints
 ///
 /// @example
-/// $tablet-width: mq-get-breakpoint-width(tablet);
-/// @media (min-width: mq-get-breakpoint-width(desktop)) {}
+///  $tablet-width: mq-get-breakpoint-width(tablet);
+///  @media (min-width: mq-get-breakpoint-width(desktop)) {}
 ///
 /// @requires {Variable} $mq-breakpoints
 ///
@@ -109,23 +108,23 @@ $mq-media-type: all !default;
 /// @requires {function} mq-get-breakpoint-width
 ///
 /// @example
-/// .element {
-///   @include mq($from: mobile) {
-///     color: red;
-///   }
-///   @include mq($until: tablet) {
-///     color: blue;
-///   }
-///   @include mq(mobile, tablet) {
-///     color: green;
-///   }
-///   @include mq($from: tablet, $and: '(orientation: landscape)') {
-///     color: teal;
-///   }
-///   @include mq(950px) {
-///     color: hotpink;
-///   }
-/// }
+///  .element {
+///    @include mq($from: mobile) {
+///      color: red;
+///    }
+///    @include mq($until: tablet) {
+///      color: blue;
+///    }
+///    @include mq(mobile, tablet) {
+///      color: green;
+///    }
+///    @include mq($from: tablet, $and: '(orientation: landscape)') {
+///      color: teal;
+///    }
+///    @include mq(950px) {
+///      color: hotpink;
+///    }
+///  }
 @mixin mq($from: false, $until: false, $and: false) {
   $min-width: 0;
   $max-width: 0;
@@ -186,8 +185,8 @@ $mq-media-type: all !default;
 /// @requires {Variable} $mq-breakpoints
 ///
 /// @example
-/// @include mq-add-breakpoint(tvscreen, 1920px);
-/// @include mq(tvscreen) {}
+///  @include mq-add-breakpoint(tvscreen, 1920px);
+///  @include mq(tvscreen) {}
 @mixin mq-add-breakpoint($name, $width) {
   $new-breakpoint: ($name: $width);
   $mq-breakpoints: map-merge($mq-breakpoints, $new-breakpoint) !global;
