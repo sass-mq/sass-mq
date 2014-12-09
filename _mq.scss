@@ -116,11 +116,20 @@ $mq-media-type: all !default;
 
 /// Media Query mixin
 ///
-/// @param {String | Bool} $from (false) - One of $mq-breakpoints
-/// @param {String | Bool} $until (false) - One of $mq-breakpoints
-/// @param {String | Bool} $and (false) - Additional media query parameters
+/// @param {String | Boolean} $from (false) - One of $mq-breakpoints
+/// @param {String | Boolean} $until (false) - One of $mq-breakpoints
+/// @param {String | Boolean} $and (false) - Additional media query parameters
+/// @param {String} $media-type ($mq-media-type) - Media type: screen, print…
 ///
+/// @ignore Undocumented API, for advanced use only:
+/// @ignore @param {Map} $breakpoints ($mq-breakpoints)
+/// @ignore @param {String} $static-breakpoint ($mq-static-breakpoint)
+///
+/// @content styling rules, wrapped into a @media query when $responsive is true
+///
+/// @requires {Variable} $mq-media-type
 /// @requires {Variable} $mq-breakpoints
+/// @requires {Variable} $mq-static-breakpoint
 /// @requires {function} mq-px2em
 /// @requires {function} mq-get-breakpoint-width
 ///
@@ -143,9 +152,10 @@ $mq-media-type: all !default;
 ///    @include mq(950px) {
 ///      color: hotpink;
 ///    }
-///    @include mq(950px, $media-type: screen) {
+///    @include mq(tablet, $media-type: screen) {
 ///      color: hotpink;
 ///    }
+///    // Advanced use:
 ///    $my-breakpoints: ( L: 900px, XL: 1200px );
 ///    @include mq(L, $breakpoints: $my-breakpoints, $static-breakpoint: L) {
 ///      color: hotpink;
@@ -186,15 +196,10 @@ $mq-media-type: all !default;
   // The browser will rely on the cascade itself.
   @if ($responsive == false) {
     $static-breakpoint-width: mq-get-breakpoint-width($static-breakpoint, $breakpoints);
-    @if type-of($static-breakpoint-width) == number {
-      $target-width: mq-px2em($static-breakpoint-width);
-      // Output only rules that start at or span our target width
-      @if ($and == false and ($min-width <= $target-width) and (($until == false) or ($max-width >= $target-width))) {
-        @content;
-      }
-    } @else {
-      // Throw a warning if $static-breakpoint is not in the $breakpoints list
-      @warn "No static styles will be output: #{$static-breakpoint-width}";
+    $target-width: mq-px2em($static-breakpoint-width);
+    // Output only rules that start at or span our target width
+    @if ($and == false and ($min-width <= $target-width) and (($until == false) or ($max-width >= $target-width))) {
+      @content;
     }
   }
 
