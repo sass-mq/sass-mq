@@ -1,6 +1,7 @@
-@charset "UTF-8";
+@charset "UTF-8"; // Fixes an issue where Ruby locale is not set properly
+                  // See https://github.com/guardian/sass-mq/pull/10
 
-/// Base font size on the <body> element
+/// Base font size on the `<body>` element
 /// @type Number (unit)
 $mq-base-font-size: 16px !default;
 
@@ -18,9 +19,7 @@ $mq-responsive: true !default;
 /// across team members. It will improve communication between
 /// stakeholders, designers, developers, and testers.
 ///
-/// @type map
-///   @prop {String} Breakpoint name
-///   @prop {Number} Breakpoint min-width
+/// @type Map
 $mq-breakpoints: (
   mobile:  320px,
   tablet:  740px,
@@ -40,25 +39,25 @@ $mq-breakpoints: (
 ///   $mq-responsive: false;
 ///   $mq-static-breakpoint: tablet;
 ///
-/// @type String (desktop)
+/// @type String
 $mq-static-breakpoint: desktop !default;
 
 /// Show breakpoints in the top right corner
 /// If you want to display the currently active breakpoint in the top
 /// right corner of your site during development, add the breakpoints
 /// to this list, ordered by width, e.g. (mobile, tablet, desktop).
-/// @type map (())
+/// @type map
 $mq-show-breakpoints: () !default;
 
 /// By default sass-mq uses an "all" media type
 /// (eg @media all) – if you want to customise this
 /// (eg @media screen or @media print), you can override this
-/// @type String (all)
+/// @type String
 $mq-media-type: all !default;
 
 /// Convert pixels to ems
 /// @param {Number} $px - value to convert
-/// @param {Number} $base-font-size ($mq-base-font-size) - <body> font size
+/// @param {Number} $base-font-size ($mq-base-font-size) - `<body>` font size
 ///
 /// @example scss
 ///   el { font-size: mq-px2em(16px); }
@@ -81,7 +80,8 @@ $mq-media-type: all !default;
 /// @example scss
 ///   @media (min-width: mq-get-breakpoint-width(desktop)) {}
 ///
-/// @requires $mq-breakpoints
+/// @requires {Variable} $mq-breakpoints
+///
 /// @returns {Number} Value in pixels
 @function mq-get-breakpoint-width($name) {
   @if(map-has-key($mq-breakpoints, $name)) {
@@ -93,13 +93,13 @@ $mq-media-type: all !default;
 
 /// Media Query mixin
 ///
-/// @param {String} $from - One of $mq-breakpoints
-/// @param {String} $until - One of $mq-breakpoints
-/// @param {String} $and - Additional media query parameters
+/// @param {String | Bool} $from (false) - One of $mq-breakpoints
+/// @param {String | Bool} $until (false) - One of $mq-breakpoints
+/// @param {String | Bool} $and (false) - Additional media query parameters
 ///
 /// @requires {Variable} $mq-breakpoints
-/// @requires {Function} mq-px2em
-/// @requires {Function} mq-get-breakpoint-width
+/// @requires {function} mq-px2em
+/// @requires {function} mq-get-breakpoint-width
 ///
 /// @example scss
 ///   .element {
@@ -119,7 +119,6 @@ $mq-media-type: all !default;
 ///       color: hotpink;
 ///     }
 ///   }
-
 @mixin mq($from: false, $until: false, $and: false) {
   $min-width: 0;
   $max-width: 0;
@@ -181,6 +180,7 @@ $mq-media-type: all !default;
 ///
 /// @example scss
 ///   @include mq-add-breakpoint(tvscreen, 1920px);
+///   @include mq(tvscreen) {}
 @mixin mq-add-breakpoint($name, $width) {
   $new-breakpoint: ($name: $width);
   $mq-breakpoints: map-merge($mq-breakpoints, $new-breakpoint) !global;
