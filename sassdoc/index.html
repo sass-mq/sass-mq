@@ -380,7 +380,8 @@
   
   <div class="item__example  example">
     
-    <pre class="example__code"><code class="language-scss">  el { font-size: mq-px2em(16px); }</code></pre>
+    <pre class="example__code"><code class="language-scss">$font-size-in-ems: mq-px2em(16px);
+el { font-size: mq-px2em(16px); }</code></pre>
   </div>
   
 
@@ -587,7 +588,7 @@
   
   <div class="item__example  example">
     
-    <pre class="example__code"><code class="language-scss">  @media (min-width: mq-get-breakpoint-width(desktop)) {}</code></pre>
+    <pre class="example__code"><code class="language-scss">$tablet-width: mq-get-breakpoint-width(tablet);</code></pre>
   </div>
   
 
@@ -902,23 +903,23 @@
   
   <div class="item__example  example">
     
-    <pre class="example__code"><code class="language-scss">  .element {
-    @include mq($from: mobile) {
-      color: red;
-    }
-    @include mq($until: tablet) {
-      color: blue;
-    }
-    @include mq(mobile, tablet) {
-      color: green;
-    }
-    @include mq($from: tablet, $and: &#39;(orientation: landscape)&#39;) {
-      color: teal;
-    }
-    @include mq(950px) {
-      color: hotpink;
-    }
-  }</code></pre>
+    <pre class="example__code"><code class="language-scss">.element {
+  @include mq($from: mobile) {
+    color: red;
+  }
+  @include mq($until: tablet) {
+    color: blue;
+  }
+  @include mq(mobile, tablet) {
+    color: green;
+  }
+  @include mq($from: tablet, $and: &#39;(orientation: landscape)&#39;) {
+    color: teal;
+  }
+  @include mq(950px) {
+    color: hotpink;
+  }
+}</code></pre>
   </div>
   
 
@@ -1150,8 +1151,7 @@
   
   <div class="item__example  example">
     
-    <pre class="example__code"><code class="language-scss">  @include mq-add-breakpoint(tvscreen, 1920px);
-  @include mq(tvscreen) {}</code></pre>
+    <pre class="example__code"><code class="language-scss"></code></pre>
   </div>
   
 
@@ -1679,10 +1679,10 @@ be used as the target width for the fixed-width layout
   
   <div class="item__example  example">
     
-    <pre class="example__code"><code class="language-scss">  // Ignore all styles above tablet breakpoint,
-  // and fix the layout at tablet width
-  $mq-responsive: false;
-  $mq-static-breakpoint: tablet;</code></pre>
+    <pre class="example__code"><code class="language-scss">// Ignore all styles above tablet breakpoint,
+// and fix the layout at tablet width
+$mq-responsive: false;
+$mq-static-breakpoint: tablet;</code></pre>
   </div>
   
 
