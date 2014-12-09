@@ -1,0 +1,7 @@
+language: ruby
+script:
+  - "cd test && sass test.scss built.css --load-path='bower_components' --sourcemap=none && node-sass test.scss node-sass.css --include-path='bower_components' --sourcemap=none"
+
+before_install:
+  - gem install sass
+  - "npm install node-sass bower -g && bower install kaelig/sass-mq"
