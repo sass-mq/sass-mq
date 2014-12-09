@@ -11,7 +11,7 @@
     "media"
   ],
   "main": "_mq.scss",
-  "author": "Guardian Media Group",
+  "author": "Guardian Media Group and contributors",
   "ignore": [
     "test",
     "**/.*"

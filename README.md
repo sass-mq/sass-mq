@@ -1,5 +1,7 @@
 # Media Queries, with Style
 
+
+
 `mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
 Stylesheets") mixin that helps manipulating media queries in an elegant
 way.
@@ -15,8 +17,8 @@ as illustrated in this article posted on the Guardian's developer blog:
 ## How to Use It
 
 1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the web"):
-   `bower install sass-mq --save-dev`
-   OR [Download _mq.scss](https://raw.github.com/guardian/sass-mq/master/_mq.scss)
+   `bower install kaelig/sass-mq --save-dev`
+   OR [Download _mq.scss](https://raw.github.com/kaelig/sass-mq/master/_mq.scss)
    to your Sass project.
 2. Import the partial in your Sass files and override default settings
    with your own preferences before the file is imported:
@@ -31,14 +33,14 @@ as illustrated in this article posted on the Guardian's developer blog:
     // across team members. It will improve communication between
     // stakeholders, designers, developers, and testers.
     $mq-breakpoints: (
-        mobile:  320px,
-        tablet:  740px,
-        desktop: 980px,
-        wide:    1300px,
+      mobile:  320px,
+      tablet:  740px,
+      desktop: 980px,
+      wide:    1300px,
 
-        // Tweakpoints
-        desktopAd: 810px,
-        mobileLandscape: 480px
+      // Tweakpoints
+      desktopAd: 810px,
+      mobileLandscape: 480px
     );
 
     // Define the breakpoint from the $mq-breakpoints list that should
@@ -67,22 +69,22 @@ Note that `$until` as a keyword is a hard limit i.e. it's breakpoint - 1.
 
 ```scss
 .responsive {
-    // Apply styling to mobile and upwards
-    @include mq($from: mobile) {
-        color: red;
-    }
-    // Apply styling up to devices smaller than tablets (exclude tablets)
-    @include mq($until: tablet) {
-        color: blue;
-    }
-    // Same thing, in landscape orientation
-    @include mq($until: tablet, $and: '(orientation: landscape)') {
-        color: hotpink;
-    }
-    // Apply styling to tablets up to desktop (exclude desktop)
-    @include mq(tablet, desktop) {
-        color: green;
-    }
+  // Apply styling to mobile and upwards
+  @include mq($from: mobile) {
+    color: red;
+  }
+  // Apply styling up to devices smaller than tablets (exclude tablets)
+  @include mq($until: tablet) {
+    color: blue;
+  }
+  // Same thing, in landscape orientation
+  @include mq($until: tablet, $and: '(orientation: landscape)') {
+    color: hotpink;
+  }
+  // Apply styling to tablets up to desktop (exclude desktop)
+  @include mq(tablet, desktop) {
+    color: green;
+  }
 }
 ```
 
@@ -110,39 +112,39 @@ $mq-responsive:        false;
 $mq-static-breakpoint: desktop;
 
 .static {
-    // Queries that span or start at desktop are compiled:
-    @include mq($from: mobile) {
-        color: lawngreen;
-    }
-    @include mq(tablet, wide) {
-        color: seagreen;
-    }
-    @include mq($from: desktop) {
-        color: forestgreen;
-    }
+  // Queries that span or start at desktop are compiled:
+  @include mq($from: mobile) {
+    color: lawngreen;
+  }
+  @include mq(tablet, wide) {
+      color: seagreen;
+  }
+  @include mq($from: desktop) {
+    color: forestgreen;
+  }
 
-    // But these queries won’t be compiled:
-    @include mq($until: tablet) {
-        color: indianred;
-    }
-    @include mq($until: tablet, $and: '(orientation: landscape)') {
-        color: crimson;
-    }
-    @include mq(mobile, desktop) {
-        color: firebrick;
-    }
+  // But these queries won’t be compiled:
+  @include mq($until: tablet) {
+    color: indianred;
+  }
+  @include mq($until: tablet, $and: '(orientation: landscape)') {
+    color: crimson;
+  }
+  @include mq(mobile, desktop) {
+    color: firebrick;
+  }
 }
 ```
 
 ### Adding custom breakpoints
 
 ```scss
-$mq-breakpoints: mq-add-breakpoint(tvscreen, 1920px);
+@include mq-add-breakpoint(tvscreen, 1920px);
 
 .hide-on-tv {
-    @include mq(tvscreen) {
-        display: none;
-    }
+  @include mq(tvscreen) {
+    display: none;
+  }
 }
 ```
 
@@ -167,18 +169,18 @@ control this (eg. to output styles for screens only), you can use the
 $mq-media-type: screen;
 
 .screen-only-element {
-    @include mq(mobile) {
-        width: 300px;
-    }
+  @include mq(mobile) {
+    width: 300px;
+  }
 }
 ```
 
 #### CSS output
 ```css
 @media screen and (max-width: 19.99em) {
-    .screen-only-element {
-        width: 300px;
-    }
+  .screen-only-element {
+    width: 300px;
+  }
 }
 ```
 
@@ -195,7 +197,7 @@ then be shown in the top right corner of the viewport.
 ## Test
 
 1. cd into the `test` folder
-2. run `sass test.scss test.css --force --sourcemap=none` (or `node-sass test.scss test.css --force --sourcemap=none`)
+2. run `sass test.scss test.css --force --sourcemap=none --load-path=../` (or `node-sass test.scss test.css --force --sourcemap=none --include-path=../`)
 3. there should be a couple of warnings like this one, this is normal:
 
         WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels for you

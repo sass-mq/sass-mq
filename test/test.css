@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* Show active breakpoint in top right corner of viewport */
 body:before {
   background-color: #FCF8E3;
