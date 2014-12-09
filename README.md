@@ -19,7 +19,7 @@ as illustrated in this article posted on the Guardian's developer blog:
 ## How to Use It
 
 1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the web"):
-   `bower install kaelig/sass-mq --save-dev`
+   `bower install kaelig/sass-mq --save`
    OR [Download _mq.scss](https://raw.github.com/kaelig/sass-mq/master/_mq.scss)
    to your Sass project.
 2. Import the partial in your Sass files and override default settings
