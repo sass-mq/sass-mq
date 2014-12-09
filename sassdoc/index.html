@@ -504,10 +504,10 @@
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
     data-expanded="@function mq-get-breakpoint-width($name) { 
-  @if(map-has-key($mq-breakpoints, $name)) {
-    @return map-get($mq-breakpoints, $name);
+  @if(map-has-key($breakpoints, $name)) {
+    @return map-get($breakpoints, $name);
   } @else {
-    @warn &quot;Breakpoint #{$name} wasn&#39;t found in $mq-breakpoints.&quot;;
+    @warn &quot;Breakpoint #{$name} wasn&#39;t found in $breakpoints.&quot;;
   }
  }"
     data-collapsed="@function mq-get-breakpoint-width($name) { ... }"><code>@function mq-get-breakpoint-width($name) { ... }</code></pre>
@@ -761,7 +761,7 @@
     @if type-of($from) == number {
       $min-width: mq-px2em($from);
     } @else {
-      $min-width: mq-px2em(mq-get-breakpoint-width($from));
+      $min-width: mq-px2em(mq-get-breakpoint-width($from, $breakpoints));
     }
   }
 
@@ -770,14 +770,14 @@
     @if type-of($until) == number {
       $max-width: mq-px2em($until);
     } @else {
-      $max-width: mq-px2em(mq-get-breakpoint-width($until)) - .01em;
+      $max-width: mq-px2em(mq-get-breakpoint-width($until, $breakpoints)) - .01em;
     }
   }
 
   // Responsive support is disabled, rasterize the output outside @media blocks
   // The browser will rely on the cascade itself.
-  @if ($mq-responsive == false) {
-    $static-breakpoint-width: mq-get-breakpoint-width($mq-static-breakpoint);
+  @if ($responsive == false) {
+    $static-breakpoint-width: mq-get-breakpoint-width($static-breakpoint, $breakpoints);
     @if type-of($static-breakpoint-width) == number {
       $target-width: mq-px2em($static-breakpoint-width);
       // Output only rules that start at or span our target width
@@ -785,7 +785,7 @@
         @content;
       }
     } @else {
-      // Throw a warning if $mq-static-breakpoint is not in the $mq-breakpoints list
+      // Throw a warning if $static-breakpoint is not in the $breakpoints list
       @warn &quot;No static styles will be output: #{$static-breakpoint-width}&quot;;
     }
   }
@@ -798,7 +798,7 @@
 
     $media-query: unquote(#{$media-query});
 
-    @media #{$mq-media-type + $media-query} {
+    @media #{$media-type + $media-query} {
       @content;
     }
   }
@@ -918,6 +918,13 @@
      color: teal;
    }
    @include mq(950px) {
+     color: hotpink;
+   }
+   @include mq(950px, $media-type: screen) {
+     color: hotpink;
+   }
+   $my-breakpoints: ( L: 900px, XL: 1200px );
+   @include mq(L, $breakpoints: $my-breakpoints, $static-breakpoint: L) {
      color: hotpink;
    }
  }</code></pre>
