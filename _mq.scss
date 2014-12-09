@@ -69,19 +69,7 @@ $mq-media-type: all !default;
 //     }
 // }
 
-@mixin mq($from: false, $until: false, $and: false, $to: null) {
-
-    // Deprecate use of $to for $until, because $until implies the exclusive
-    // boundary that is in place, whereas $to is unclear.
-    @if $to {
-        @if not $until {
-            @warn '$to is deprecated, you should use $until instead';
-            $until: $to;
-        } @else {
-            @warn 'You are using $until and $to together. $to is deprecated and has been ignored. You should remove it.';
-        }
-    }
-
+@mixin mq($from: false, $until: false, $and: false) {
 
     // Initialize variables
     $min-width: 0;
