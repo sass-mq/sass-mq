@@ -209,10 +209,10 @@ then be shown in the top right corner of the viewport.
 
 2. there should be a couple of warnings like this one, this is normal:
 
-        WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels for you
-                 on line 25 of ../_mq.scss
+        WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels
+         on line 74 of _mq.scss, in `mq'
 
-3. if `git diff test.css` shows no changes, tests pass
+3. if `git diff test/test.css` shows no changes, tests pass
 
 ## Generate the documentation
 
