@@ -747,11 +747,23 @@
     
   
 
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
 
 <div class="relative  clear  code--collapsed">
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
-    data-expanded="@mixin mq($from: false, $until: false, $and: false) { 
+    data-expanded="@mixin mq($from: false, $until: false, $and: false, $media-type: $mq-media-type) { 
   $min-width: 0;
   $max-width: 0;
   $media-query: &#39;&#39;;
@@ -798,7 +810,7 @@
     }
   }
  }"
-    data-collapsed="@mixin mq($from: false, $until: false, $and: false) { ... }"><code>@mixin mq($from: false, $until: false, $and: false) { ... }</code></pre>
+    data-collapsed="@mixin mq($from: false, $until: false, $and: false, $media-type: $mq-media-type) { ... }"><code>@mixin mq($from: false, $until: false, $and: false, $media-type: $mq-media-type) { ... }</code></pre>
 
   
 </div>
@@ -868,8 +880,7 @@
       
         <tr class="item__parameter">
           <th scope="row" data-label="name"><code>$and</code></th>
-          <td data-label="desc"><p>Additional media query parameters
-// Undocumented API, for advanced use only:</p>
+          <td data-label="desc"><p>Additional media query parameters</p>
 </td>
           <td data-label="type">
           
@@ -879,6 +890,22 @@
           <td data-label="default">
           
             <code>false</code>
+          
+          </td>
+        </tr>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$media-type</code></th>
+          <td data-label="desc"><p>Media type: screen, print…</p>
+</td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            <code>$mq-media-type</code>
           
           </td>
         </tr>
@@ -916,9 +943,10 @@
    @include mq(950px) {
      color: hotpink;
    }
-   @include mq(950px, $media-type: screen) {
+   @include mq(tablet, $media-type: screen) {
      color: hotpink;
    }
+   // Advanced use:
    $my-breakpoints: ( L: 900px, XL: 1200px );
    @include mq(L, $breakpoints: $my-breakpoints, $static-breakpoint: L) {
      color: hotpink;
@@ -946,7 +974,7 @@
 
     
       <li>
-        <a href="#variable-mq-breakpoints"><code>mq-breakpoints</code></a>
+        <a href="#variable-mq-media-type"><code>mq-media-type</code></a>
         
       </li>
     
@@ -959,7 +987,7 @@
 
     
       <li>
-        <a href="#variable-mq-media-type"><code>mq-media-type</code></a>
+        <a href="#variable-mq-breakpoints"><code>mq-breakpoints</code></a>
         
       </li>
     
