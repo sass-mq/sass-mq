@@ -198,14 +198,31 @@ then be shown in the top right corner of the viewport.
 
 ## Test
 
-1. cd into the `test` folder
-2. run `sass test.scss test.css --force --sourcemap=none --load-path=../` (or `node-sass test.scss test.css --force --sourcemap=none --include-path=../`)
-3. there should be a couple of warnings like this one, this is normal:
+1. run:
+    * Ruby Sass
+    
+            sass test/test.scss test/test.css --force --sourcemap=none --load-path=./
+
+    * Libsass (using node-sass)
+    
+            node-sass test/test.scss test/test.css --force --sourcemap=none --include-path=./
+
+2. there should be a couple of warnings like this one, this is normal:
 
         WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels for you
                  on line 25 of ../_mq.scss
 
-4. if `test.css` hasn’t changed (run a `git diff` on it), tests pass
+3. if `git diff test.css` shows no changes, tests pass
+
+## Generate the documentation
+
+Sass MQ is documented using [SassDoc](http://sassdoc.com/):
+
+    npm install -g sassdoc
+
+Then, generate the documentation using:
+
+    sassdoc . sassdoc --config .sassdocrc --no-prompt
 
 ## Inspired By…
 
