@@ -20,15 +20,6 @@ $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvs
 
 // Styles for responsive and static output, wrapped in a mixin for reuse.
 @mixin styles {
-    // Test $to deprecation
-    @include mq($to: mobile) {
-        content: "to-mobile";
-    }
-    // Test $to used with $until
-    @include mq($to: mobile, $until: mobile) {
-        content: "to-mobile";
-    }
-
     // Up to mobile
     @include mq($until: mobile) {
         content: "to-mobile";
