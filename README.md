@@ -163,8 +163,8 @@ then be shown in the top right corner of the viewport.
 ### Changing media type
 
 By default, `mq()` uses `@media all` for its queries. If you want to
-control this (eg. to output styles for screens only), you can use the
-`$mq-media-type` config option to change it (defaults to `all`). Eg:
+control this (e.g. to output styles for screens only), you can use the
+`$mq-media-type` config option to change it (defaults to `all`):
 
 #### SCSS
 ```scss

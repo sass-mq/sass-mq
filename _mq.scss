@@ -6,16 +6,25 @@
 $mq-base-font-size: 16px !default;
 
 /// Responsive mode
-/// To enable support for browsers that do not support @media queries,
-/// (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
-/// Create a separate stylesheet served exclusively to these browsers,
-/// meaning @media queries will be rasterized, relying on the cascade itself
+///
+/// Set to `false` to enable support for browsers that do not support @media queries,
+/// (IE <= 8, Firefox <= 3, Opera <= 9)
+///
+/// You could create a stylesheet served exclusively to older browsers,
+/// where @media queries are rasterized
+///
+/// @example
+///  // old-ie.scss
+///  $mq-responsive: false;
+///  @include 'main'; // @media queries in this file will be rasterized up to $mq-static-breakpoint
+///                   // larger breakpoints will be ignored
 ///
 /// @type Boolean
-/// @link https://github.com/kaelig/sass-mq#responsive-mode-on-default Full documentation and examples
+/// @link https://github.com/kaelig/sass-mq#responsive-mode-off Disabled responsive mode documentation
 $mq-responsive: true !default;
 
 /// Breakpoint list
+///
 /// Name your breakpoints in a way that creates a ubiquitous language
 /// across team members. It will improve communication between
 /// stakeholders, designers, developers, and testers.
@@ -30,42 +39,49 @@ $mq-breakpoints: (
 ) !default;
 
 /// Static breakpoint (for fixed-width layouts)
+///
 /// Define the breakpoint from $mq-breakpoints that should
 /// be used as the target width for the fixed-width layout
 /// (i.e. when $mq-responsive is set to 'false') in a old-ie.scss
 ///
 /// @example
+///  // tablet-only.scss
+///  //
 ///  // Ignore all styles above tablet breakpoint,
-///  // and fix the layout at tablet width
+///  // and fix the styles (e.g. layout) at tablet width
 ///  $mq-responsive: false;
 ///  $mq-static-breakpoint: tablet;
+///  @include 'main'; // @media queries in this file will be rasterized up to tablet
+///                   // larger breakpoints will be ignored
 ///
 /// @type String
 /// @link https://github.com/kaelig/sass-mq#adding-custom-breakpoints Full documentation and examples
 $mq-static-breakpoint: desktop !default;
 
 /// Show breakpoints in the top right corner
+///
 /// If you want to display the currently active breakpoint in the top
 /// right corner of your site during development, add the breakpoints
 /// to this list, ordered by width, e.g. (mobile, tablet, desktop).
+///
 /// @type map
 $mq-show-breakpoints: () !default;
 
-/// By default sass-mq uses an "all" media type
-/// (eg @media all) – if you want to customise this
-/// (eg @media screen or @media print), you can override this
+/// Customize the media type (e.g. `@media screen` or `@media print`)  
+/// By default sass-mq uses an "all" media type (`@media all and …`)
 ///
 /// @type String
 /// @link https://github.com/kaelig/sass-mq#changing-media-type Full documentation and examples
 $mq-media-type: all !default;
 
 /// Convert pixels to ems
+///
 /// @param {Number} $px - value to convert
 /// @param {Number} $base-font-size ($mq-base-font-size) - `<body>` font size
 ///
 /// @example
 ///  $font-size-in-ems: mq-px2em(16px);
-///  el { font-size: mq-px2em(16px); }
+///  p { font-size: mq-px2em(16px); }
 ///
 /// @requires $mq-base-font-size
 /// @returns {Number}
@@ -80,6 +96,7 @@ $mq-media-type: all !default;
 }
 
 /// Get a breakpoint's width
+///
 /// @param {String} $name - Name of the breakpoint. One of $mq-breakpoints
 ///
 /// @example
@@ -106,6 +123,8 @@ $mq-media-type: all !default;
 /// @requires {Variable} $mq-breakpoints
 /// @requires {function} mq-px2em
 /// @requires {function} mq-get-breakpoint-width
+///
+/// @link https://github.com/kaelig/sass-mq#responsive-mode-on-default Full documentation and examples
 ///
 /// @example
 ///  .element {
@@ -179,6 +198,7 @@ $mq-media-type: all !default;
 }
 
 /// Add a breakpoint
+///
 /// @param {String} $name - Name of the breakpoint
 /// @param {Number} $width - Width of the breakpoint
 ///

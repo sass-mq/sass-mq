@@ -381,7 +381,7 @@
   <div class="item__example  example">
     
     <pre class="example__code"><code class="language-scss"> $font-size-in-ems: mq-px2em(16px);
- el { font-size: mq-px2em(16px); }</code></pre>
+ p { font-size: mq-px2em(16px); }</code></pre>
   </div>
   
 
@@ -1007,6 +1007,20 @@
   
     
     
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="https://github.com/kaelig/sass-mq#responsive-mode-on-default">
+        
+          Full documentation and examples
+        
+      </a>
+    </li>
+  
+  </ul>
+
   
     
     
@@ -1393,11 +1407,11 @@
     
   <h3 class="item__sub-heading">Description</h3>
 
-  <div class="item__description"><p>Responsive mode
-To enable support for browsers that do not support @media queries,
-(IE &lt;= 8, Firefox &lt;= 3, Opera &lt;= 9) set $mq-responsive to false
-Create a separate stylesheet served exclusively to these browsers,
-meaning @media queries will be rasterized, relying on the cascade itself</p>
+  <div class="item__description"><p>Responsive mode</p>
+<p>Set to <code>false</code> to enable support for browsers that do not support @media queries,
+(IE &lt;= 8, Firefox &lt;= 3, Opera &lt;= 9)</p>
+<p>You could create a stylesheet served exclusively to older browsers,
+where @media queries are rasterized</p>
 </div>
 
 
@@ -1426,6 +1440,18 @@ meaning @media queries will be rasterized, relying on the cascade itself</p>
   
     
     
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <pre class="example__code"><code class="language-scss"> // old-ie.scss
+ $mq-responsive: false;
+ @include &#39;main&#39;; // @media queries in this file will be rasterized up to $mq-static-breakpoint
+                  // larger breakpoints will be ignored</code></pre>
+  </div>
+  
+
 
   
     
@@ -1458,9 +1484,9 @@ meaning @media queries will be rasterized, relying on the cascade itself</p>
   <ul class="list-unstyled">
   
     <li>
-      <a href="https://github.com/kaelig/sass-mq#responsive-mode-on-default">
+      <a href="https://github.com/kaelig/sass-mq#responsive-mode-off">
         
-          Full documentation and examples
+          Disabled responsive mode documentation
         
       </a>
     </li>
@@ -1519,8 +1545,8 @@ meaning @media queries will be rasterized, relying on the cascade itself</p>
     
   <h3 class="item__sub-heading">Description</h3>
 
-  <div class="item__description"><p>Breakpoint list
-Name your breakpoints in a way that creates a ubiquitous language
+  <div class="item__description"><p>Breakpoint list</p>
+<p>Name your breakpoints in a way that creates a ubiquitous language
 across team members. It will improve communication between
 stakeholders, designers, developers, and testers.</p>
 </div>
@@ -1672,8 +1698,8 @@ stakeholders, designers, developers, and testers.</p>
     
   <h3 class="item__sub-heading">Description</h3>
 
-  <div class="item__description"><p>Static breakpoint (for fixed-width layouts)
-Define the breakpoint from $mq-breakpoints that should
+  <div class="item__description"><p>Static breakpoint (for fixed-width layouts)</p>
+<p>Define the breakpoint from $mq-breakpoints that should
 be used as the target width for the fixed-width layout
 (i.e. when $mq-responsive is set to &#39;false&#39;) in a old-ie.scss</p>
 </div>
@@ -1709,10 +1735,14 @@ be used as the target width for the fixed-width layout
   
   <div class="item__example  example">
     
-    <pre class="example__code"><code class="language-scss"> // Ignore all styles above tablet breakpoint,
- // and fix the layout at tablet width
+    <pre class="example__code"><code class="language-scss"> // tablet-only.scss
+ //
+ // Ignore all styles above tablet breakpoint,
+ // and fix the styles (e.g. layout) at tablet width
  $mq-responsive: false;
- $mq-static-breakpoint: tablet;</code></pre>
+ $mq-static-breakpoint: tablet;
+ @include &#39;main&#39;; // @media queries in this file will be rasterized up to tablet
+                  // larger breakpoints will be ignored</code></pre>
   </div>
   
 
@@ -1804,8 +1834,8 @@ be used as the target width for the fixed-width layout
     
   <h3 class="item__sub-heading">Description</h3>
 
-  <div class="item__description"><p>Show breakpoints in the top right corner
-If you want to display the currently active breakpoint in the top
+  <div class="item__description"><p>Show breakpoints in the top right corner</p>
+<p>If you want to display the currently active breakpoint in the top
 right corner of your site during development, add the breakpoints
 to this list, ordered by width, e.g. (mobile, tablet, desktop).</p>
 </div>
@@ -1910,9 +1940,7 @@ to this list, ordered by width, e.g. (mobile, tablet, desktop).</p>
     
   <h3 class="item__sub-heading">Description</h3>
 
-  <div class="item__description"><p>By default sass-mq uses an &quot;all&quot; media type
-(eg @media all) – if you want to customise this
-(eg @media screen or @media print), you can override this</p>
+  <div class="item__description"><p>Customize the media type (e.g. <code>@media screen</code> or <code>@media print</code>)<br>By default sass-mq uses an &quot;all&quot; media type (<code>@media all and …</code>)</p>
 </div>
 
 
