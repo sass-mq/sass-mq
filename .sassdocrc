@@ -2,7 +2,7 @@
   "package": {
     "title": "Sass MQ",
     "name": "sass-mq",
-    "homepage": "https://github.com/kaelig/sass-mq",
+    "homepage": "https://github.com/sass-mq/sass-mq",
     "description": "mq() is a mixin that helps manipulating media queries in an elegant way."
   },
   "autofill": "false"

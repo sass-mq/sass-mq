@@ -1,5 +1,5 @@
 @charset "UTF-8"; // Fixes an issue where Ruby locale is not set properly
-                  // See https://github.com/guardian/sass-mq/pull/10
+                  // See https://github.com/sass-mq/sass-mq/pull/10
 
 /// Base font size on the `<body>` element
 /// @type Number (unit)
@@ -20,7 +20,7 @@ $mq-base-font-size: 16px !default;
 ///                   // larger breakpoints will be ignored
 ///
 /// @type Boolean
-/// @link https://github.com/kaelig/sass-mq#responsive-mode-off Disabled responsive mode documentation
+/// @link https://github.com/sass-mq/sass-mq#responsive-mode-off Disabled responsive mode documentation
 $mq-responsive: true !default;
 
 /// Breakpoint list
@@ -30,7 +30,7 @@ $mq-responsive: true !default;
 /// stakeholders, designers, developers, and testers.
 ///
 /// @type Map
-/// @link https://github.com/kaelig/sass-mq#seeing-the-currently-active-breakpoint Full documentation and examples
+/// @link https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint Full documentation and examples
 $mq-breakpoints: (
   mobile:  320px,
   tablet:  740px,
@@ -55,7 +55,7 @@ $mq-breakpoints: (
 ///                   // larger breakpoints will be ignored
 ///
 /// @type String
-/// @link https://github.com/kaelig/sass-mq#adding-custom-breakpoints Full documentation and examples
+/// @link https://github.com/sass-mq/sass-mq#adding-custom-breakpoints Full documentation and examples
 $mq-static-breakpoint: desktop !default;
 
 /// Show breakpoints in the top right corner
@@ -71,7 +71,7 @@ $mq-show-breakpoints: () !default;
 /// By default sass-mq uses an "all" media type (`@media all and …`)
 ///
 /// @type String
-/// @link https://github.com/kaelig/sass-mq#changing-media-type Full documentation and examples
+/// @link https://github.com/sass-mq/sass-mq#changing-media-type Full documentation and examples
 $mq-media-type: all !default;
 
 /// Convert pixels to ems
@@ -133,7 +133,7 @@ $mq-media-type: all !default;
 /// @requires {function} mq-px2em
 /// @requires {function} mq-get-breakpoint-width
 ///
-/// @link https://github.com/kaelig/sass-mq#responsive-mode-on-default Full documentation and examples
+/// @link https://github.com/sass-mq/sass-mq#responsive-mode-on-default Full documentation and examples
 ///
 /// @example
 ///  .element {

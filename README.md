@@ -1,8 +1,4 @@
-# Media Queries, with Style [![Build Status](https://travis-ci.org/kaelig/sass-mq.svg?branch=master)](https://travis-ci.org/kaelig/sass-mq)
-
-> This is a fork of the Guardian's [sass-mq project](https://github.com/guardian/sass-mq), which is not maintained
-anymore. I've been the core developer of Sass MQ all along, but unfortunately
-my ex-colleagues do not have the resources to maintain the project anymore.
+# Media Queries, with Style [![Build Status](https://travis-ci.org/sass-mq/sass-mq.svg?branch=master)](https://travis-ci.org/sass-mq/sass-mq)
 
 `mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
 Stylesheets") mixin that helps manipulating media queries in an elegant
@@ -19,8 +15,8 @@ as illustrated in this article posted on the Guardian's developer blog:
 ## How to Use It
 
 1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the web"):
-   `bower install kaelig/sass-mq --save`
-   OR [Download _mq.scss](https://raw.github.com/kaelig/sass-mq/master/_mq.scss)
+   `bower install sass-mq/sass-mq --save`
+   OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss)
    to your Sass project.
 2. Import the partial in your Sass files and override default settings
    with your own preferences before the file is imported:
