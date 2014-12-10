@@ -35,7 +35,7 @@ as illustrated in this article posted on the Guardian's developer blog:
         tablet:  740px,
         desktop: 980px,
         wide:    1300px,
-        
+
         // Tweakpoints
         desktopAd: 810px,
         mobileLandscape: 480px
@@ -115,7 +115,7 @@ $mq-static-breakpoint: desktop;
         color: lawngreen;
     }
     @include mq(tablet, wide) {
-            color: seagreen;
+        color: seagreen;
     }
     @include mq($from: desktop) {
         color: forestgreen;
