@@ -31,14 +31,14 @@ as illustrated in this article posted on the Guardian's developer blog:
     // across team members. It will improve communication between
     // stakeholders, designers, developers, and testers.
     $mq-breakpoints: (
-      mobile:  320px,
-      tablet:  740px,
-      desktop: 980px,
-      wide:    1300px,
-
-      // Tweakpoints
-      desktopAd: 810px,
-      mobileLandscape: 480px
+        mobile:  320px,
+        tablet:  740px,
+        desktop: 980px,
+        wide:    1300px,
+        
+        // Tweakpoints
+        desktopAd: 810px,
+        mobileLandscape: 480px
     );
 
     // Define the breakpoint from the $mq-breakpoints list that should
@@ -67,22 +67,22 @@ Note that `$until` as a keyword is a hard limit i.e. it's breakpoint - 1.
 
 ```scss
 .responsive {
-  // Apply styling to mobile and upwards
-  @include mq($from: mobile) {
-    color: red;
-  }
-  // Apply styling up to devices smaller than tablets (exclude tablets)
-  @include mq($until: tablet) {
-    color: blue;
-  }
-  // Same thing, in landscape orientation
-  @include mq($until: tablet, $and: '(orientation: landscape)') {
-    color: hotpink;
-  }
-  // Apply styling to tablets up to desktop (exclude desktop)
-  @include mq(tablet, desktop) {
-    color: green;
-  }
+    // Apply styling to mobile and upwards
+    @include mq($from: mobile) {
+        color: red;
+    }
+    // Apply styling up to devices smaller than tablets (exclude tablets)
+    @include mq($until: tablet) {
+        color: blue;
+    }
+    // Same thing, in landscape orientation
+    @include mq($until: tablet, $and: '(orientation: landscape)') {
+        color: hotpink;
+    }
+    // Apply styling to tablets up to desktop (exclude desktop)
+    @include mq(tablet, desktop) {
+        color: green;
+    }
 }
 ```
 
@@ -110,27 +110,27 @@ $mq-responsive:        false;
 $mq-static-breakpoint: desktop;
 
 .static {
-  // Queries that span or start at desktop are compiled:
-  @include mq($from: mobile) {
-    color: lawngreen;
-  }
-  @include mq(tablet, wide) {
-      color: seagreen;
-  }
-  @include mq($from: desktop) {
-    color: forestgreen;
-  }
+    // Queries that span or start at desktop are compiled:
+    @include mq($from: mobile) {
+        color: lawngreen;
+    }
+    @include mq(tablet, wide) {
+            color: seagreen;
+    }
+    @include mq($from: desktop) {
+        color: forestgreen;
+    }
 
-  // But these queries won’t be compiled:
-  @include mq($until: tablet) {
-    color: indianred;
-  }
-  @include mq($until: tablet, $and: '(orientation: landscape)') {
-    color: crimson;
-  }
-  @include mq(mobile, desktop) {
-    color: firebrick;
-  }
+    // But these queries won’t be compiled:
+    @include mq($until: tablet) {
+        color: indianred;
+    }
+    @include mq($until: tablet, $and: '(orientation: landscape)') {
+        color: crimson;
+    }
+    @include mq(mobile, desktop) {
+        color: firebrick;
+    }
 }
 ```
 
@@ -140,9 +140,9 @@ $mq-static-breakpoint: desktop;
 @include mq-add-breakpoint(tvscreen, 1920px);
 
 .hide-on-tv {
-  @include mq(tvscreen) {
-    display: none;
-  }
+    @include mq(tvscreen) {
+        display: none;
+    }
 }
 ```
 
@@ -167,18 +167,18 @@ control this (e.g. to output styles for screens only), you can use the
 $mq-media-type: screen;
 
 .screen-only-element {
-  @include mq(mobile) {
-    width: 300px;
-  }
+    @include mq(mobile) {
+        width: 300px;
+    }
 }
 ```
 
 #### CSS output
 ```css
 @media screen and (max-width: 19.99em) {
-  .screen-only-element {
-    width: 300px;
-  }
+    .screen-only-element {
+        width: 300px;
+    }
 }
 ```
 
