@@ -4,4 +4,4 @@ script:
 
 before_install:
   - gem install sass
-  - "npm install node-sass bower -g && bower install sass-mq/sass-mq"
+  - "npm install node-sass bower -g && bower install sass-mq"
