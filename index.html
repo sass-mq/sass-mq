@@ -279,13 +279,13 @@
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
     data-expanded="@function mq-px2em($px, $base-font-size: $mq-base-font-size) { 
-  @if (unitless($px)) {
-    @warn &quot;Assuming #{$px} to be in pixels, attempting to convert it into pixels&quot;;
-    @return mq-px2em($px + 0px); // That may fail.
-  } @else if (unit($px) == em) {
-    @return $px;
-  }
-  @return ($px / $base-font-size) * 1em;
+    @if (unitless($px)) {
+        @warn &quot;Assuming #{$px} to be in pixels, attempting to convert it into pixels&quot;;
+        @return mq-px2em($px + 0px); // That may fail.
+    } @else if (unit($px) == em) {
+        @return $px;
+    }
+    @return ($px / $base-font-size) * 1em;
  }"
     data-collapsed="@function mq-px2em($px, $base-font-size: $mq-base-font-size) { ... }"><code>@function mq-px2em($px, $base-font-size: $mq-base-font-size) { ... }</code></pre>
 
@@ -504,11 +504,11 @@
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
     data-expanded="@function mq-get-breakpoint-width($name) { 
-  @if(map-has-key($breakpoints, $name)) {
-    @return map-get($breakpoints, $name);
-  } @else {
-    @warn &quot;Breakpoint #{$name} wasn&#39;t found in $breakpoints.&quot;;
-  }
+    @if(map-has-key($breakpoints, $name)) {
+        @return map-get($breakpoints, $name);
+    } @else {
+        @warn &quot;Breakpoint #{$name} wasn&#39;t found in $breakpoints.&quot;;
+    }
  }"
     data-collapsed="@function mq-get-breakpoint-width($name) { ... }"><code>@function mq-get-breakpoint-width($name) { ... }</code></pre>
 
@@ -764,51 +764,51 @@
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
     data-expanded="@mixin mq($from: false, $until: false, $and: false, $media-type: $mq-media-type) { 
-  $min-width: 0;
-  $max-width: 0;
-  $media-query: &#39;&#39;;
+    $min-width: 0;
+    $max-width: 0;
+    $media-query: &#39;&#39;;
 
-  // From: this breakpoint (inclusive)
-  @if $from {
-    @if type-of($from) == number {
-      $min-width: mq-px2em($from);
-    } @else {
-      $min-width: mq-px2em(mq-get-breakpoint-width($from, $breakpoints));
+    // From: this breakpoint (inclusive)
+    @if $from {
+        @if type-of($from) == number {
+            $min-width: mq-px2em($from);
+        } @else {
+            $min-width: mq-px2em(mq-get-breakpoint-width($from, $breakpoints));
+        }
     }
-  }
 
-  // Until: that breakpoint (exclusive)
-  @if $until {
-    @if type-of($until) == number {
-      $max-width: mq-px2em($until);
-    } @else {
-      $max-width: mq-px2em(mq-get-breakpoint-width($until, $breakpoints)) - .01em;
+    // Until: that breakpoint (exclusive)
+    @if $until {
+        @if type-of($until) == number {
+            $max-width: mq-px2em($until);
+        } @else {
+            $max-width: mq-px2em(mq-get-breakpoint-width($until, $breakpoints)) - .01em;
+        }
     }
-  }
 
-  // Responsive support is disabled, rasterize the output outside @media blocks
-  // The browser will rely on the cascade itself.
-  @if ($responsive == false) {
-    $static-breakpoint-width: mq-get-breakpoint-width($static-breakpoint, $breakpoints);
-    $target-width: mq-px2em($static-breakpoint-width);
-    // Output only rules that start at or span our target width
-    @if ($and == false and ($min-width &lt;= $target-width) and (($until == false) or ($max-width &gt;= $target-width))) {
-      @content;
+    // Responsive support is disabled, rasterize the output outside @media blocks
+    // The browser will rely on the cascade itself.
+    @if ($responsive == false) {
+        $static-breakpoint-width: mq-get-breakpoint-width($static-breakpoint, $breakpoints);
+        $target-width: mq-px2em($static-breakpoint-width);
+        // Output only rules that start at or span our target width
+        @if ($and == false and ($min-width &lt;= $target-width) and (($until == false) or ($max-width &gt;= $target-width))) {
+            @content;
+        }
     }
-  }
 
-  // Responsive support is enabled, output rules inside @media queries
-  @else {
-    @if $min-width != 0 { $media-query: &#39;#{$media-query} and (min-width: #{$min-width})&#39;; }
-    @if $max-width != 0 { $media-query: &#39;#{$media-query} and (max-width: #{$max-width})&#39;; }
-    @if $and            { $media-query: &#39;#{$media-query} and #{$and}&#39;; }
+    // Responsive support is enabled, output rules inside @media queries
+    @else {
+        @if $min-width != 0 { $media-query: &#39;#{$media-query} and (min-width: #{$min-width})&#39;; }
+        @if $max-width != 0 { $media-query: &#39;#{$media-query} and (max-width: #{$max-width})&#39;; }
+        @if $and            { $media-query: &#39;#{$media-query} and #{$and}&#39;; }
 
-    $media-query: unquote(#{$media-query});
+        $media-query: unquote(#{$media-query});
 
-    @media #{$media-type + $media-query} {
-      @content;
+        @media #{$media-type + $media-query} {
+            @content;
+        }
     }
-  }
  }"
     data-collapsed="@mixin mq($from: false, $until: false, $and: false, $media-type: $mq-media-type) { ... }"><code>@mixin mq($from: false, $until: false, $and: false, $media-type: $mq-media-type) { ... }</code></pre>
 
@@ -1135,8 +1135,8 @@
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
     data-expanded="@mixin mq-add-breakpoint($name, $width) { 
-  $new-breakpoint: ($name: $width);
-  $mq-breakpoints: map-merge($mq-breakpoints, $new-breakpoint) !global;
+    $new-breakpoint: ($name: $width);
+    $mq-breakpoints: map-merge($mq-breakpoints, $new-breakpoint) !global;
  }"
     data-collapsed="@mixin mq-add-breakpoint($name, $width) { ... }"><code>@mixin mq-add-breakpoint($name, $width) { ... }</code></pre>
 
@@ -1582,10 +1582,10 @@ where @media queries are rasterized</p>
 
 <div class="relative  clear">
   <pre class="item__code  language-scss"><code>$mq-breakpoints: (
-  mobile:  320px,
-  tablet:  740px,
-  desktop: 980px,
-  wide:    1300px
+    mobile:  320px,
+    tablet:  740px,
+    desktop: 980px,
+    wide:    1300px
 ) !default;</code></pre>
 
   
