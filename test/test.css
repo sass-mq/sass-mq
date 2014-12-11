@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* Show active breakpoint in top right corner of viewport */
 body:before {
   background-color: #FCF8E3;
@@ -31,12 +30,6 @@ body:before {
       content: "tvscreen ≥ 1920px (120em)"; } }
 
 /* Responsive styles for devices that understand media queries */
-@media all and (max-width: 19.99em) {
-  .responsive:after {
-    content: "to-mobile"; } }
-@media all and (max-width: 19.99em) {
-  .responsive:after {
-    content: "to-mobile"; } }
 @media all and (max-width: 19.99em) {
   .responsive:after {
     content: "to-mobile"; } }
@@ -94,6 +87,9 @@ body:before {
 @media all and (max-width: 255.99em) {
   .responsive:after {
     content: "to-cinema"; } }
+@media all and (min-width: 56.25em) {
+  .responsive:after {
+    content: "custom-breakpoint-list"; } }
 
 /* Rasterized styles that span or start at the "desktop" breakpoint */
 .static:after {
@@ -104,12 +100,19 @@ body:before {
   content: "to-70em";
   content: "to-1100px";
   content: "from-desktop-to-widescreen";
-  content: "to-cinema"; }
+  content: "to-cinema";
+  content: "custom-breakpoint-list"; }
+
+.static-forced:after {
+  content: "Static, forced to tablet"; }
 
 /* Only style screen media type */
 @media screen and (max-width: 19.99em) {
   body {
     font-size: 1rem; } }
+@media screen, print and (max-width: 19.99em) {
+  body {
+    content: "screen-and-print"; } }
 
 /* Only style print media type */
 @media print and (max-width: 19.99em) {

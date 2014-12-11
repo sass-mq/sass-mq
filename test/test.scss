@@ -2,8 +2,8 @@
 // normally target with static styles for older browsers.
 $mq-breakpoints: (
     // Base device classes
-    mobile:      320px,
-    tablet:      640px,
+    mobile:     320px,
+    tablet:     640px,
     desktop:    1024px,
     widescreen: 1200px,
     tvscreen:   1920px,
@@ -16,19 +16,10 @@ $mq-breakpoints: (
 $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvscreen);
 
 // Include media query handling
-@import '../mq';
+@import 'mq';
 
 // Styles for responsive and static output, wrapped in a mixin for reuse.
 @mixin styles {
-    // Test $to deprecation
-    @include mq($to: mobile) {
-        content: "to-mobile";
-    }
-    // Test $to used with $until
-    @include mq($to: mobile, $until: mobile) {
-        content: "to-mobile";
-    }
-
     // Up to mobile
     @include mq($until: mobile) {
         content: "to-mobile";
@@ -98,12 +89,20 @@ $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvs
         content: "hidpi-screen";
     }
     // Add a custom breakpoint
-    $mq-breakpoints: mq-add-breakpoint(cinema, 4096px) !global;
+    @include mq-add-breakpoint(cinema, 4096px);
     @include mq(cinema) {
         content: "from-cinema";
     }
     @include mq($until: cinema) {
         content: "to-cinema";
+    }
+    $my-breakpoints: (
+        L: 900px,
+        XL: 1200px
+    );
+    $my-static-breakpoint: L;
+    @include mq($from: L, $breakpoints: $my-breakpoints, $static-breakpoint: $my-static-breakpoint) {
+        content: "custom-breakpoint-list";
     }
 }
 
@@ -121,12 +120,24 @@ $mq-static-breakpoint: desktop;
     @include styles;
 }
 
+.static-forced:after {
+    @include mq(mobile, desktop, $static-breakpoint: tablet, $responsive: false) {
+        content: "Static, forced to tablet";
+    }
+    @include mq(desktop, $static-breakpoint: tablet, $responsive: false) {
+        content: "Should not appear, because out of the bounds of $static-breakpoint";
+    }
+}
+
 /* Only style screen media type */
 $mq-responsive: true;
 $mq-media-type: screen;
 body {
     @include mq($until: mobile) {
         font-size: 1rem;
+    }
+    @include mq($until: mobile, $media-type: 'screen, print') {
+        content: "screen-and-print";
     }
 }
 /* Only style print media type */

@@ -11,19 +11,21 @@
     "media"
   ],
   "main": "_mq.scss",
-  "author": "Guardian Media Group and contributors",
+  "author": "Guardian Media Group",
   "ignore": [
-    "test",
     "**/.*"
   ],
   "licenses": [
     {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sass-mq/sass-mq"
-  }
+    "url": "https://github.com/guardian/sass-mq"
+  },
+  "ignore": [
+    "test"
+  ]
 }
