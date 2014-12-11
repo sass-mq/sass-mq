@@ -2,3 +2,5 @@
 .sass-cache
 **.orig
 .DS_Store
+node_modules
+build
