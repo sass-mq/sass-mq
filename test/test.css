@@ -105,3 +105,13 @@ body:before {
   content: "to-1100px";
   content: "from-desktop-to-widescreen";
   content: "to-cinema"; }
+
+/* Only style screen media type */
+@media screen and (max-width: 19.99em) {
+  body {
+    font-size: 1rem; } }
+
+/* Only style print media type */
+@media print and (max-width: 19.99em) {
+  body {
+    font-size: 2rem; } }

@@ -156,6 +156,42 @@ then be shown in the top right corner of the viewport.
 
 ![$mq-show-breakpoints](show-breakpoints.gif)
 
+### Changing media type
+
+By default, `mq()` uses `@media all` for its queries. If you want to
+control this (eg. to output styles for screens only), you can use the
+`$mq-media-type` config option to change it (defaults to `all`). Eg:
+
+#### SCSS
+```scss
+$mq-media-type: screen;
+
+.screen-only-element {
+    @include mq(mobile) {
+        width: 300px;
+    }
+}
+```
+
+#### CSS output
+```css
+@media screen and (max-width: 19.99em) {
+    .screen-only-element {
+        width: 300px;
+    }
+}
+```
+
+### Seeing the currently active breakpoint
+
+While developing, it can be nice to always know which breakpoint is
+active. To achieve this, set the `$mq-show-breakpoints` variable to
+be a list of the breakpoints you want to debug, ordered by width.
+The name of the active breakpoint and its pixel and em values will
+then be shown in the top right corner of the viewport.
+
+![$mq-show-breakpoints](show-breakpoints.gif)
+
 ## Test
 
 1. cd into the `test` folder
