@@ -101,6 +101,15 @@
               
               </a>
             </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="mq-show-breakpoints" data-type="mixin">
+              <a href="#mixin-mq-show-breakpoints">mq-show-breakpoints
+              
+              
+              </a>
+            </li>
             </ul>
           
         
@@ -1295,6 +1304,265 @@
 
 </section>
               
+                <section class="main__item  item" id="mixin-mq-show-breakpoints">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-mq-show-breakpoints">mq-show-breakpoints</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin mq-show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) { 
+    body:before {
+        background-color: #FCF8E3;
+        border-bottom: 1px solid #FBEED5;
+        border-left: 1px solid #FBEED5;
+        color: #C09853;
+        font: small-caption;
+        padding: 3px 6px;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 100;
+
+        // Loop through the breakpoints that should be shown
+        @each $show-breakpoint in $show-breakpoints {
+            $width: mq-get-breakpoint-width($show-breakpoint, $breakpoints);
+            @include mq($show-breakpoint, $breakpoints: $breakpoints) {
+                content: &quot;#{$show-breakpoint} ≥ #{$width} (#{mq-px2em($width)})&quot;;
+            }
+        }
+    }
+ }"
+    data-collapsed="@mixin mq-show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) { ... }"><code>@mixin mq-show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) { ... }</code></pre>
+
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Show the active breakpoint in the top right corner of the viewport</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$show-breakpoints</code></th>
+          <td data-label="desc"><p>List of breakpoints to show in the top right corner</p>
+</td>
+          <td data-label="type">
+          
+            List
+          
+          </td>
+          <td data-label="default">
+          
+            <code>$mq-show-breakpoints</code>
+          
+          </td>
+        </tr>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$breakpoints</code></th>
+          <td data-label="desc"><p>Breakpoint names and sizes</p>
+</td>
+          <td data-label="type">
+          
+            Map
+          
+          </td>
+          <td data-label="default">
+          
+            <code>$mq-breakpoints</code>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <pre class="example__code"><code class="language-scss"> // Show breakpoints using global settings
+ @include mq-show-breakpoints;
+ 
+ // Show breakpoints using custom settings
+ @include mq-show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));</code></pre>
+  </div>
+  
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#variable-mq-breakpoints"><code>mq-breakpoints</code></a>
+        
+      </li>
+    
+  
+
+
+
+  
+    
+
+    
+      <li>
+        <a href="#variable-mq-show-breakpoints"><code>mq-show-breakpoints</code></a>
+        
+      </li>
+    
+  
+
+
+
+
+</ul>
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Links</h3>
+
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint">
+        
+          https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint
+        
+      </a>
+    </li>
+  
+  </ul>
+
+  
+    
+    
+
+  
+
+
+
+</section>
+              
             </section>
           
         
@@ -1672,6 +1940,15 @@ stakeholders, designers, developers, and testers.</p>
 
 
 
+  
+
+    
+
+    <li><a href="#mixin-mq-show-breakpoints"><code>mq-show-breakpoints</code></a></li>
+  
+
+
+
 
 </ul>
 
@@ -1945,6 +2222,21 @@ to this list, ordered by width, e.g. (mobile, tablet, desktop).</p>
 
 
 
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#mixin-mq-show-breakpoints"><code>mq-show-breakpoints</code></a></li>
+  
+
+
+
+
+</ul>
 
 
   
