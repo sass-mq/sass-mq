@@ -233,6 +233,7 @@ $mq-media-type: all !default;
 }
 
 /// Show the active breakpoint in the top right corner of the viewport
+/// @link https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint
 ///
 /// @param {List} $show-breakpoints ($mq-show-breakpoints) - List of breakpoints to show in the top right corner
 /// @param {Map} $breakpoints ($mq-breakpoints) - Breakpoint names and sizes
