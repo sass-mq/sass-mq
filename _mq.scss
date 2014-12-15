@@ -232,8 +232,21 @@ $mq-media-type: all !default;
     $mq-breakpoints: map-merge($mq-breakpoints, $new-breakpoint) !global;
 }
 
-// Show the active breakpoint in the top right corner of the viewport
-@if (length($mq-show-breakpoints) > 0) {
+/// Show the active breakpoint in the top right corner of the viewport
+///
+/// @param {List} $show-breakpoints ($mq-show-breakpoints) - List of breakpoints to show in the top right corner
+/// @param {Map} $breakpoints ($mq-breakpoints) - Breakpoint names and sizes
+///
+/// @requires {Variable} $mq-breakpoints
+/// @requires {Variable} $mq-show-breakpoints
+///
+/// @example
+///  // Show breakpoints using global settings
+///  @include mq-show-breakpoints;
+///  
+///  // Show breakpoints using custom settings
+///  @include mq-show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));
+@mixin mq-show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) {
     body:before {
         background-color: #FCF8E3;
         border-bottom: 1px solid #FBEED5;
@@ -247,11 +260,15 @@ $mq-media-type: all !default;
         z-index: 100;
 
         // Loop through the breakpoints that should be shown
-        @each $show-breakpoint in $mq-show-breakpoints {
-            $width: mq-get-breakpoint-width($show-breakpoint);
-            @include mq($show-breakpoint) {
+        @each $show-breakpoint in $show-breakpoints {
+            $width: mq-get-breakpoint-width($show-breakpoint, $breakpoints);
+            @include mq($show-breakpoint, $breakpoints: $breakpoints) {
                 content: "#{$show-breakpoint} ≥ #{$width} (#{mq-px2em($width)})";
             }
         }
     }
+}
+
+@if (length($mq-show-breakpoints) > 0) {
+    @include mq-show-breakpoints;
 }
