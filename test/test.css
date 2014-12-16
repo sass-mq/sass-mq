@@ -10,84 +10,87 @@ body:before {
   right: 0;
   top: 0;
   z-index: 100; }
-  @media all and (min-width: 20em) {
+  @media (min-width: 20em) {
     body:before {
       content: "mobile ≥ 320px (20em)"; } }
-  @media all and (min-width: 30em) {
+  @media (min-width: 30em) {
     body:before {
       content: "mobileLandscape ≥ 480px (30em)"; } }
-  @media all and (min-width: 40em) {
+  @media (min-width: 40em) {
     body:before {
       content: "tablet ≥ 640px (40em)"; } }
-  @media all and (min-width: 64em) {
+  @media (min-width: 64em) {
     body:before {
       content: "desktop ≥ 1024px (64em)"; } }
-  @media all and (min-width: 75em) {
+  @media (min-width: 75em) {
     body:before {
       content: "widescreen ≥ 1200px (75em)"; } }
-  @media all and (min-width: 120em) {
+  @media (min-width: 120em) {
     body:before {
       content: "tvscreen ≥ 1920px (120em)"; } }
 
 /* Responsive styles for devices that understand media queries */
-@media all and (max-width: 19.99em) {
+@media (max-width: 19.99em) {
   .responsive:after {
     content: "to-mobile"; } }
-@media all and (min-width: 20em) {
+@media (min-width: 20em) {
   .responsive:after {
     content: "from-mobile"; } }
-@media all and (min-width: 20em) and (max-width: 39.99em) {
+@media (min-width: 20em) and (max-width: 39.99em) {
   .responsive:after {
     content: "from-mobile-to-tablet"; } }
-@media all and (min-width: 40em) {
+@media (min-width: 40em) {
   .responsive:after {
     content: "from-640"; } }
-@media all and (max-width: 39.99em) {
+@media (max-width: 39.99em) {
   .responsive:after {
     content: "to-tablet"; } }
-@media all and (max-width: 39.99em) and (orientation: landscape) {
+@media (max-width: 39.99em) and (orientation: landscape) {
   .responsive:after {
     content: "to-tablet-and-orientation-landscape"; } }
-@media all and (min-width: 40em) {
+@media (min-width: 40em) {
   .responsive:after {
     content: "from-tablet"; } }
-@media all and (min-width: 40em) and (max-width: 63.99em) {
+@media (min-width: 40em) and (max-width: 63.99em) {
   .responsive:after {
     content: "from-tablet-to-desktop"; } }
-@media all and (min-width: 48em) and (max-width: 63.9375em) and (orientation: portrait) {
+@media (min-width: 48em) and (max-width: 63.9375em) and (orientation: portrait) {
   .responsive:after {
     content: "from-768-to-1023-and-orientation-portrait"; } }
-@media all and (min-width: 64em) {
+@media (min-width: 64em) {
   .responsive:after {
     content: "from-desktop"; } }
-@media all and (max-width: 70em) {
+@media (max-width: 70em) {
   .responsive:after {
     content: "to-70em"; } }
-@media all and (max-width: 68.75em) {
+@media (max-width: 68.75em) {
   .responsive:after {
     content: "to-1100px"; } }
-@media all and (min-width: 64em) and (max-width: 74.99em) {
+@media (min-width: 64em) and (max-width: 74.99em) {
   .responsive:after {
     content: "from-desktop-to-widescreen"; } }
-@media all and (min-width: 75em) {
+@media (min-width: 75em) {
   .responsive:after {
     content: "from-widescreen"; } }
-@media all and (min-width: 75em) and (max-width: 119.99em) {
+@media (min-width: 75em) and (max-width: 119.99em) {
   .responsive:after {
     content: "from-widescreen-to-tvscreen"; } }
-@media all and (min-width: 120em) {
+@media (min-width: 120em) {
   .responsive:after {
     content: "from-tvscreen"; } }
-@media all and (-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 124.8dpi), (min-resolution: 1.3dppx) {
+@media (-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 124.8dpi), (min-resolution: 1.3dppx) {
   .responsive:after {
     content: "hidpi-screen"; } }
-@media all and (min-width: 256em) {
+@media all {
+  .responsive:after {
+    content: "empty-media-query"; } }
+@media (min-width: 256em) {
   .responsive:after {
     content: "from-cinema"; } }
-@media all and (max-width: 255.99em) {
+@media (max-width: 255.99em) {
   .responsive:after {
     content: "to-cinema"; } }
-@media all and (min-width: 56.25em) {
+@media (min-width: 56.25em) {
   .responsive:after {
     content: "custom-breakpoint-list"; } }
 
@@ -100,6 +103,7 @@ body:before {
   content: "to-70em";
   content: "to-1100px";
   content: "from-desktop-to-widescreen";
+  content: "empty-media-query";
   content: "to-cinema";
   content: "custom-breakpoint-list"; }
 
