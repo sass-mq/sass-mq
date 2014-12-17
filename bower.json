@@ -14,7 +14,11 @@
   "author": "Guardian Media Group and contributors",
   "ignore": [
     "test",
-    "**/.*"
+    "sassdoc",
+    "**/.*",
+    "sache.json",
+    "sassdoc.sh",
+    "test.sh"
   ],
   "licenses": [
     {
