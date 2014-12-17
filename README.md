@@ -182,16 +182,6 @@ $mq-media-type: screen;
 }
 ```
 
-### Seeing the currently active breakpoint
-
-While developing, it can be nice to always know which breakpoint is
-active. To achieve this, set the `$mq-show-breakpoints` variable to
-be a list of the breakpoints you want to debug, ordered by width.
-The name of the active breakpoint and its pixel and em values will
-then be shown in the top right corner of the viewport.
-
-![$mq-show-breakpoints](show-breakpoints.gif)
-
 ## Test
 
 1. run:
