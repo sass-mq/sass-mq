@@ -812,7 +812,11 @@
         @if $max-width != 0 { $media-query: &#39;#{$media-query} and (max-width: #{$max-width})&#39;; }
         @if $and            { $media-query: &#39;#{$media-query} and #{$and}&#39;; }
 
-        $media-query: unquote(#{$media-query});
+        // Remove unnecessary media query prefix &#39;all and &#39;
+        @if ($media-type == &#39;all&#39; and $media-query != &#39;&#39;) {
+            $media-type: &#39;&#39;;
+            $media-query: str-slice(unquote($media-query), 6);
+        }
 
         @media #{$media-type + $media-query} {
             @content;
