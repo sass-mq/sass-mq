@@ -4,7 +4,7 @@
 
 _`mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
 Stylesheets") mixin that helps you compose media queries in an elegant
-way. It was developed in house at [the Guardian](http://www.theguardian.com/uk?view=mobile),
+way. It was developed in-house at [the Guardian](http://www.theguardian.com/uk?view=mobile),
 and is now also in use at BBC Sport and the Financial Times…_
 
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
