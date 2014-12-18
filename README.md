@@ -2,19 +2,13 @@
 
 ![ ](https://avatars3.githubusercontent.com/u/9341289?v=3&s=300)
 
-`mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
-Stylesheets") mixin that helps manipulating media queries in an elegant
-way.
+_`mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
+Stylesheets") mixin that helps you compose media queries in an elegant
+way. It was developed in house at [the Guardian](http://www.theguardian.com/uk?view=mobile),
+and is now also in use at BBC Sport and the Financial Times…_
 
-As developers and designers we think in pixels and device families, so the
-`mq()` mixin accepts pixels, ems, keywords… and compiles into ems.
-
-We use `mq()` at [the Guardian](http://www.theguardian.com/uk?view=mobile)
-to effortlessly support older browsers and elegantly abstract media queries,
-as illustrated in this article posted on the Guardian's developer blog:
-[Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8).
-
-Also used by: BBC Sport, Financial Times.
+- compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
+- provides fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
 
 ## How to Use It
 
