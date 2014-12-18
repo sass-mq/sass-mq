@@ -86,10 +86,10 @@ $mq-media-type: all !default;
 /// @requires $mq-base-font-size
 /// @returns {Number}
 @function mq-px2em($px, $base-font-size: $mq-base-font-size) {
-    @if (unitless($px)) {
+    @if unitless($px) {
         @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
         @return mq-px2em($px + 0px); // That may fail.
-    } @else if (unit($px) == em) {
+    } @else if unit($px) == em {
         @return $px;
     }
     @return ($px / $base-font-size) * 1em;
@@ -107,7 +107,7 @@ $mq-media-type: all !default;
 ///
 /// @returns {Number} Value in pixels
 @function mq-get-breakpoint-width($name, $breakpoints: $mq-breakpoints) {
-    @if(map-has-key($breakpoints, $name)) {
+    @if map-has-key($breakpoints, $name) {
         @return map-get($breakpoints, $name);
     } @else {
         @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
@@ -194,7 +194,7 @@ $mq-media-type: all !default;
 
     // Responsive support is disabled, rasterize the output outside @media blocks
     // The browser will rely on the cascade itself.
-    @if ($responsive == false) {
+    @if $responsive == false {
         $static-breakpoint-width: mq-get-breakpoint-width($static-breakpoint, $breakpoints);
         $target-width: mq-px2em($static-breakpoint-width);
         // Output only rules that start at or span our target width
@@ -274,6 +274,6 @@ $mq-media-type: all !default;
     }
 }
 
-@if (length($mq-show-breakpoints) > 0) {
+@if length($mq-show-breakpoints) > 0 {
     @include mq-show-breakpoints;
 }
