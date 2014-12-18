@@ -67,7 +67,7 @@ $mq-static-breakpoint: desktop !default;
 /// @type map
 $mq-show-breakpoints: () !default;
 
-/// Customize the media type (e.g. `@media screen` or `@media print`)  
+/// Customize the media type (e.g. `@media screen` or `@media print`)
 /// By default sass-mq uses an "all" media type (`@media all and …`)
 ///
 /// @type String
@@ -232,8 +232,9 @@ $mq-media-type: all !default;
 ///  @include mq-add-breakpoint(tvscreen, 1920px);
 ///  @include mq(tvscreen) {}
 @mixin mq-add-breakpoint($name, $width) {
-    $new-breakpoint: ($name: $width);
-    $mq-breakpoints: map-merge($mq-breakpoints, $new-breakpoint) !global;
+    $mq-breakpoints: map-merge($mq-breakpoints, (
+        $name: $width
+    )) !global;
 }
 
 /// Show the active breakpoint in the top right corner of the viewport
@@ -248,7 +249,7 @@ $mq-media-type: all !default;
 /// @example
 ///  // Show breakpoints using global settings
 ///  @include mq-show-breakpoints;
-///  
+///
 ///  // Show breakpoints using custom settings
 ///  @include mq-show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));
 @mixin mq-show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) {
