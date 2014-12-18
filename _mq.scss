@@ -67,7 +67,7 @@ $mq-static-breakpoint: desktop !default;
 /// @type map
 $mq-show-breakpoints: () !default;
 
-/// Customize the media type (e.g. `@media screen` or `@media print`)  
+/// Customize the media type (e.g. `@media screen` or `@media print`)
 /// By default sass-mq uses an "all" media type (`@media all and …`)
 ///
 /// @type String
@@ -87,7 +87,7 @@ $mq-media-type: all !default;
 /// @returns {Number}
 @function mq-px2em($px, $base-font-size: $mq-base-font-size) {
     @if (unitless($px)) {
-        @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels";
+        @warn "Assuming `#{$px}` to be in pixels, attempting to convert it into pixels";
         @return mq-px2em($px + 0px); // That may fail.
     } @else if (unit($px) == em) {
         @return $px;
@@ -110,7 +110,7 @@ $mq-media-type: all !default;
     @if(map-has-key($breakpoints, $name)) {
         @return map-get($breakpoints, $name);
     } @else {
-        @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
+        @warn "Breakpoint `#{$name}` wasn't found in $breakpoints.";
     }
 }
 
@@ -248,7 +248,7 @@ $mq-media-type: all !default;
 /// @example
 ///  // Show breakpoints using global settings
 ///  @include mq-show-breakpoints;
-///  
+///
 ///  // Show breakpoints using custom settings
 ///  @include mq-show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));
 @mixin mq-show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) {
