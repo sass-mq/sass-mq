@@ -13,7 +13,7 @@ $mq-base-font-size: 16px !default;
 /// You could create a stylesheet served exclusively to older browsers,
 /// where @media queries are rasterized
 ///
-/// @example
+/// @example scss
 ///  // old-ie.scss
 ///  $mq-responsive: false;
 ///  @include 'main'; // @media queries in this file will be rasterized up to $mq-static-breakpoint
@@ -44,7 +44,7 @@ $mq-breakpoints: (
 /// be used as the target width for the fixed-width layout
 /// (i.e. when $mq-responsive is set to 'false') in a old-ie.scss
 ///
-/// @example
+/// @example scss
 ///  // tablet-only.scss
 ///  //
 ///  // Ignore all styles above tablet breakpoint,
@@ -67,7 +67,7 @@ $mq-static-breakpoint: desktop !default;
 /// @type map
 $mq-show-breakpoints: () !default;
 
-/// Customize the media type (e.g. `@media screen` or `@media print`)  
+/// Customize the media type (e.g. `@media screen` or `@media print`)
 /// By default sass-mq uses an "all" media type (`@media all and …`)
 ///
 /// @type String
@@ -79,7 +79,7 @@ $mq-media-type: all !default;
 /// @param {Number} $px - value to convert
 /// @param {Number} $base-font-size ($mq-base-font-size) - `<body>` font size
 ///
-/// @example
+/// @example scss
 ///  $font-size-in-ems: mq-px2em(16px);
 ///  p { font-size: mq-px2em(16px); }
 ///
@@ -99,7 +99,7 @@ $mq-media-type: all !default;
 ///
 /// @param {String} $name - Name of the breakpoint. One of $mq-breakpoints
 ///
-/// @example
+/// @example scss
 ///  $tablet-width: mq-get-breakpoint-width(tablet);
 ///  @media (min-width: mq-get-breakpoint-width(desktop)) {}
 ///
@@ -135,7 +135,7 @@ $mq-media-type: all !default;
 ///
 /// @link https://github.com/sass-mq/sass-mq#responsive-mode-on-default Full documentation and examples
 ///
-/// @example
+/// @example scss
 ///  .element {
 ///    @include mq($from: mobile) {
 ///      color: red;
@@ -228,7 +228,7 @@ $mq-media-type: all !default;
 ///
 /// @requires {Variable} $mq-breakpoints
 ///
-/// @example
+/// @example scss
 ///  @include mq-add-breakpoint(tvscreen, 1920px);
 ///  @include mq(tvscreen) {}
 @mixin mq-add-breakpoint($name, $width) {
@@ -245,10 +245,10 @@ $mq-media-type: all !default;
 /// @requires {Variable} $mq-breakpoints
 /// @requires {Variable} $mq-show-breakpoints
 ///
-/// @example
+/// @example scss
 ///  // Show breakpoints using global settings
 ///  @include mq-show-breakpoints;
-///  
+///
 ///  // Show breakpoints using custom settings
 ///  @include mq-show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));
 @mixin mq-show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) {
