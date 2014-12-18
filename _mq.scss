@@ -67,7 +67,7 @@ $mq-static-breakpoint: desktop !default;
 /// @type map
 $mq-show-breakpoints: () !default;
 
-/// Customize the media type (e.g. `@media screen` or `@media print`)  
+/// Customize the media type (e.g. `@media screen` or `@media print`)
 /// By default sass-mq uses an "all" media type (`@media all and …`)
 ///
 /// @type String
@@ -117,7 +117,7 @@ $mq-media-type: all !default;
 /// Media Query mixin
 ///
 /// @param {String | Boolean} $from (false) - One of $mq-breakpoints
-/// @param {String | Boolean} $until (false) - One of $mq-breakpoints
+/// @param {String | Boolean} $to (false) - One of $mq-breakpoints
 /// @param {String | Boolean} $and (false) - Additional media query parameters
 /// @param {String} $media-type ($mq-media-type) - Media type: screen, print…
 ///
@@ -140,7 +140,7 @@ $mq-media-type: all !default;
 ///    @include mq($from: mobile) {
 ///      color: red;
 ///    }
-///    @include mq($until: tablet) {
+///    @include mq($to: tablet) {
 ///      color: blue;
 ///    }
 ///    @include mq(mobile, tablet) {
@@ -163,7 +163,7 @@ $mq-media-type: all !default;
 ///  }
 @mixin mq(
     $from: false,
-    $until: false,
+    $to: false,
     $and: false,
     $media-type: $mq-media-type,
     $breakpoints: $mq-breakpoints,
@@ -184,11 +184,11 @@ $mq-media-type: all !default;
     }
 
     // Until: that breakpoint (exclusive)
-    @if $until {
-        @if type-of($until) == number {
-            $max-width: mq-px2em($until);
+    @if $to {
+        @if type-of($to) == number {
+            $max-width: mq-px2em($to);
         } @else {
-            $max-width: mq-px2em(mq-get-breakpoint-width($until, $breakpoints)) - .01em;
+            $max-width: mq-px2em(mq-get-breakpoint-width($to, $breakpoints)) - .01em;
         }
     }
 
@@ -198,7 +198,7 @@ $mq-media-type: all !default;
         $static-breakpoint-width: mq-get-breakpoint-width($static-breakpoint, $breakpoints);
         $target-width: mq-px2em($static-breakpoint-width);
         // Output only rules that start at or span our target width
-        @if ($and == false and ($min-width <= $target-width) and (($until == false) or ($max-width >= $target-width))) {
+        @if ($and == false and ($min-width <= $target-width) and (($to == false) or ($max-width >= $target-width))) {
             @content;
         }
     }
@@ -248,7 +248,7 @@ $mq-media-type: all !default;
 /// @example
 ///  // Show breakpoints using global settings
 ///  @include mq-show-breakpoints;
-///  
+///
 ///  // Show breakpoints using custom settings
 ///  @include mq-show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));
 @mixin mq-show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) {
