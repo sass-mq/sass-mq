@@ -32,10 +32,10 @@ $mq-responsive: true !default;
 /// @type Map
 /// @link https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint Full documentation and examples
 $mq-breakpoints: (
-    mobile:  320px,
-    tablet:  740px,
-    desktop: 980px,
-    wide:    1300px
+    'mobile':  320px,
+    'tablet':  740px,
+    'desktop': 980px,
+    'wide':    1300px
 ) !default;
 
 /// Static breakpoint (for fixed-width layouts)
@@ -56,7 +56,7 @@ $mq-breakpoints: (
 ///
 /// @type String
 /// @link https://github.com/sass-mq/sass-mq#adding-custom-breakpoints Full documentation and examples
-$mq-static-breakpoint: desktop !default;
+$mq-static-breakpoint: 'desktop' !default;
 
 /// Show breakpoints in the top right corner
 ///
@@ -72,7 +72,7 @@ $mq-show-breakpoints: () !default;
 ///
 /// @type String
 /// @link https://github.com/sass-mq/sass-mq#changing-media-type Full documentation and examples
-$mq-media-type: all !default;
+$mq-media-type: 'all' !default;
 
 /// Convert pixels to ems
 ///
@@ -89,7 +89,7 @@ $mq-media-type: all !default;
     @if (unitless($px)) {
         @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels";
         @return mq-px2em($px + 0px); // That may fail.
-    } @else if (unit($px) == em) {
+    } @else if (unit($px) == 'em') {
         @return $px;
     }
     @return ($px / $base-font-size) * 1em;
@@ -176,7 +176,7 @@ $mq-media-type: all !default;
 
     // From: this breakpoint (inclusive)
     @if $from {
-        @if type-of($from) == number {
+        @if type-of($from) == 'number' {
             $min-width: mq-px2em($from);
         } @else {
             $min-width: mq-px2em(mq-get-breakpoint-width($from, $breakpoints));
@@ -185,7 +185,7 @@ $mq-media-type: all !default;
 
     // Until: that breakpoint (exclusive)
     @if $until {
-        @if type-of($until) == number {
+        @if type-of($until) == 'number' {
             $max-width: mq-px2em($until);
         } @else {
             $max-width: mq-px2em(mq-get-breakpoint-width($until, $breakpoints)) - .01em;
