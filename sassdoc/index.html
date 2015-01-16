@@ -288,10 +288,10 @@
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
     data-expanded="@function mq-px2em($px, $base-font-size: $mq-base-font-size) { 
-    @if (unitless($px)) {
-        @warn &quot;Assuming #{$px} to be in pixels, attempting to convert it into pixels&quot;;
+    @if unitless($px) {
+        @warn &quot;Assuming #{$px} to be in pixels, attempting to convert it into pixels.&quot;;
         @return mq-px2em($px + 0px); // That may fail.
-    } @else if (unit($px) == em) {
+    } @else if unit($px) == em {
         @return $px;
     }
     @return ($px / $base-font-size) * 1em;
@@ -513,7 +513,7 @@
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
     data-expanded="@function mq-get-breakpoint-width($name) { 
-    @if(map-has-key($breakpoints, $name)) {
+    @if map-has-key($breakpoints, $name) {
         @return map-get($breakpoints, $name);
     } @else {
         @warn &quot;Breakpoint #{$name} wasn&#39;t found in $breakpoints.&quot;;
@@ -797,7 +797,7 @@
 
     // Responsive support is disabled, rasterize the output outside @media blocks
     // The browser will rely on the cascade itself.
-    @if ($responsive == false) {
+    @if $responsive == false {
         $static-breakpoint-width: mq-get-breakpoint-width($static-breakpoint, $breakpoints);
         $target-width: mq-px2em($static-breakpoint-width);
         // Output only rules that start at or span our target width
@@ -812,7 +812,11 @@
         @if $max-width != 0 { $media-query: &#39;#{$media-query} and (max-width: #{$max-width})&#39;; }
         @if $and            { $media-query: &#39;#{$media-query} and #{$and}&#39;; }
 
-        $media-query: unquote(#{$media-query});
+        // Remove unnecessary media query prefix &#39;all and &#39;
+        @if ($media-type == &#39;all&#39; and $media-query != &#39;&#39;) {
+            $media-type: &#39;&#39;;
+            $media-query: str-slice(unquote($media-query), 6);
+        }
 
         @media #{$media-type + $media-query} {
             @content;
@@ -1362,6 +1366,7 @@
         color: #C09853;
         font: small-caption;
         padding: 3px 6px;
+        pointer-events: none;
         position: fixed;
         right: 0;
         top: 0;
@@ -1463,7 +1468,7 @@
     
     <pre class="example__code"><code class="language-scss"> // Show breakpoints using global settings
  @include mq-show-breakpoints;
- 
+
  // Show breakpoints using custom settings
  @include mq-show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));</code></pre>
   </div>
@@ -2304,7 +2309,8 @@ to this list, ordered by width, e.g. (mobile, tablet, desktop).</p>
     
   <h3 class="item__sub-heading">Description</h3>
 
-  <div class="item__description"><p>Customize the media type (e.g. <code>@media screen</code> or <code>@media print</code>)<br>By default sass-mq uses an &quot;all&quot; media type (<code>@media all and …</code>)</p>
+  <div class="item__description"><p>Customize the media type (e.g. <code>@media screen</code> or <code>@media print</code>)
+By default sass-mq uses an &quot;all&quot; media type (<code>@media all and …</code>)</p>
 </div>
 
 
