@@ -212,6 +212,10 @@ Then, generate the documentation using:
 
     sassdoc . sassdoc --config .sassdocrc --no-prompt
 
+Generate & deploy the documentation to <http://sass-mq.github.io/sass-mq/>:
+
+./sassdoc.sh
+
 ## Inspired By…
 
 - https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_conditionals.scss
