@@ -11,6 +11,19 @@
     "queries",
     "media"
   ],
+  "ignore": [
+    "test",
+    "sassdoc",
+    "**/.*",
+    "sache.json",
+    "sassdoc.sh",
+    "test.sh"
+  ],
+  "files": [
+    "_mq.scss",
+    "LICENSE.md",
+    "README.md"
+  ],
   "contributors": [
     {
       "name": "Guardian Media Group and Contributors.",
