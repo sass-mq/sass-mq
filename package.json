@@ -1,0 +1,30 @@
+{
+  "name": "sass-mq",
+  "description": "mq() is a Sass mixin that helps manipulating media queries in an elegant way.",
+  "keywords": [
+    "responsive",
+    "sass",
+    "rwd",
+    "mediaquery",
+    "query",
+    "queries",
+    "media"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sass-mq/sass-mq.git"
+  },
+  "author": "Guardian Media Group and contributors",
+  "license": "MIT",
+  "main": "_mq.scss",
+  "style": "_mq.scss",
+  "files": [
+    "_mq.scss",
+    "show-breakpoints.gif",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
