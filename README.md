@@ -12,6 +12,10 @@ and is now also in use at BBC Sport and the Financial Times…_
 
 ## How to Use It
 
+Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq';`.
+
+OR:
+
 1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the web"):
    `bower install sass-mq --save`
    OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss)
