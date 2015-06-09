@@ -18,6 +18,7 @@ OR:
 
 1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the web"):
    `bower install sass-mq --save`
+   OR Install with [npm](https://www.npmjs.com/): `npm install "sass-mq/sass-mq" --save`
    OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss)
    to your Sass project.
 2. Import the partial in your Sass files and override default settings
