@@ -12,12 +12,9 @@ and is now also in use at BBC Sport and the Financial Times…_
 
 ## How to Use It
 
-Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq';`.
-
-OR:
-
 1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the web"):
    `bower install sass-mq --save`
+   OR Install with [npm](https://www.npmjs.com/): `npm install "sass-mq/sass-mq" --save` _it supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
    OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss)
    to your Sass project.
 2. Import the partial in your Sass files and override default settings
@@ -188,15 +185,15 @@ $mq-media-type: screen;
 
 1. run:
     * Ruby Sass *and* LibSass:
-    
+
             ./test.sh
 
     * Ruby Sass
-    
+
             sass test/test.scss test/test.css --force --sourcemap=none --load-path=./
 
     * Libsass (using node-sass)
-    
+
             node-sass test/test.scss test/test.css --force --sourcemap=none --include-path=./
 
 2. there should be a couple of warnings like this one, this is normal:
