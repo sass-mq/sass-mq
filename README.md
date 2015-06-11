@@ -201,12 +201,16 @@ $mq-media-type: screen;
 
             node-sass test/test.scss test/test.css --force --sourcemap=none --include-path=./
 
+    * Libsass (using node-sass) with eyeglass
+
+            node test/eyeglass-test.js
+
 2. there should be a couple of warnings like this one, this is normal:
 
         WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels
          on line 74 of _mq.scss, in `mq'
 
-3. if `git diff test/test.css` shows no changes, tests pass
+3. if `git diff test/[eyeglass-]test.css` shows no changes, tests pass
 
 ## Generate the documentation
 
