@@ -1,0 +1,153 @@
+// A set of breakpoints that includes larger screens than we would
+// normally target with static styles for older browsers.
+$mq-breakpoints: (
+    // Base device classes
+    mobile:     320px,
+    tablet:     640px,
+    desktop:    1024px,
+    widescreen: 1200px,
+    tvscreen:   1920px,
+
+    // Tweakpoints
+    mobileLandscape: 480px
+);
+
+/* Show active breakpoint in top right corner of viewport */
+$mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvscreen);
+
+// Include media query handling
+@import 'sass-mq';
+
+// Styles for responsive and static output, wrapped in a mixin for reuse.
+@mixin styles {
+    // Up to mobile
+    @include mq($until: mobile) {
+        content: "to-mobile";
+    }
+    // From mobile and up
+    @include mq($from: mobile) {
+        content: "from-mobile";
+    }
+    // From mobile to tablet (exclusive)
+    @include mq($from: mobile, $until: tablet) {
+        content: "from-mobile-to-tablet";
+    }
+    // From unitless value
+    @include mq(640) {
+        content: "from-640";
+    }
+    // Up to tablet
+    @include mq($until: tablet) {
+        content: "to-tablet";
+    }
+    // Combine upper limit and custom directive
+    @include mq($until: tablet, $and: '(orientation: landscape)') {
+        content: "to-tablet-and-orientation-landscape";
+    }
+    // From tablet and up
+    @include mq($from: tablet) {
+        content: "from-tablet";
+    }
+    // From tablet to desktop (exclusive)
+    @include mq($from: tablet, $until: desktop) {
+        content: "from-tablet-to-desktop";
+    }
+    // Combine unitless boundaries and custom directive
+    @include mq(768, 1023, $and: '(orientation: portrait)') {
+        content: "from-768-to-1023-and-orientation-portrait";
+    }
+    // From desktop and up
+    @include mq($from: desktop) {
+        content: "from-desktop";
+    }
+    // From em value
+    @include mq($until: 70em) {
+        content: "to-70em";
+    }
+    // To pixel value
+    @include mq($until: 1100px) {
+        content: "to-1100px";
+    }
+    // From desktop to widescreen (exclusive)
+    @include mq($from: desktop, $until: widescreen) {
+        content: "from-desktop-to-widescreen";
+    }
+    // From widescreen and up
+    @include mq($from: widescreen) {
+        content: "from-widescreen";
+    }
+    // From widescreen to tvscreen (exclusive)
+    @include mq($from: widescreen, $until: tvscreen) {
+        content: "from-widescreen-to-tvscreen";
+    }
+    // From tvscreen and up
+    @include mq($from: tvscreen) {
+        content: "from-tvscreen";
+    }
+    // Custom @media query
+    @include mq($and: '(-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 124.8dpi), (min-resolution: 1.3dppx)') {
+        content: "hidpi-screen";
+    }
+    // Empty @media query
+    @include mq() {
+        content: "empty-media-query";
+    }
+    // Add a custom breakpoint
+    @include mq-add-breakpoint(cinema, 4096px);
+    @include mq(cinema) {
+        content: "from-cinema";
+    }
+    @include mq($until: cinema) {
+        content: "to-cinema";
+    }
+    $my-breakpoints: (
+        L: 900px,
+        XL: 1200px
+    );
+    $my-static-breakpoint: L;
+    @include mq($from: L, $breakpoints: $my-breakpoints, $static-breakpoint: $my-static-breakpoint) {
+        content: "custom-breakpoint-list";
+    }
+}
+
+/* Responsive styles for devices that understand media queries */
+.responsive:after {
+    @include styles;
+}
+
+/* Rasterized styles that span or start at the "desktop" breakpoint */
+// (e.g. to serve to IE8 via conditional comments in a separate stylesheet)
+$mq-responsive:        false;
+$mq-static-breakpoint: desktop;
+
+.static:after {
+    @include styles;
+}
+
+.static-forced:after {
+    @include mq(mobile, desktop, $static-breakpoint: tablet, $responsive: false) {
+        content: "Static, forced to tablet";
+    }
+    @include mq(desktop, $static-breakpoint: tablet, $responsive: false) {
+        content: "Should not appear, because out of the bounds of $static-breakpoint";
+    }
+}
+
+/* Only style screen media type */
+$mq-responsive: true;
+$mq-media-type: screen;
+body {
+    @include mq($until: mobile) {
+        font-size: 1rem;
+    }
+    @include mq($until: mobile, $media-type: 'screen, print') {
+        content: "screen-and-print";
+    }
+}
+/* Only style print media type */
+$mq-media-type: print;
+body {
+    @include mq($until: mobile) {
+        font-size: 2rem;
+    }
+}
