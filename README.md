@@ -12,11 +12,16 @@ and is now also in use at BBC Sport and the Financial Times…_
 
 ## How to Use It
 
-1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the web"):
-   `bower install sass-mq --save`
-   OR Install with [npm](https://www.npmjs.com/): `npm install "sass-mq/sass-mq" --save` _it supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
-   OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss)
-   to your Sass project.
+Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq';`.
+
+OR:
+
+1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the web"): `bower install sass-mq --save`
+
+    OR Install with [npm](https://www.npmjs.com/): `npm install "sass-mq/sass-mq" --save` _it supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
+
+    OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss) to your Sass project.
+
 2. Import the partial in your Sass files and override default settings
    with your own preferences before the file is imported:
     ```scss
