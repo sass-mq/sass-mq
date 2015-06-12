@@ -56,6 +56,8 @@ OR:
     $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 
     @import 'path/to/mq';
+    // With eyeglass:
+    // @import 'sass-mq';
     ```
 3. Play around with `mq()` (see below)
 
