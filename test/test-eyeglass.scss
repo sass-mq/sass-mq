@@ -1,0 +1,6 @@
+@import 'before-import';
+
+// Import media query handling as an eyeglass module
+@import 'sass-mq';
+
+@import 'after-import';

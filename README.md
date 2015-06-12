@@ -16,10 +16,12 @@ Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq
 
 OR:
 
-1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the web"):
-   `bower install sass-mq --save`
-   OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss)
-   to your Sass project.
+1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the web"): `bower install sass-mq --save`
+
+    OR Install with [npm](https://www.npmjs.com/): `npm install "sass-mq/sass-mq" --save` _it supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
+
+    OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss) to your Sass project.
+
 2. Import the partial in your Sass files and override default settings
    with your own preferences before the file is imported:
     ```scss
@@ -188,23 +190,27 @@ $mq-media-type: screen;
 
 1. run:
     * Ruby Sass *and* LibSass:
-    
+
             ./test.sh
 
     * Ruby Sass
-    
+
             sass test/test.scss test/test.css --force --sourcemap=none --load-path=./
 
     * Libsass (using node-sass)
-    
+
             node-sass test/test.scss test/test.css --force --sourcemap=none --include-path=./
+
+    * Libsass (using node-sass) with eyeglass
+
+            node test/eyeglass-test.js
 
 2. there should be a couple of warnings like this one, this is normal:
 
         WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels
          on line 74 of _mq.scss, in `mq'
 
-3. if `git diff test/test.css` shows no changes, tests pass
+3. if `git diff test/[eyeglass-]test.css` shows no changes, tests pass
 
 ## Generate the documentation
 
