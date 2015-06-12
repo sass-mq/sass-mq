@@ -160,7 +160,7 @@ be a list of the breakpoints you want to debug, ordered by width.
 The name of the active breakpoint and its pixel and em values will
 then be shown in the top right corner of the viewport.
 
-![$mq-show-breakpoints](show-breakpoints.gif)
+![$mq-show-breakpoints](https://raw.githubusercontent.com/sass-mq/sass-mq/master/show-breakpoints.gif)
 
 ### Changing media type
 
@@ -218,13 +218,13 @@ Generate & deploy the documentation to <http://sass-mq.github.io/sass-mq/>:
 
 ## Inspired By…
 
-- https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_conditionals.scss
-- https://github.com/bits-sass/helpers-responsive/blob/master/_responsive.scss
-- https://gist.github.com/magsout/5978325
+- <https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_conditionals.scss>
+- <https://github.com/bits-sass/helpers-responsive/blob/master/_responsive.scss>
+- <https://gist.github.com/magsout/5978325>
 
 ## On Mobile-first CSS With Legacy Browser Support
 
-- http://jakearchibald.github.io/sass-ie/
-- http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
-- http://cognition.happycog.com/article/fall-back-to-the-cascade
-- http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8
+- <http://jakearchibald.github.io/sass-ie/>
+- <http://nicolasgallagher.com/mobile-first-css-sass-and-ie/>
+- <http://cognition.happycog.com/article/fall-back-to-the-cascade>
+- <http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8>
