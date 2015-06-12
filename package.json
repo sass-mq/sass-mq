@@ -35,9 +35,9 @@
     }
   ],
   "bugs": {
-    "web": "https://github.com/sass-mq/sass-mq/issues"
+    "url": "https://github.com/sass-mq/sass-mq/issues"
   },
-  "repositories": [
+  "repository": [
     {
       "type": "git",
       "url": "https://github.com/sass-mq/sass-mq.git"
@@ -49,5 +49,9 @@
       "url": "http://opensource.org/licenses/MIT"
     }
   ],
-  "homepage": "http://sass-mq.github.io/sass-mq/"
+  "homepage": "http://sass-mq.github.io/sass-mq/",
+  "devDependencies": {
+    "eyeglass": "^0.2.0",
+    "node-sass": "^3.2.0"
+  }
 }
