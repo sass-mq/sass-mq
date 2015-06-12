@@ -35,9 +35,9 @@
     }
   ],
   "bugs": {
-    "web": "https://github.com/sass-mq/sass-mq/issues"
+    "url": "https://github.com/sass-mq/sass-mq/issues"
   },
-  "repositories": [
+  "repository": [
     {
       "type": "git",
       "url": "https://github.com/sass-mq/sass-mq.git"

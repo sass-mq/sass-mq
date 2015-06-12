@@ -4,4 +4,4 @@ script:
   - "./test.sh"
 before_install:
   - gem install sass
-  - "npm install node-sass eyeglass bower -g && bower install sass-mq"
+  - "npm install bower -g && bower install sass-mq && npm install eyeglass node-sass"
