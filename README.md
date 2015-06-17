@@ -12,7 +12,7 @@ and is now also in use at BBC (Homepage, Sport, News) and the Financial Times…
 
 ## How to Use It
 
-Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq';`.
+Immediately play with it on [SassMeister](http://sassmeister.com/): `.@import 'mq';`.
 
 OR:
 
