@@ -11,6 +11,8 @@ way.
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
 - provides fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
 
+Here is a very basic example:
+
 ```scss
 $mq-breakpoints: (
     mobile:  320px,
@@ -19,10 +21,30 @@ $mq-breakpoints: (
     wide:    1300px
 );
 
-@include mq($from: mobile, $to: tablet) {
+@include mq($from: mobile, $until: tablet) {
     .foo {
         background: red;
     }
+}
+@include mq($from: tablet) {
+    .foo {
+        background: green;
+    }
+}
+```
+
+Compiles to:
+
+```scss
+@media (min-width: 20em) and (max-width: 46.24em) {
+  .foo {
+    background: red;
+  }
+}
+@media (min-width: 46.25em) {
+  .foo {
+    background: green;
+  }
 }
 ```
  
