@@ -35,7 +35,7 @@ $mq-breakpoints: (
 
 Compiles to:
 
-```scss
+```css
 @media (min-width: 20em) and (max-width: 46.24em) {
   .foo {
     background: red;
