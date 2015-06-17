@@ -21,6 +21,8 @@ $mq-breakpoints: (
     wide:    1300px
 );
 
+@import 'mq';
+
 .foo {
     @include mq($from: mobile, $until: tablet) {
         background: red;
