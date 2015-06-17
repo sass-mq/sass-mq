@@ -5,7 +5,7 @@
 _`mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
 Stylesheets") mixin that helps you compose media queries in an elegant
 way. It was developed in-house at [the Guardian](http://www.theguardian.com/uk?view=mobile),
-and is now also in use at BBC Sport, BBC News and the Financial Times…_
+and is now also in use at BBC (Homepage, Sport, News) and the Financial Times…_
 
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
 - provides fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
@@ -16,7 +16,7 @@ Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq
 
 OR:
 
-1. Install with [Bower](http://bower.io/ "BOWER: A package manager for the web"): `bower install sass-mq --save`
+1. Install with [Bower](http://bower.io/ "Bower: A package manager for the web"): `bower install sass-mq --save`
 
     OR Install with [npm](https://www.npmjs.com/): `npm install sass-mq --save` _it supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
 
