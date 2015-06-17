@@ -244,3 +244,4 @@ It is now in use at these places:
 - the Financial Times
 - [Stockholm International Fairs and Congress Centre](http://stockholmsmassan.se/?sc_lang=en)
 - [Beyond](https://bynd.com/)
+- [EQ Design](http://eqdesign.co.uk/)
