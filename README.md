@@ -4,8 +4,7 @@
 
 _`mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
 Stylesheets") mixin that helps you compose media queries in an elegant
-way. It was developed in-house at [the Guardian](http://www.theguardian.com/uk?view=mobile),
-and is now also in use at BBC (Homepage, Sport, News) and the Financial Times…_
+way. [See who uses it](#who-uses-sass-mq).
 
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
 - provides fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
@@ -228,3 +227,14 @@ Generate & deploy the documentation to <http://sass-mq.github.io/sass-mq/>:
 - <http://nicolasgallagher.com/mobile-first-css-sass-and-ie/>
 - <http://cognition.happycog.com/article/fall-back-to-the-cascade>
 - <http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8>
+
+## Who uses Sass MQ?
+
+Sass MQ was developed in-house at [the Guardian](http://www.theguardian.com/).
+
+It is now in use at these places:
+- The Guardian
+- BBC (Homepage, Sport, News)
+- the Financial Times
+- [Stockholm International Fairs and Congress Centre](http://stockholmsmassan.se/?sc_lang=en)
+- [Beyond](https://bynd.com/)
