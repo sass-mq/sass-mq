@@ -6,7 +6,7 @@
 
 `mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
 Stylesheets") mixin that helps you compose media queries in an elegant
-way.
+way.  
 [See who uses Sass MQ](#who-uses-sass-mq)
 
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
