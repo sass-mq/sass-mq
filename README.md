@@ -1,4 +1,4 @@
-# Media Queries with superpowers [![Build Status](https://travis-ci.org/sass-mq/sass-mq.svg?branch=master)](https://travis-ci.org/sass-mq/sass-mq)
+# Media Queries with superpowers [![Build Status](https://api.travis-ci.org/sass-mq/sass-mq.svg?branch=master)](https://travis-ci.org/sass-mq/sass-mq)
 
 ![ ](https://avatars3.githubusercontent.com/u/9341289?v=3&s=300)
 
@@ -7,15 +7,31 @@
 `mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
 Stylesheets") mixin that helps you compose media queries in an elegant
 way.  
-[See who uses Sass MQ](#who-uses-sass-mq)
 
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
 - provides fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
 
+```scss
+$mq-breakpoints: (
+    mobile:  320px,
+    tablet:  740px,
+    desktop: 980px,
+    wide:    1300px
+);
+
+@include mq($from: mobile, $to: tablet) {
+    .foo {
+        background: red;
+    }
+}
+```
+ 
+_Sass MQ was crafted in-house at the Guardian. Today, many more companies and developers are using it in their projects: [see who uses Sass MQ](#who-uses-sass-mq)._
+
 ----
 
 
-## How to Use It
+## How to use it
 
 Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq';`.
 
@@ -193,7 +209,7 @@ $mq-media-type: screen;
 }
 ```
 
-## Test
+## Running tests
 
 1. Install dependencies: `npm install`
 2. Ruby Sass, LibSass, and eyeglass integration:
@@ -207,7 +223,7 @@ $mq-media-type: screen;
 
 4. if `git diff test/*.css` shows no changes, tests pass
 
-## Generate the documentation
+## Generating the documentation
 
 Sass MQ is documented using [SassDoc](http://sassdoc.com/):
 
