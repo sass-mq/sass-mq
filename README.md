@@ -2,9 +2,13 @@
 
 ![ ](https://avatars3.githubusercontent.com/u/9341289?v=3&s=300)
 
-_`mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
+----
+
+`mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
 Stylesheets") mixin that helps you compose media queries in an elegant
 way. [See who uses it](#who-uses-sass-mq).
+
+----
 
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
 - provides fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
