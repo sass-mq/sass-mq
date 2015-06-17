@@ -21,13 +21,11 @@ $mq-breakpoints: (
     wide:    1300px
 );
 
-@include mq($from: mobile, $until: tablet) {
-    .foo {
+.foo {
+    @include mq($from: mobile, $until: tablet) {
         background: red;
     }
-}
-@include mq($from: tablet) {
-    .foo {
+    @include mq($from: tablet) {
         background: green;
     }
 }
