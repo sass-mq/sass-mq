@@ -1,16 +1,59 @@
-# Media Queries with superpowers [![Build Status](https://travis-ci.org/sass-mq/sass-mq.svg?branch=master)](https://travis-ci.org/sass-mq/sass-mq)
+# Media Queries with superpowers [![Build Status](https://api.travis-ci.org/sass-mq/sass-mq.svg?branch=master)](https://travis-ci.org/sass-mq/sass-mq)
 
 ![ ](https://avatars3.githubusercontent.com/u/9341289?v=3&s=300)
 
-_`mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
+----
+
+`mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
 Stylesheets") mixin that helps you compose media queries in an elegant
-way. It was developed in-house at [the Guardian](http://www.theguardian.com/uk?view=mobile),
-and is now also in use at BBC (Homepage, Sport, News) and the Financial Times…_
+way.  
 
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
 - provides fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
 
-## How to Use It
+Here is a very basic example:
+
+```scss
+$mq-breakpoints: (
+    mobile:  320px,
+    tablet:  740px,
+    desktop: 980px,
+    wide:    1300px
+);
+
+@import 'mq';
+
+.foo {
+    @include mq($from: mobile, $until: tablet) {
+        background: red;
+    }
+    @include mq($from: tablet) {
+        background: green;
+    }
+}
+```
+
+Compiles to:
+
+```css
+@media (min-width: 20em) and (max-width: 46.24em) {
+  .foo {
+    background: red;
+  }
+}
+@media (min-width: 46.25em) {
+  .foo {
+    background: green;
+  }
+}
+```
+ 
+_Sass MQ was crafted in-house at the Guardian. Today, many more companies and developers are using it in their projects: [see who uses Sass MQ](#who-uses-sass-mq)._
+
+----
+
+
+## How to use it
 
 Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq';`.
 
@@ -188,7 +231,7 @@ $mq-media-type: screen;
 }
 ```
 
-## Test
+## Running tests
 
 1. Install dependencies: `npm install`
 2. Ruby Sass, LibSass, and eyeglass integration:
@@ -202,7 +245,7 @@ $mq-media-type: screen;
 
 4. if `git diff test/*.css` shows no changes, tests pass
 
-## Generate the documentation
+## Generating the documentation
 
 Sass MQ is documented using [SassDoc](http://sassdoc.com/):
 
@@ -228,3 +271,21 @@ Generate & deploy the documentation to <http://sass-mq.github.io/sass-mq/>:
 - <http://nicolasgallagher.com/mobile-first-css-sass-and-ie/>
 - <http://cognition.happycog.com/article/fall-back-to-the-cascade>
 - <http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8>
+
+## Who uses Sass MQ?
+
+Sass MQ was developed in-house at [the Guardian](http://www.theguardian.com/).
+
+These companies and projects use Sass MQ:
+
+- The Guardian
+- BBC (Homepage, Sport, News)
+- The Financial Times
+- [Rightmove](http://www.rightmove.co.uk/)
+- [Stockholm International Fairs and Congress Centre](http://stockholmsmassan.se/?sc_lang=en)
+- [Beyond](https://bynd.com/)
+- [EQ Design](http://eqdesign.co.uk/)
+- [Baseguide](http://basegui.de/)
+- [Base Creative](http://www.basecreative.co.uk/)
+- [Locomotive](http://locomotive.ca/)
+- You? [Open an issue](https://github.com/sass-mq/sass-mq/issues/new?title=My%20company%20uses%20Sass%20MQ&body=Hi,%20we%27re%20using%20Sass%20MQ%20at%20[name%20of%20your%20company]%20and%20we%27d%20like%20to%20be%20mentionned%20in%20the%20README%20of%20the%20project.%20Cheers!)
