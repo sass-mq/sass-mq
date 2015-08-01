@@ -88,7 +88,7 @@ $mq-media-type: all !default;
 @function mq-px2em($px, $base-font-size: $mq-base-font-size) {
     @if unitless($px) {
         @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
-        @return mq-px2em($px + 0px); // That may fail.
+        @return mq-px2em($px * 1px, $base-font-size);
     } @else if unit($px) == em {
         @return $px;
     }
