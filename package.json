@@ -51,7 +51,7 @@
   ],
   "homepage": "http://sass-mq.github.io/sass-mq/",
   "devDependencies": {
-    "eyeglass": "^0.2.0",
+    "eyeglass": "^0.5.0",
     "node-sass": "^3.2.0"
   }
 }

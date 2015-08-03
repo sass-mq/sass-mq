@@ -2,7 +2,7 @@
 
 var fs = require('fs');
 var sass = require('node-sass');
-var Eyeglass = require('eyeglass');
+var Eyeglass = require('eyeglass').Eyeglass;
 
 var sassOptions = {
   file: './test/test-eyeglass.scss'
