@@ -1,8 +1,10 @@
 language: ruby
 sudo: false
-script:
-  - "./test.sh"
-before_install:
+node_js:
+  - "0.12"
+before_script:
   - gem install sass
   - npm install
   - "npm install bower -g && bower install sass-mq"
+script:
+  - "./test.sh"
