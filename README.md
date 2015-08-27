@@ -6,7 +6,7 @@
 
 `mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
 Stylesheets") mixin that helps you compose media queries in an elegant
-way.  
+way.
 
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
 - provides fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
@@ -47,7 +47,7 @@ Compiles to:
   }
 }
 ```
- 
+
 _Sass MQ was crafted in-house at the Guardian. Today, many more companies and developers are using it in their projects: [see who uses Sass MQ](#who-uses-sass-mq)._
 
 ----
@@ -289,3 +289,7 @@ These companies and projects use Sass MQ:
 - [Base Creative](http://www.basecreative.co.uk/)
 - [Locomotive](http://locomotive.ca/)
 - You? [Open an issue](https://github.com/sass-mq/sass-mq/issues/new?title=My%20company%20uses%20Sass%20MQ&body=Hi,%20we%27re%20using%20Sass%20MQ%20at%20[name%20of%20your%20company]%20and%20we%27d%20like%20to%20be%20mentionned%20in%20the%20README%20of%20the%20project.%20Cheers!)
+
+----
+
+Looking for a more advanced sass-mq, with support for height and other niceties? Give a try to [@mcaskill's fork of sass-mq](https://github.com/mcaskill/sass-mq).
