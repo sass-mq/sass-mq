@@ -292,5 +292,5 @@ These companies and projects use Sass MQ:
 
 ----
 
-Looking for a more advanced sass-mq, with support for height and other niceties?
+Looking for a more advanced sass-mq, with support for height and other niceties?  
 Give [@mcaskill's fork of sass-mq](https://github.com/mcaskill/sass-mq) a try.
