@@ -268,7 +268,18 @@ $mq-media-type: all !default;
         // Loop through the breakpoints that should be shown
         @each $show-breakpoint in $show-breakpoints {
             $width: mq-get-breakpoint-width($show-breakpoint, $breakpoints);
-            @include mq($show-breakpoint, $breakpoints: $breakpoints) {
+
+            //Check if orientation is define
+            $orientation: false;
+            @if(str-index(str-slice(to-upper-case($show-breakpoint),-1), "P") != null){
+                $orientation: '(orientation: portrait)';
+            }@else{
+                @if( str-index(str-slice(to-upper-case($show-breakpoint),-1), "L") != null){
+                    $orientation: '(orientation: landscape)'
+                }
+            }
+            
+            @include mq($show-breakpoint, $breakpoints: $breakpoints, $and: $orientation) {
                 content: "#{$show-breakpoint} ≥ #{$width} (#{mq-px2em($width)})";
             }
         }
