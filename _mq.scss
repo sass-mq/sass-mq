@@ -197,8 +197,15 @@ $mq-media-type: all !default;
     @if $responsive == false {
         $static-breakpoint-width: mq-get-breakpoint-width($static-breakpoint, $breakpoints);
         $target-width: mq-px2em($static-breakpoint-width);
+
         // Output only rules that start at or span our target width
-        @if ($and == false and ($min-width <= $target-width) and (($until == false) or ($max-width >= $target-width))) {
+        @if (
+            $and == false
+            and $min-width <= $target-width
+            and (
+                $until == false or $max-width >= $target-width
+            )
+        ) {
             @content;
         }
     }
