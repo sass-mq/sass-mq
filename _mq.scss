@@ -95,6 +95,21 @@ $mq-media-type: all !default;
     @return ($px / $base-font-size) * 1em;
 }
 
+/// Convert a number into the desired width
+/// - By default: converts pixels to ems
+/// - Set your own `@function mq-width-override($number) {}`
+///   to convert from/to other units (rem, px)
+///
+/// @param {Number} $number - e.g.
+/// @requires $mq-base-font-size
+/// @returns {Number}
+@function mq-width($number, $base-font-size: $mq-base-font-size) {
+    @if function-exists(mq-width-override) {
+        @return call(mq-width-override, $number);
+    }
+    @return mq-px2em($number);
+}
+
 /// Get a breakpoint's width
 ///
 /// @param {String} $name - Name of the breakpoint. One of $mq-breakpoints
@@ -130,7 +145,7 @@ $mq-media-type: all !default;
 /// @requires {Variable} $mq-media-type
 /// @requires {Variable} $mq-breakpoints
 /// @requires {Variable} $mq-static-breakpoint
-/// @requires {function} mq-px2em
+/// @requires {function} mq-width
 /// @requires {function} mq-get-breakpoint-width
 ///
 /// @link https://github.com/sass-mq/sass-mq#responsive-mode-on-default Full documentation and examples
@@ -177,18 +192,32 @@ $mq-media-type: all !default;
     // From: this breakpoint (inclusive)
     @if $from {
         @if type-of($from) == number {
-            $min-width: mq-px2em($from);
+            $min-width: mq-width($from);
         } @else {
-            $min-width: mq-px2em(mq-get-breakpoint-width($from, $breakpoints));
+            $min-width: mq-width(mq-get-breakpoint-width($from, $breakpoints));
         }
     }
 
     // Until: that breakpoint (exclusive)
     @if $until {
         @if type-of($until) == number {
-            $max-width: mq-px2em($until);
+            $max-width: mq-width($until);
         } @else {
-            $max-width: mq-px2em(mq-get-breakpoint-width($until, $breakpoints)) - .01em;
+            $max-width: mq-width(mq-get-breakpoint-width($until, $breakpoints));
+
+            // Remove a pixel so that two breakpoints don't overlap
+            // Avoids having both (max-width: 200px) and (min-width: 200px)
+            // at the same time, where rules would trigger altogether.
+            @if unit($max-width) == px {
+                $max-width: $max-width - 1px;
+            } @else if unit($max-width) == rem {
+                // Lower the precision to 1
+                // e.g. 63.99rem -> 63.9rem
+                $max-width: $max-width - 0.1rem;
+            } @else {
+                // Default behaviour: ems
+                $max-width: $max-width - 0.01em;
+            }
         }
     }
 
@@ -196,7 +225,7 @@ $mq-media-type: all !default;
     // The browser will rely on the cascade itself.
     @if $responsive == false {
         $static-breakpoint-width: mq-get-breakpoint-width($static-breakpoint, $breakpoints);
-        $target-width: mq-px2em($static-breakpoint-width);
+        $target-width: mq-width($static-breakpoint-width);
 
         // Output only rules that start at or span our target width
         @if (
@@ -276,7 +305,7 @@ $mq-media-type: all !default;
         @each $show-breakpoint in $show-breakpoints {
             $width: mq-get-breakpoint-width($show-breakpoint, $breakpoints);
             @include mq($show-breakpoint, $breakpoints: $breakpoints) {
-                content: "#{$show-breakpoint} ≥ #{$width} (#{mq-px2em($width)})";
+                content: "#{$show-breakpoint} ≥ #{$width} (#{mq-width($width)})";
             }
         }
     }
