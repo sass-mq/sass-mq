@@ -207,9 +207,8 @@ then be shown in the top right corner of the viewport.
 
 ### Changing media type
 
-By default, `mq()` uses `@media all` for its queries. If you want to
-control this (e.g. to output styles for screens only), you can use the
-`$mq-media-type` config option to change it (defaults to `all`):
+If you want to specify a media type, for example to output styles
+for screens only, set `$mq-media-type`:
 
 #### SCSS
 ```scss
@@ -279,7 +278,7 @@ Sass MQ was developed in-house at [the Guardian](http://www.theguardian.com/).
 These companies and projects use Sass MQ:
 
 - The Guardian
-- BBC (Homepage, Sport, News)
+- BBC (Homepage, Sport, News, Programmes)
 - The Financial Times
 - [Rightmove](http://www.rightmove.co.uk/)
 - [Stockholm International Fairs and Congress Centre](http://stockholmsmassan.se/?sc_lang=en)
