@@ -1,0 +1,9 @@
+@function mq-width-override($px) {
+  @if unitless($px) {
+    @return $px * 1px;
+  }
+  @if unit($px) == em {
+    @return $px / 1em * $mq-base-font-size;
+  }
+  @return $px;
+}

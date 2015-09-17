@@ -1,0 +1,127 @@
+@charset "UTF-8";
+/* Show active breakpoint in top right corner of viewport */
+body:before {
+  background-color: #FCF8E3;
+  border-bottom: 1px solid #FBEED5;
+  border-left: 1px solid #FBEED5;
+  color: #C09853;
+  font: small-caption;
+  padding: 3px 6px;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100; }
+  @media (min-width: 320px) {
+    body:before {
+      content: "mobile ≥ 320px (320px)"; } }
+  @media (min-width: 480px) {
+    body:before {
+      content: "mobileLandscape ≥ 480px (480px)"; } }
+  @media (min-width: 640px) {
+    body:before {
+      content: "tablet ≥ 640px (640px)"; } }
+  @media (min-width: 1024px) {
+    body:before {
+      content: "desktop ≥ 1024px (1024px)"; } }
+  @media (min-width: 1200px) {
+    body:before {
+      content: "widescreen ≥ 1200px (1200px)"; } }
+  @media (min-width: 1920px) {
+    body:before {
+      content: "tvscreen ≥ 1920px (1920px)"; } }
+
+/* Responsive styles for devices that understand media queries */
+@media (max-width: 319px) {
+  .responsive:after {
+    content: "to-mobile"; } }
+@media (min-width: 320px) {
+  .responsive:after {
+    content: "from-mobile"; } }
+@media (min-width: 320px) and (max-width: 639px) {
+  .responsive:after {
+    content: "from-mobile-to-tablet"; } }
+@media (min-width: 640px) {
+  .responsive:after {
+    content: "from-640"; } }
+@media (max-width: 639px) {
+  .responsive:after {
+    content: "to-tablet"; } }
+@media (max-width: 639px) and (orientation: landscape) {
+  .responsive:after {
+    content: "to-tablet-and-orientation-landscape"; } }
+@media (min-width: 640px) {
+  .responsive:after {
+    content: "from-tablet"; } }
+@media (min-width: 640px) and (max-width: 1023px) {
+  .responsive:after {
+    content: "from-tablet-to-desktop"; } }
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  .responsive:after {
+    content: "from-768-to-1023-and-orientation-portrait"; } }
+@media (min-width: 1024px) {
+  .responsive:after {
+    content: "from-desktop"; } }
+@media (max-width: 1120px) {
+  .responsive:after {
+    content: "to-70em"; } }
+@media (max-width: 1100px) {
+  .responsive:after {
+    content: "to-1100px"; } }
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .responsive:after {
+    content: "from-desktop-to-widescreen"; } }
+@media (min-width: 1200px) {
+  .responsive:after {
+    content: "from-widescreen"; } }
+@media (min-width: 1200px) and (max-width: 1919px) {
+  .responsive:after {
+    content: "from-widescreen-to-tvscreen"; } }
+@media (min-width: 1920px) {
+  .responsive:after {
+    content: "from-tvscreen"; } }
+@media (-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 124.8dpi), (min-resolution: 1.3dppx) {
+  .responsive:after {
+    content: "hidpi-screen"; } }
+@media all {
+  .responsive:after {
+    content: "empty-media-query"; } }
+@media (min-width: 4096px) {
+  .responsive:after {
+    content: "from-cinema"; } }
+@media (max-width: 4095px) {
+  .responsive:after {
+    content: "to-cinema"; } }
+@media (min-width: 900px) {
+  .responsive:after {
+    content: "custom-breakpoint-list"; } }
+
+/* Rasterized styles that span or start at the "desktop" breakpoint */
+.static:after {
+  content: "from-mobile";
+  content: "from-640";
+  content: "from-tablet";
+  content: "from-desktop";
+  content: "to-70em";
+  content: "to-1100px";
+  content: "from-desktop-to-widescreen";
+  content: "empty-media-query";
+  content: "to-cinema";
+  content: "custom-breakpoint-list"; }
+
+.static-forced:after {
+  content: "Static, forced to tablet"; }
+
+/* Only style screen media type */
+@media screen and (max-width: 319px) {
+  body {
+    font-size: 1rem; } }
+
+@media screen, print and (max-width: 319px) {
+  body {
+    content: "screen-and-print"; } }
+
+/* Only style print media type */
+@media print and (max-width: 319px) {
+  body {
+    font-size: 2rem; } }
