@@ -2,6 +2,8 @@ language: ruby
 sudo: false
 node_js:
   - "0.12"
+  - "4"
+  - "5"
 before_script:
   - gem install sass
   - npm install
