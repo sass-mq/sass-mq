@@ -25,7 +25,8 @@
     "_mq.scss",
     "eyeglass-exports.js",
     "LICENSE.md",
-    "README.md"
+    "README.md",
+    "sass/index.scss"
   ],
   "contributors": [
     {
