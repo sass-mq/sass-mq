@@ -1,7 +1,7 @@
 {
   "name": "sass-mq",
   "description": "mq() is a Sass mixin that helps manipulating media queries in an elegant way.",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "main": "eyeglass-exports.js",
   "keywords": [
     "responsive",
