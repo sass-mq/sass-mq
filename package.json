@@ -50,6 +50,9 @@
   ],
   "license": "MIT",
   "homepage": "http://sass-mq.github.io/sass-mq/",
+  "eyeglass": {
+    "needs": "^0.7.1"
+  },
   "devDependencies": {
     "eyeglass": "^0.7.1",
     "node-sass": "^3.4.2",
