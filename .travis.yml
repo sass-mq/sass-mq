@@ -6,6 +6,6 @@ node_js:
 before_script:
   - gem install sass
   - npm install
-  - "npm install bower -g && bower install sass-mq/sass-mq#$TRAVIS_BRANCH"
+  - npm install bower -g && bower install sass-mq/sass-mq#$TRAVIS_BRANCH
 script:
   - npm test
