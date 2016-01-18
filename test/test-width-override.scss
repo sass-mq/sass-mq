@@ -1,0 +1,17 @@
+@import 'before-import';
+
+// Override width handling
+@function mq-width-override($px, $base-font-size) {
+  @if unitless($px) {
+    @return $px * 1px;
+  }
+  @if unit($px) == em {
+    @return $px / 1em * $base-font-size;
+  }
+  @return $px;
+}
+
+// Import media query handling as a partial
+@import 'mq';
+
+@import 'after-import';
