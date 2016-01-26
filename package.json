@@ -52,8 +52,7 @@
   "homepage": "http://sass-mq.github.io/sass-mq/",
   "eyeglass": {
     "needs": "^0.8.2",
-    "sassDir": "sass",
-    "name": "mq",
+    "sassDir": "./_mq.scss",
     "exports": false
   },
   "devDependencies": {
