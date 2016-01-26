@@ -7,10 +7,10 @@ DIFF=`git diff --name-only test/*.css`
 
 if [ "$DIFF" ]
 then
-    printf "\n\e[31mWARNING: One or more changes were found in the tests output:\e[0m\n"
+    printf "\n\e[31m! WARNING: One or more changes were found in the tests output:\e[0m\n"
     echo "$DIFF"
     echo "\nRun 'git diff test/*.css' to see what parts of the code are different"
     echo "and make sure these changes are intentional before committing.\n"
 else
-    printf "\n\e[32mSUCCESS: find the compiled output in test/*.css.\e[0m\n"
+    printf "\n\e[32m✔ SUCCESS: files were successfully compiled in the test/ directory.\e[0m\n"
 fi
