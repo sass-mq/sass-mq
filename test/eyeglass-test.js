@@ -2,15 +2,19 @@
 
 var fs = require('fs');
 var sass = require('node-sass');
-var Eyeglass = require('eyeglass').Eyeglass;
+var eyeglass = require('eyeglass');
+var path = require('path');
 
 var sassOptions = {
     file: './test/test-eyeglass.scss'
 };
 
-var eyeglass = new Eyeglass(sassOptions);
+sassOptions.eyeglass = {
+    root: path.join(__dirname, '../'),
+    buildDir: __dirname
+};
 
-sass.render(eyeglass.sassOptions(), function(err, res){
+sass.render(eyeglass(sassOptions), function(err, res){
     if (err) console.log(err);
 
     fs.writeFile('./test/test-eyeglass.css', res.css.toString(), function(err) {

@@ -27,6 +27,7 @@
     "README.md",
     "sass/index.scss"
   ],
+  "main": "_mq.scss",
   "scripts": {
     "test": "./scripts/test.sh",
     "sassdoc": "./scripts/sassdoc.sh"
@@ -52,7 +53,8 @@
   "eyeglass": {
     "needs": "^0.8.2",
     "sassDir": "sass",
-    "name": "mq"
+    "name": "mq",
+    "exports": false
   },
   "devDependencies": {
     "eyeglass": "^0.8.2",
