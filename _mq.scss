@@ -156,7 +156,7 @@ $mq-media-type: all !default;
 ///      color: hotpink;
 ///    }
 ///    // Advanced use:
-///    $my-breakpoints: ( L: 900px, XL: 1200px );
+///    $my-breakpoints: (L: 900px, XL: 1200px);
 ///    @include mq(L, $breakpoints: $my-breakpoints, $static-breakpoint: L) {
 ///      color: hotpink;
 ///    }
