@@ -1,9 +1,9 @@
 #!/bin/sh
-sass test/test.scss test/test.css --load-path 'bower_components/sass-mq' --load-path './'  --sourcemap=none
-node-sass test/test.scss test/test.css --include-path 'bower_components/sass-mq' --include-path './' --sourcemap=none
-node test/eyeglass-test.js
+sass test/test.scss test/output/test.css --load-path 'bower_components/sass-mq' --load-path './'  --sourcemap=none 2>test/output/ruby-sass.log
+node-sass test/test.scss test/output/test.css --include-path 'bower_components/sass-mq' --include-path './' --sourcemap=none 2>test/output/node-sass.log
+node test/eyeglass-test.js 2>test/output/eyeglass.log
 
-DIFF=`git diff --name-only test/*.css`
+DIFF=`git diff --name-only test/output/*.*`
 
 if [ "$DIFF" ]
 then
