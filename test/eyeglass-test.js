@@ -17,8 +17,7 @@ sassOptions.eyeglass = {
 sass.render(eyeglass(sassOptions), function(err, res){
     if (err) console.log(err);
 
-    fs.writeFile('./test/test-eyeglass.css', res.css.toString(), function(err) {
+    fs.writeFile('./test/output/test-eyeglass.css', res.css.toString(), function(err) {
         if (err) console.log(err);
-        console.log('Wrote CSS to ./test/test-eyeglass.css');
     });
 });

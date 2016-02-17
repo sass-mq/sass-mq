@@ -232,31 +232,21 @@ $mq-media-type: screen;
 
 ## Running tests
 
-1. Install dependencies: `npm install`
-2. Ruby Sass, LibSass, and eyeglass integration:
-
-        ./test.sh
-
-3. there should be a couple of warnings like this one, this is normal:
-
-        WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels
-         on line 74 of _mq.scss, in `mq'
-
-4. if `git diff test/*.css` shows no changes, tests pass
+```
+npm test
+```
 
 ## Generating the documentation
 
-Sass MQ is documented using [SassDoc](http://sassdoc.com/):
+Sass MQ is documented using [SassDoc](http://sassdoc.com/).
 
-    npm install -g sassdoc
-
-Then, generate the documentation using:
+Generate the documentation locally:
 
     sassdoc .
 
 Generate & deploy the documentation to <http://sass-mq.github.io/sass-mq/>:
 
-    ./sassdoc.sh
+    npm run sassdoc
 
 ## Inspired By…
 
