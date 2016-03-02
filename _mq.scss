@@ -16,7 +16,7 @@ $mq-base-font-size: 16px !default;
 /// @example scss
 ///  // old-ie.scss
 ///  $mq-responsive: false;
-///  @include 'main'; // @media queries in this file will be rasterized up to $mq-static-breakpoint
+///  @import 'main'; // @media queries in this file will be rasterized up to $mq-static-breakpoint
 ///                   // larger breakpoints will be ignored
 ///
 /// @type Boolean
@@ -51,7 +51,7 @@ $mq-breakpoints: (
 ///  // and fix the styles (e.g. layout) at tablet width
 ///  $mq-responsive: false;
 ///  $mq-static-breakpoint: tablet;
-///  @include 'main'; // @media queries in this file will be rasterized up to tablet
+///  @import 'main'; // @media queries in this file will be rasterized up to tablet
 ///                   // larger breakpoints will be ignored
 ///
 /// @type String
