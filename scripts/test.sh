@@ -1,6 +1,6 @@
 #!/bin/sh
-sass test/test.scss test/output/test.css --load-path 'bower_components/sass-mq' --load-path './'  --sourcemap=none 2>test/output/ruby-sass.log
-node-sass test/test.scss test/output/test.css --include-path 'bower_components/sass-mq' --include-path './' --sourcemap=none 2>test/output/node-sass.log
+sass test/test.scss test/output/test.css --load-path './'  --sourcemap=none 2>test/output/ruby-sass.log
+node-sass test/test.scss test/output/test.css --include-path './' --sourcemap=none 2>test/output/node-sass.log
 node test/eyeglass-test.js 2>test/output/eyeglass.log
 
 DIFF=`git diff --name-only test/output/*.*`
