@@ -35,4 +35,4 @@ WARNING: Assuming 1023 to be in pixels, attempting to convert it into pixels.
 	from line 105 of test/_after-import.scss
 
 [32mRendering Complete, saving .css file...[39m
-[32mWrote CSS to /Users/kdeloumeauprigent/workspace/sass-mq/test/output/test.css[39m
+[32mWrote CSS to /Users/kdeloumeauprigent/workspace/sass-mq/test/output/test-node.css[39m
