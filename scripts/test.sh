@@ -1,6 +1,6 @@
 #!/bin/sh
 sass --update --force test/test.scss:test/output/test-ruby.css --load-path './'  --sourcemap=none 2>test/output/ruby-sass.log
-dart-sass test/test.scss
+dart-sass test/test.scss 1>test/output/test-dart.css 2>test/output/dart-sass.log
 node-sass --force --include-path './' test/test.scss test/output/test-node.css --sourcemap=none 2>test/output/node-sass.log
 node test/eyeglass-test.js 2>test/output/eyeglass.log
 
