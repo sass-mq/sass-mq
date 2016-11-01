@@ -31,12 +31,14 @@ $mq-responsive: true !default;
 ///
 /// @type Map
 /// @link https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint Full documentation and examples
-$mq-breakpoints: (
-    mobile:  320px,
-    tablet:  740px,
-    desktop: 980px,
-    wide:    1300px
-) !default;
+
+// @FIXME Commented for Dart Sass experiment
+// $mq-breakpoints: (
+//     mobile:  320px,
+//     tablet:  740px,
+//     desktop: 980px,
+//     wide:    1300px
+// ) !default;
 
 /// Static breakpoint (for fixed-width layouts)
 ///
@@ -65,7 +67,9 @@ $mq-static-breakpoint: desktop !default;
 /// to this list, ordered by width, e.g. (mobile, tablet, desktop).
 ///
 /// @type map
-$mq-show-breakpoints: () !default;
+
+// @FIXME Commented for Dart Sass experiment
+// $mq-show-breakpoints: () !default;
 
 /// Customize the media type (e.g. `@media screen` or `@media print`)
 /// By default sass-mq uses an "all" media type (`@media all and …`)
@@ -282,6 +286,9 @@ $mq-media-type: all !default;
     }
 }
 
-@if $mq-show-breakpoints != () {
+// @FIXME Somehow outputting this before the next @if statement makes it work
+fakeelement { content: #{length($mq-show-breakpoints)}; }
+
+@if (length($mq-show-breakpoints) > 0) {
     @include mq-show-breakpoints;
 }
