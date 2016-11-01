@@ -282,6 +282,6 @@ $mq-media-type: all !default;
     }
 }
 
-@if length($mq-show-breakpoints) > 0 {
+@if $mq-show-breakpoints != () {
     @include mq-show-breakpoints;
 }
