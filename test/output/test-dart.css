@@ -1,10 +1,6 @@
 @charset "UTF-8";
 /* Show active breakpoint in top right corner of viewport */
 
-fakeelement {
-  content: 6;
-}
-
 body:before {
   background-color: #fcf8e3;
   border-bottom: 1px solid #fbeed5;
