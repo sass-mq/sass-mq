@@ -1,35 +1,35 @@
 WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels.
-         on line 93 of _mq.scss, in `mq'
+         on line 90 of _mq.scss, in `mq'
          from line 17 of test/_after-import.scss, in `styles'
          from line 96 of test/_after-import.scss
          from line 6 of test/test.scss
 
 WARNING: Assuming 768 to be in pixels, attempting to convert it into pixels.
-         on line 93 of _mq.scss, in `mq'
+         on line 90 of _mq.scss, in `mq'
          from line 37 of test/_after-import.scss, in `styles'
          from line 96 of test/_after-import.scss
          from line 6 of test/test.scss
 
 WARNING: Assuming 1023 to be in pixels, attempting to convert it into pixels.
-         on line 93 of _mq.scss, in `mq'
+         on line 90 of _mq.scss, in `mq'
          from line 37 of test/_after-import.scss, in `styles'
          from line 96 of test/_after-import.scss
          from line 6 of test/test.scss
 
 WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels.
-         on line 93 of _mq.scss, in `mq'
+         on line 90 of _mq.scss, in `mq'
          from line 17 of test/_after-import.scss, in `styles'
          from line 105 of test/_after-import.scss
          from line 6 of test/test.scss
 
 WARNING: Assuming 768 to be in pixels, attempting to convert it into pixels.
-         on line 93 of _mq.scss, in `mq'
+         on line 90 of _mq.scss, in `mq'
          from line 37 of test/_after-import.scss, in `styles'
          from line 105 of test/_after-import.scss
          from line 6 of test/test.scss
 
 WARNING: Assuming 1023 to be in pixels, attempting to convert it into pixels.
-         on line 93 of _mq.scss, in `mq'
+         on line 90 of _mq.scss, in `mq'
          from line 37 of test/_after-import.scss, in `styles'
          from line 105 of test/_after-import.scss
          from line 6 of test/test.scss

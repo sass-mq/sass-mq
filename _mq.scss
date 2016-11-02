@@ -31,7 +31,6 @@ $mq-responsive: true !default;
 ///
 /// @type Map
 /// @link https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint Full documentation and examples
-
 $mq-breakpoints: (
     mobile:  320px,
     tablet:  740px,
@@ -66,8 +65,6 @@ $mq-static-breakpoint: desktop !default;
 /// to this list, ordered by width, e.g. (mobile, tablet, desktop).
 ///
 /// @type map
-
-// @FIXME Commented for Dart Sass experiment
 $mq-show-breakpoints: () !default;
 
 /// Customize the media type (e.g. `@media screen` or `@media print`)
@@ -285,6 +282,6 @@ $mq-media-type: all !default;
     }
 }
 
-@if (length($mq-show-breakpoints) > 0) {
+@if length($mq-show-breakpoints) > 0 {
     @include mq-show-breakpoints;
 }
