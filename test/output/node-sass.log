@@ -40,5 +40,3 @@ Backtrace:
 	test/_after-import.scss:37, in mixin `styles`
 	test/_after-import.scss:105
 
-[32mRendering Complete, saving .css file...[39m
-[32mWrote CSS to /Users/kdeloumeauprigent/workspace/sass-mq/test/output/test-node.css[39m
