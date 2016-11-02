@@ -12,6 +12,7 @@ then
     echo "$DIFF"
     echo "\nRun 'git diff test/*.css' to see what parts of the code are different"
     echo "and make sure these changes are intentional before committing.\n"
+    exit 1
 else
     printf "\n\e[32m✔ SUCCESS: files were successfully compiled in the test/ directory.\e[0m\n"
 fi
