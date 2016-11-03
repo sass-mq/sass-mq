@@ -198,10 +198,30 @@ $mq-static-breakpoint: desktop;
 ### Seeing the currently active breakpoint
 
 While developing, it can be nice to always know which breakpoint is
-active. To achieve this, set the `$mq-show-breakpoints` variable to
+active.
+
+To achieve this, set the `$mq-show-breakpoints` variable to
 be a list of the breakpoints you want to debug, ordered by width.
+
+You also need to include the breakpoints Sass in your project by
+using `@include mq-show-breakpoints;`.
+
 The name of the active breakpoint and its pixel and em values will
 then be shown in the top right corner of the viewport.
+
+```scss
+$mq-breakpoints: (
+    phone: 240px,
+    phablet: 480px,
+    tablet: 640px
+);
+
+$mq-show-breakpoints: (phone, phablet, tablet);
+
+@include mq-show-breakpoints;
+```
+
+How it will look:
 
 ![$mq-show-breakpoints](https://raw.githubusercontent.com/sass-mq/sass-mq/master/show-breakpoints.gif)
 
