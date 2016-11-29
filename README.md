@@ -211,6 +211,7 @@ If you want to specify a media type, for example to output styles
 for screens only, set `$mq-media-type`:
 
 #### SCSS
+
 ```scss
 $mq-media-type: screen;
 
@@ -222,6 +223,7 @@ $mq-media-type: screen;
 ```
 
 #### CSS output
+
 ```css
 @media screen and (max-width: 19.99em) {
     .screen-only-element {
@@ -232,7 +234,7 @@ $mq-media-type: screen;
 
 ## Running tests
 
-```
+```sh
 npm test
 ```
 
@@ -242,11 +244,15 @@ Sass MQ is documented using [SassDoc](http://sassdoc.com/).
 
 Generate the documentation locally:
 
-    sassdoc .
+```sh
+sassdoc .
+```
 
 Generate & deploy the documentation to <http://sass-mq.github.io/sass-mq/>:
 
-    npm run sassdoc
+```sh
+npm run sassdoc
+```
 
 ## Inspired By…
 
