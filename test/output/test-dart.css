@@ -1,11 +1,10 @@
 @charset "UTF-8";
 /* Show active breakpoint in top right corner of viewport */
-
 body:before {
-  background-color: #fcf8e3;
-  border-bottom: 1px solid #fbeed5;
-  border-left: 1px solid #fbeed5;
-  color: #c09853;
+  background-color: #FCF8E3;
+  border-bottom: 1px solid #FBEED5;
+  border-left: 1px solid #FBEED5;
+  color: #C09853;
   font: small-caption;
   padding: 3px 6px;
   pointer-events: none;
@@ -46,7 +45,6 @@ body:before {
 }
 
 /* Responsive styles for devices that understand media queries */
-
 @media (max-width: 19.99em) {
   .responsive:after {
     content: "to-mobile";
@@ -154,7 +152,6 @@ body:before {
 }
 
 /* Rasterized styles that span or start at the "desktop" breakpoint */
-
 .static:after {
   content: "from-mobile";
   content: "from-640";
@@ -173,7 +170,6 @@ body:before {
 }
 
 /* Only style screen media type */
-
 @media screen and (max-width: 19.99em) {
   body {
     font-size: 1rem;
@@ -186,10 +182,8 @@ body:before {
 }
 
 /* Only style print media type */
-
 @media print and (max-width: 19.99em) {
   body {
     font-size: 2rem;
   }
 }
-
