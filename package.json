@@ -54,9 +54,9 @@
     "exports": false
   },
   "devDependencies": {
-    "dart-sass": "^1.0.0-alpha.4",
-    "eyeglass": "^1.1.2",
-    "node-sass": "^3.10.1",
+    "dart-sass": "^1.0.0-alpha.5",
+    "eyeglass": "^1.1.4",
+    "node-sass": "^4.0.0",
     "sassdoc": "^2.1.20"
   }
 }

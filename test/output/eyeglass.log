@@ -1,4 +1,4 @@
-The following modules are incompatible with eyeglass 1.1.2:
+The following modules are incompatible with eyeglass 1.1.4:
   sass-mq needed eyeglass ^0.8.2
 WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels.
 Backtrace:
