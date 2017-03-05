@@ -183,6 +183,49 @@ $mq-static-breakpoint: desktop;
 }
 ```
 
+### Verbose and shortand notations
+
+Sometimes you’ll want to be extra verbose (e.g. if you’re developing a
+library based on top of sass-mq), however for readability in a codebase,
+the shorthand notation is recommended.
+
+All of these examples output the exact same thing, and are here for
+reference so you can use the notation that best matches your needs:
+
+```scss
+// Verbose
+@include mq(
+    $from: false,
+    $until: desktop,
+    $and: false,
+    $media-type: $mq-media-type // defaults to 'all'
+) {
+    .foo {}
+}
+
+// Omitting argument names
+@include mq(
+    false,
+    desktop,
+    false,
+    $mq-media-type
+) {
+    .foo {}
+}
+
+// Omitting tailing arguments
+@include mq(false, desktop) {
+    .foo {}
+}
+
+// Recommended
+@include mq($until: desktop) {
+    .foo {}
+}
+```
+
+[See the detailed API documentation](http://sass-mq.github.io/sass-mq/#undefined-mixin-mq)
+
 ### Adding custom breakpoints
 
 ```scss
