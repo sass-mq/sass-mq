@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "sass-mq": "^3.3.2"
+  },
+  "name": "sass-mq",
+  "version": "3.3.2",
+  "description": "mq() is a Sass mixin that helps manipulating media queries in an elegant way.",
+  "main": "_mq.scss"
+}
