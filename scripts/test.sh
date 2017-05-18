@@ -3,6 +3,7 @@ sass --update --force test/test.scss:test/output/test-ruby.css --sourcemap=none 
 dart-sass test/test.scss 1>test/output/test-dart.css 2>test/output/dart-sass.log
 node-sass test/test.scss test/output/test-node.css --sourcemap=none --quiet 2>test/output/node-sass.log
 node test/eyeglass-test.js 2>test/output/eyeglass.log
+diamond c -o test/output/test-diamond.css test/test-diamond.scss 2> test/output/diamond.log
 
 DIFF=`git diff --name-only test/output/*.*`
 
