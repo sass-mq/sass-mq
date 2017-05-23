@@ -78,6 +78,14 @@
     @include mq(cinema) {
         content: "from-cinema";
     }
+    // Add a tiny breakpoint
+    @include mq-add-breakpoint(tiny, 16px);
+    /* #{inspect($mq-breakpoints)} */
+
+    // Add a breakpoint in the middle
+    @include mq-add-breakpoint(middle, 550px);
+    /* #{inspect($mq-breakpoints)} */
+
     @include mq($until: cinema) {
         content: "to-cinema";
     }
