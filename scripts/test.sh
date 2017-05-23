@@ -7,7 +7,7 @@ node test/eyeglass-test.js 2>test/output/eyeglass.log
 # Diamond is compatible with Node.js 4 and up
 # so we exclude the test from running in Node.js 0.12
 if [ "$TRAVIS_NODE_VERSION" != "0.12" ]; then
-    diamond c -o test/output/test-diamond.css test/test-diamond.scss 2> test/output/diamond.log
+    diamond compile --output test/output/test-diamond.css test/test-diamond.scss 2> test/output/diamond.log
 fi
 
 DIFF=`git diff --name-only test/output/*.*`
