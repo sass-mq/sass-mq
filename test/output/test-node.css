@@ -33,8 +33,8 @@ body:before {
 
 /* Responsive styles for devices that understand media queries */
 .responsive:after {
-  /* (mobile: 320px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, mobileLandscape: 480px, cinema: 4096px, tiny: 16px) */
-  /* (mobile: 320px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, mobileLandscape: 480px, cinema: 4096px, tiny: 16px, middle: 550px) */ }
+  /* (tiny: 16px, mobile: 320px, mobileLandscape: 480px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  /* (tiny: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */ }
   @media (max-width: 19.99em) {
     .responsive:after {
       content: "to-mobile"; } }
@@ -109,8 +109,8 @@ body:before {
   content: "to-1100px";
   content: "from-desktop-to-widescreen";
   content: "empty-media-query";
-  /* (mobile: 320px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, mobileLandscape: 480px, cinema: 4096px, tiny: 16px, middle: 550px) */
-  /* (mobile: 320px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, mobileLandscape: 480px, cinema: 4096px, tiny: 16px, middle: 550px) */
+  /* (tiny: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  /* (tiny: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
   content: "to-cinema";
   content: "custom-breakpoint-list"; }
 

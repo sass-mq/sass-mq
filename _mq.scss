@@ -228,6 +228,57 @@ $mq-media-type: all !default;
     }
 }
 
+/// Quick sort
+///
+/// @author Sam Richards
+/// @private
+/// @param {List} $list - List to sort
+/// @returns {List} Sorted List
+@function _mq-quick-sort($list) {
+    $less:  ();
+    $equal: ();
+    $large: ();
+
+    @if length($list) > 1 {
+        $seed: nth($list, ceil(length($list) / 2));
+
+        @each $item in $list {
+            @if ($item == $seed) {
+                $equal: append($equal, $item);
+            } @else if ($item < $seed) {
+                $less: append($less, $item);
+            } @else if ($item > $seed) {
+                $large: append($large, $item);
+            }
+        }
+
+        @return join(join(_mq-quick-sort($less), $equal), _mq-quick-sort($large));
+    }
+
+    @return $list;
+}
+
+/// Sort a map by values (works with numbers only)
+///
+/// @private
+/// @param {Map} $map - Map to sort
+/// @returns {Map} Map sorted by value
+@function _mq-map-sort-by-value($map) {
+    $map-sorted: ();
+    $map-keys: map-keys($map);
+    $map-values: map-values($map);
+    $map-values-sorted: _mq-quick-sort($map-values);
+
+    // Reorder key/value pairs based on key values
+    @each $value in $map-values-sorted {
+        $original-index: index($map-values, $value);
+        $temp: (nth($map-keys, $original-index): nth($map-values, $original-index));
+        $map-sorted: map-merge($map-sorted, $temp);
+    }
+
+    @return $map-sorted;
+}
+
 /// Add a breakpoint
 ///
 /// @param {String} $name - Name of the breakpoint
@@ -241,6 +292,7 @@ $mq-media-type: all !default;
 @mixin mq-add-breakpoint($name, $width) {
     $new-breakpoint: ($name: $width);
     $mq-breakpoints: map-merge($mq-breakpoints, $new-breakpoint) !global;
+    $mq-breakpoints: _mq-map-sort-by-value($mq-breakpoints) !global;
 }
 
 /// Show the active breakpoint in the top right corner of the viewport
