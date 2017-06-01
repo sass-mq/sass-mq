@@ -74,6 +74,13 @@ $mq-show-breakpoints: () !default;
 /// @link https://github.com/sass-mq/sass-mq#changing-media-type Full documentation and examples
 $mq-media-type: all !default;
 
+/// Current context
+///
+/// Map of active queries conditions (from, until, and).
+///
+/// @type map
+$mq-context: ();
+
 /// Convert pixels to ems
 ///
 /// @param {Number} $px - value to convert
@@ -222,9 +229,15 @@ $mq-media-type: all !default;
             $media-query: str-slice(unquote($media-query), 6);
         }
 
+        // Fills in context
+        $mq-context: (from: $from, until: $until, and: $and);
+
         @media #{$media-type + $media-query} {
             @content;
         }
+
+        // Resets context
+        $mq-context: ();
     }
 }
 
