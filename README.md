@@ -98,6 +98,8 @@ OR:
     // If you want to display the currently active breakpoint in the top
     // right corner of your site during development, add the breakpoints
     // to this list, ordered by width, e.g. (mobile, tablet, desktop).
+    // If you append to end of your breakpoint name _L or _P,orientation
+    // will be capture aswell, e.g. (mobile_P, mobile_L, tablet_P).
     $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 
     @import 'path/to/mq';
