@@ -55,7 +55,7 @@ _Sass MQ was crafted in-house at the Guardian. Today, many more companies and de
 
 ## How to use it
 
-Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq';`.
+Immediately play with it on [SassMeister](http://sassmeister.com/): `.@import 'mq';`.
 
 OR:
 
