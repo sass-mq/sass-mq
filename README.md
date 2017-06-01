@@ -117,6 +117,7 @@ OR:
 - `$and`: additional custom directives
 
 Note that `$until` as a keyword is a hard limit i.e. it's breakpoint - 1.
+Also, you can set to false the $from and $until values if needed.
 
 ```scss
 .responsive {
