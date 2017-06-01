@@ -74,6 +74,10 @@ $mq-show-breakpoints: () !default;
 /// @link https://github.com/sass-mq/sass-mq#changing-media-type Full documentation and examples
 $mq-media-type: all !default;
 
+/// Stop using ems
+/// @type Boolean
+$mq-use-units-as-is: false !default;
+
 /// Convert pixels to ems
 ///
 /// @param {Number} $px - value to convert
@@ -91,6 +95,9 @@ $mq-media-type: all !default;
         @return mq-px2em($px * 1px, $base-font-size);
     } @else if unit($px) == em {
         @return $px;
+    }
+    @if ($mq-use-units-as-is) {
+      @return $px;
     }
     @return ($px / $base-font-size) * 1em;
 }
