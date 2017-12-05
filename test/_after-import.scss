@@ -73,18 +73,31 @@
     @include mq() {
         content: "empty-media-query";
     }
-    // Add a custom breakpoint
+
     @include mq-add-breakpoint(cinema, 4096px);
     @include mq(cinema) {
         content: "from-cinema";
     }
-    // Add a tiny breakpoint
-    @include mq-add-breakpoint(tiny, 16px);
-    /* #{inspect($mq-breakpoints)} */
+    /* Added a custom breakpoint: #{inspect($mq-breakpoints)} */
 
-    // Add a breakpoint in the middle
+    @include mq-add-breakpoint(tiny, 16px);
+    /* Added a tiny breakpoint: #{inspect($mq-breakpoints)} */
+
+    @include mq-add-breakpoint(tiny2, 16px);
+    @include mq(tiny2) {
+        content: "from-tiny2";
+    }
+    /* Added a tiny2 breakpoint at a previously added size: #{inspect($mq-breakpoints)} */
+
+    @include mq-add-breakpoint(tablet2, 640px);
+    @include mq(tablet2) {
+        content: "from-tablet2";
+    }
+    /* Added a tablet2 breakpoint at an existing initial size (already in $mq-breakpoints):
+        #{inspect($mq-breakpoints)} */
+
     @include mq-add-breakpoint(middle, 550px);
-    /* #{inspect($mq-breakpoints)} */
+    /* Added a breakpoint in the middle #{inspect($mq-breakpoints)} */
 
     @include mq($until: cinema) {
         content: "to-cinema";
