@@ -1,8 +1,8 @@
 language: node_js
 node_js:
-  - "0.12"
   - "4"
   - "6"
+  - "8"
 before_install:
   - rvm install 2.2.2
 before_script:
