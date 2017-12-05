@@ -271,9 +271,13 @@ $mq-media-type: all !default;
 
     // Reorder key/value pairs based on key values
     @each $value in $map-values-sorted {
-        $original-index: index($map-values, $value);
-        $temp: (nth($map-keys, $original-index): nth($map-values, $original-index));
-        $map-sorted: map-merge($map-sorted, $temp);
+        $index: index($map-values, $value);
+        $key: nth($map-keys, $index);
+        $map-sorted: map-merge($map-sorted, ($key: $value));
+
+        // Unset the value in $map-values to prevent the loop
+        // from finding the same index twice
+        $map-values: set-nth($map-values, $index, 0);
     }
 
     @return $map-sorted;
