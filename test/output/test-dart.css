@@ -46,8 +46,12 @@ body:before {
 
 /* Responsive styles for devices that understand media queries */
 .responsive:after {
-  /* (tiny: 16px, mobile: 320px, mobileLandscape: 480px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* (tiny: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  /* Added a custom breakpoint: (mobile: 320px, mobileLandscape: 480px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  /* Added a tiny breakpoint: (tiny: 16px, mobile: 320px, mobileLandscape: 480px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  /* Added a tiny2 breakpoint at a previously added size: (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  /* Added a tablet2 breakpoint at an existing initial size (already in $mq-breakpoints):
+      (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  /* Added a breakpoint in the middle (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
 }
 @media (max-width: 19.99em) {
   .responsive:after {
@@ -144,6 +148,16 @@ body:before {
     content: "from-cinema";
   }
 }
+@media (min-width: 1em) {
+  .responsive:after {
+    content: "from-tiny2";
+  }
+}
+@media (min-width: 40em) {
+  .responsive:after {
+    content: "from-tablet2";
+  }
+}
 @media (max-width: 255.99em) {
   .responsive:after {
     content: "to-cinema";
@@ -165,8 +179,14 @@ body:before {
   content: "to-1100px";
   content: "from-desktop-to-widescreen";
   content: "empty-media-query";
-  /* (tiny: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* (tiny: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  /* Added a custom breakpoint: (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  /* Added a tiny breakpoint: (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  content: "from-tiny2";
+  /* Added a tiny2 breakpoint at a previously added size: (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  content: "from-tablet2";
+  /* Added a tablet2 breakpoint at an existing initial size (already in $mq-breakpoints):
+      (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  /* Added a breakpoint in the middle (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
   content: "to-cinema";
   content: "custom-breakpoint-list";
 }
