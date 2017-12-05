@@ -10,13 +10,13 @@ if [ "$TRAVIS_NODE_VERSION" != "0.12" ]; then
     diamond compile --output test/output/test-diamond.css test/test-diamond.scss 2> test/output/diamond.log
 fi
 
-DIFF=`git diff --name-only test/output/*.*`
+DIFF=`git diff --name-only test/output`
 
 if [ "$DIFF" ]
 then
     printf "\n\e[31m! WARNING: One or more changes were found in the tests output:\e[0m\n"
     echo "$DIFF"
-    echo "\nRun 'git diff test/*.css' to see what parts of the code are different"
+    echo "\nRun 'git diff test/output' to see what parts of the code are different"
     echo "and make sure these changes are intentional before committing.\n"
     exit 1
 else
