@@ -55,7 +55,6 @@
   },
   "devDependencies": {
     "dart-sass": "^1.0.0-beta.4",
-    "diamondpkg": "^0.10.2",
     "eyeglass": "^1.3.0",
     "node-sass": "^4.7.2",
     "sassdoc": "^2.5.0"

@@ -63,8 +63,6 @@ OR:
 
     OR Install with [npm](https://www.npmjs.com/): `npm install sass-mq --save` _it supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
 
-    OR Install with [diamond](https://diamond.js.org/ "Dependency management built for Sass, Less, and CSS."): `diamond install sass-mq`
-
     OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss) to your Sass project.
 
 2. Import the partial in your Sass files and override default settings
@@ -103,8 +101,6 @@ OR:
     @import 'path/to/mq';
     // With eyeglass:
     // @import 'sass-mq';
-    // With diamond:
-    // @import '~sass-mq';
     ```
 3. Play around with `mq()` (see below)
 
