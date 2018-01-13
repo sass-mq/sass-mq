@@ -4,4 +4,5 @@
 sassdoc _mq.scss sassdoc --config=.sassdocrc
 git add ./sassdoc
 git commit -m "Compile SassDoc"
-git subtree push --prefix sassdoc origin gh-pages
+# git subtree push --prefix sassdoc origin gh-pages
+git push origin `git subtree split --prefix sassdoc master`:gh-pages --force
