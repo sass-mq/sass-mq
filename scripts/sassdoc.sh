@@ -1,8 +1,6 @@
 #!/bin/sh
 # Generate documentation and deploy it to GitHub pages
-# http://sass-mq.github.io/sass-mq/
-sassdoc _mq.scss sassdoc --config=.sassdocrc
-git add ./sassdoc
+# https://sass-mq.github.io/sass-mq/
+sassdoc _mq.scss docs --config=.sassdocrc
+git add ./docs
 git commit -m "Compile SassDoc"
-# git subtree push --prefix sassdoc origin gh-pages
-git push origin `git subtree split --prefix sassdoc master`:gh-pages --force
