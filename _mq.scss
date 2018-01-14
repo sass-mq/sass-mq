@@ -231,7 +231,7 @@ $mq-media-type: all !default;
 /// Quick sort
 ///
 /// @author Sam Richards
-/// @private
+/// @access private
 /// @param {List} $list - List to sort
 /// @returns {List} Sorted List
 @function _mq-quick-sort($list) {
@@ -260,7 +260,7 @@ $mq-media-type: all !default;
 
 /// Sort a map by values (works with numbers only)
 ///
-/// @private
+/// @access private
 /// @param {Map} $map - Map to sort
 /// @returns {Map} Map sorted by value
 @function _mq-map-sort-by-value($map) {
