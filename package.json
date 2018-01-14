@@ -47,7 +47,7 @@
     "url": "https://github.com/sass-mq/sass-mq.git"
   },
   "license": "MIT",
-  "homepage": "http://sass-mq.github.io/sass-mq/",
+  "homepage": "https://sass-mq.github.io/sass-mq/",
   "eyeglass": {
     "needs": ">= 0.8.2",
     "sassDir": "./_mq.scss",
