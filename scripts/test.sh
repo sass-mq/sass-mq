@@ -1,6 +1,8 @@
 #!/bin/sh
 sass --update --force test/test.scss:test/output/test-ruby.css --sourcemap=none 2>test/output/ruby-sass.log
-dart-sass test/test.scss 1>test/output/test-dart.css 2>test/output/dart-sass.log
+# `sass` is an ambiguous binary (could be the gem or the npm package),
+# so we use npx to run it and ensure it's the Dart version of Sass
+npx --ignore-existing --quiet sass ./test/test.scss ./test/output/test-dart.css --no-source-map --no-color --style=expanded 2>test/output/dart-sass.log
 node-sass test/test.scss test/output/test-node.css --sourcemap=none --quiet 2>test/output/node-sass.log
 node test/eyeglass-test.js 2>test/output/eyeglass.log
 
