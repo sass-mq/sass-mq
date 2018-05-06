@@ -1,42 +1,36 @@
 WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels.
-         _mq.scss 90:9                  mq-px2em()
-         _mq.scss 180:25                mq()
-         test/_after-import.scss 17:5   styles()
-         test/_after-import.scss 117:5  @import
-         test/test.scss 6:9             root stylesheet
-         
+    _mq.scss 90:9                  mq-px2em()
+    _mq.scss 180:25                mq()
+    test/_after-import.scss 17:5   styles()
+    test/_after-import.scss 117:5  @import
+    test/test.scss 6:9             root stylesheet
 WARNING: Assuming 768 to be in pixels, attempting to convert it into pixels.
-         _mq.scss 90:9                  mq-px2em()
-         _mq.scss 180:25                mq()
-         test/_after-import.scss 37:5   styles()
-         test/_after-import.scss 117:5  @import
-         test/test.scss 6:9             root stylesheet
-         
+    _mq.scss 90:9                  mq-px2em()
+    _mq.scss 180:25                mq()
+    test/_after-import.scss 37:5   styles()
+    test/_after-import.scss 117:5  @import
+    test/test.scss 6:9             root stylesheet
 WARNING: Assuming 1023 to be in pixels, attempting to convert it into pixels.
-         _mq.scss 90:9                  mq-px2em()
-         _mq.scss 189:25                mq()
-         test/_after-import.scss 37:5   styles()
-         test/_after-import.scss 117:5  @import
-         test/test.scss 6:9             root stylesheet
-         
+    _mq.scss 90:9                  mq-px2em()
+    _mq.scss 189:25                mq()
+    test/_after-import.scss 37:5   styles()
+    test/_after-import.scss 117:5  @import
+    test/test.scss 6:9             root stylesheet
 WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels.
-         _mq.scss 90:9                  mq-px2em()
-         _mq.scss 180:25                mq()
-         test/_after-import.scss 17:5   styles()
-         test/_after-import.scss 126:5  @import
-         test/test.scss 6:9             root stylesheet
-         
+    _mq.scss 90:9                  mq-px2em()
+    _mq.scss 180:25                mq()
+    test/_after-import.scss 17:5   styles()
+    test/_after-import.scss 126:5  @import
+    test/test.scss 6:9             root stylesheet
 WARNING: Assuming 768 to be in pixels, attempting to convert it into pixels.
-         _mq.scss 90:9                  mq-px2em()
-         _mq.scss 180:25                mq()
-         test/_after-import.scss 37:5   styles()
-         test/_after-import.scss 126:5  @import
-         test/test.scss 6:9             root stylesheet
-         
+    _mq.scss 90:9                  mq-px2em()
+    _mq.scss 180:25                mq()
+    test/_after-import.scss 37:5   styles()
+    test/_after-import.scss 126:5  @import
+    test/test.scss 6:9             root stylesheet
 WARNING: Assuming 1023 to be in pixels, attempting to convert it into pixels.
-         _mq.scss 90:9                  mq-px2em()
-         _mq.scss 189:25                mq()
-         test/_after-import.scss 37:5   styles()
-         test/_after-import.scss 126:5  @import
-         test/test.scss 6:9             root stylesheet
-         
+    _mq.scss 90:9                  mq-px2em()
+    _mq.scss 189:25                mq()
+    test/_after-import.scss 37:5   styles()
+    test/_after-import.scss 126:5  @import
+    test/test.scss 6:9             root stylesheet
