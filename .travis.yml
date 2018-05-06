@@ -1,11 +1,13 @@
 language: node_js
 node_js:
+  - "4"
   - "6"
   - "8"
   - "9"
   - "10"
 before_install:
   - rvm install 2.2.2
+  - npm i npx
 before_script:
   - gem install sass
   - npm install
