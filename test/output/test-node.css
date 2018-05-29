@@ -133,6 +133,7 @@ body:before {
 .static-forced:after {
   content: "Static, forced to tablet"; }
 
+/* Do not rasterize print media queries into when $mq-responsive is false */
 /* Only style screen media type */
 @media screen and (max-width: 19.99em) {
   body {

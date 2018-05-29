@@ -135,6 +135,16 @@ $mq-static-breakpoint: desktop;
     }
 }
 
+/* Do not rasterize print media queries into when $mq-responsive is false */
+$mq-responsive: false;
+$mq-media-type: all;
+
+@include mq($media-type: 'print') {
+    .print:after {
+        content: "Should not appear, because print style only";
+    }
+}
+
 /* Only style screen media type */
 $mq-responsive: true;
 $mq-media-type: screen;
