@@ -64,6 +64,10 @@ $mq-static-breakpoint: desktop !default;
 /// right corner of your site during development, add the breakpoints
 /// to this list, ordered by width, e.g. (mobile, tablet, desktop).
 ///
+/// @example scss
+///   $mq-show-breakpoints: (mobile, tablet, desktop);
+///   @import 'path/to/mq';
+///
 /// @type map
 $mq-show-breakpoints: () !default;
 

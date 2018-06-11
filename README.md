@@ -246,6 +246,11 @@ be a list of the breakpoints you want to debug, ordered by width.
 The name of the active breakpoint and its pixel and em values will
 then be shown in the top right corner of the viewport.
 
+```scss
+// Adapt the list to include breakpoint names from your project
+$mq-show-breakpoints: (phone, phablet, tablet);
+```
+
 ![$mq-show-breakpoints](https://raw.githubusercontent.com/sass-mq/sass-mq/master/show-breakpoints.gif)
 
 ### Changing media type
