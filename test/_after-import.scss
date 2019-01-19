@@ -118,7 +118,7 @@
 }
 
 /* Rasterized styles that span or start at the "desktop" breakpoint */
-// (e.g. to serve to IE8 via conditional comments in a separate stylesheet)
+// for example: to serve to IE8 via conditional comments in a separate stylesheet
 $mq-responsive:        false;
 $mq-static-breakpoint: desktop;
 
