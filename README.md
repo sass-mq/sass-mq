@@ -91,12 +91,12 @@ OR:
 
     // Define the breakpoint from the $mq-breakpoints list that should
     // be used as the target width when outputting a static stylesheet
-    // (i.e. when $mq-responsive is set to 'false').
+    // (when $mq-responsive is set to 'false').
     $mq-static-breakpoint: desktop;
 
     // If you want to display the currently active breakpoint in the top
     // right corner of your site during development, add the breakpoints
-    // to this list, ordered by width, e.g. (mobile, tablet, desktop).
+    // to this list, ordered by width. For example: (mobile, tablet, desktop).
     $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 
     // If _mq.scss is in your project:
@@ -189,7 +189,7 @@ $mq-static-breakpoint: desktop;
 
 ### Verbose and shortand notations
 
-Sometimes you’ll want to be extra verbose (e.g. if you’re developing a
+Sometimes you’ll want to be extra verbose (for example, if you’re developing a
 library based on top of sass-mq), however for readability in a codebase,
 the shorthand notation is recommended.
 

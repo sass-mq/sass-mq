@@ -48,7 +48,7 @@ $mq-breakpoints: (
 ///  // tablet-only.scss
 ///  //
 ///  // Ignore all styles above tablet breakpoint,
-///  // and fix the styles (e.g. layout) at tablet width
+///  // and fix the styles (such as the layout) at tablet width
 ///  $mq-responsive: false;
 ///  $mq-static-breakpoint: tablet;
 ///  @import 'main'; // @media queries in this file will be rasterized up to tablet
@@ -62,7 +62,7 @@ $mq-static-breakpoint: desktop !default;
 ///
 /// If you want to display the currently active breakpoint in the top
 /// right corner of your site during development, add the breakpoints
-/// to this list, ordered by width, e.g. (mobile, tablet, desktop).
+/// to this list, ordered by width. For example: (mobile, tablet, desktop).
 ///
 /// @example scss
 ///   $mq-show-breakpoints: (mobile, tablet, desktop);
@@ -71,7 +71,7 @@ $mq-static-breakpoint: desktop !default;
 /// @type map
 $mq-show-breakpoints: () !default;
 
-/// Customize the media type (e.g. `@media screen` or `@media print`)
+/// Customize the media type (for example: `@media screen` or `@media print`)
 /// By default sass-mq uses an "all" media type (`@media all and …`)
 ///
 /// @type String
