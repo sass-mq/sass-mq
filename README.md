@@ -59,11 +59,12 @@ Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq
 
 OR:
 
-1. Install with [Bower](http://bower.io/ "Bower: A package manager for the web"): `bower install sass-mq --save`
+1. Install:
+    - with [Bower](http://bower.io/ "Bower: A package manager for the web"): `bower install sass-mq --save`
+    - with [npm](https://www.npmjs.com/): `npm install sass-mq --save` _supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
+    - with [yarn](https://www.yarnpkg.com/): `yarn add sass-mq` _supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
 
-    OR Install with [npm](https://www.npmjs.com/): `npm install sass-mq --save` _it supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
-
-    OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss) to your Sass project.
+    OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss) into your Sass project.
 
 2. Import the partial in your Sass files and override default settings
    with your own preferences before the file is imported:
@@ -98,9 +99,12 @@ OR:
     // to this list, ordered by width, e.g. (mobile, tablet, desktop).
     $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 
+    // If _mq.scss is in your project:
     @import 'path/to/mq';
     // With eyeglass:
-    // @import 'sass-mq';
+    @import 'sass-mq';
+    // With webpack (and boilerplates such as create-react-app)
+    @import '~sass-mq';
     ```
 3. Play around with `mq()` (see below)
 
