@@ -1,10 +1,6 @@
 @charset "UTF-8"; // Fixes an issue where Ruby locale is not set properly
                   // See https://github.com/sass-mq/sass-mq/pull/10
 
-/// Base font size on the `<body>` element
-/// @type Number (unit)
-$mq-base-font-size: 16px !default;
-
 /// Responsive mode
 ///
 /// Set to `false` to enable support for browsers that do not support @media queries,
@@ -81,22 +77,23 @@ $mq-media-type: all !default;
 /// Convert pixels to ems
 ///
 /// @param {Number} $px - value to convert
-/// @param {Number} $base-font-size ($mq-base-font-size) - `<body>` font size
 ///
 /// @example scss
 ///  $font-size-in-ems: mq-px2em(16px);
 ///  p { font-size: mq-px2em(16px); }
 ///
-/// @requires $mq-base-font-size
 /// @returns {Number}
-@function mq-px2em($px, $base-font-size: $mq-base-font-size) {
+@function mq-px2em($px) {
+    // em values always take 16px as a base font-size when in Media Queries
+    $base-font-size-for-em-media-queries: 16px;
+
     @if unitless($px) {
         @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
-        @return mq-px2em($px * 1px, $base-font-size);
+        @return mq-px2em($px * 1px, $base-font-size-for-em-media-queries);
     } @else if unit($px) == em {
         @return $px;
     }
-    @return ($px / $base-font-size) * 1em;
+    @return ($px / $base-font-size-for-em-media-queries) * 1em;
 }
 
 /// Get a breakpoint's width
