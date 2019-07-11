@@ -6,7 +6,7 @@
 /// Do not override this value, or things will break
 ///
 /// @link https://github.com/sass-mq/sass-mq/issues/122
-/// @deprecated This setting will be removed in sass-mq v4
+/// @deprecated This setting will be removed in sass-mq v6.0.0
 /// @access private
 /// @type Number (unit)
 $mq-base-font-size: 16px !default;
@@ -100,7 +100,7 @@ $mq-media-type: all !default;
         @warn "Overriding $mq-base-font-size will break things, see https://github.com/sass-mq/sass-mq/issues/122.";
     }
     @if ($base-font-size != 16px) {
-        @warn "The $base-font-size argument will be removed in sass-mq v4, as overriding it breaks things, see https://github.com/sass-mq/sass-mq/issues/122.";
+        @warn "The $base-font-size argument will be removed in sass-mq v6.0.0, as overriding it breaks things, see https://github.com/sass-mq/sass-mq/issues/122.";
     }
     @if unitless($px) {
         @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
