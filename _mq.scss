@@ -2,6 +2,12 @@
                   // See https://github.com/sass-mq/sass-mq/pull/10
 
 /// Base font size on the `<body>` element
+///
+/// Do not override this value, or things will break
+///
+/// @link https://github.com/sass-mq/sass-mq/issues/122
+/// @deprecated This setting will be removed in sass-mq v6.0.0
+/// @access private
 /// @type Number (unit)
 $mq-base-font-size: 16px !default;
 
@@ -81,7 +87,7 @@ $mq-media-type: all !default;
 /// Convert pixels to ems
 ///
 /// @param {Number} $px - value to convert
-/// @param {Number} $base-font-size ($mq-base-font-size) - `<body>` font size
+/// @ignore @param {Number} $base-font-size [$mq-base-font-size] - `<body>` font size (deprecated)
 ///
 /// @example scss
 ///  $font-size-in-ems: mq-px2em(16px);
@@ -90,6 +96,12 @@ $mq-media-type: all !default;
 /// @requires $mq-base-font-size
 /// @returns {Number}
 @function mq-px2em($px, $base-font-size: $mq-base-font-size) {
+    @if ($mq-base-font-size != 16px) {
+        @warn "Overriding $mq-base-font-size will break things, see https://github.com/sass-mq/sass-mq/issues/122.";
+    }
+    @if ($base-font-size != 16px) {
+        @warn "The $base-font-size argument will be removed in sass-mq v6.0.0, as overriding it breaks things, see https://github.com/sass-mq/sass-mq/issues/122.";
+    }
     @if unitless($px) {
         @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
         @return mq-px2em($px * 1px, $base-font-size);
@@ -120,14 +132,14 @@ $mq-media-type: all !default;
 
 /// Media Query mixin
 ///
-/// @param {String | Boolean} $from (false) - One of $mq-breakpoints
-/// @param {String | Boolean} $until (false) - One of $mq-breakpoints
-/// @param {String | Boolean} $and (false) - Additional media query parameters
-/// @param {String} $media-type ($mq-media-type) - Media type: screen, print…
+/// @param {String | Boolean} $from [false] - One of $mq-breakpoints
+/// @param {String | Boolean} $until [false] - One of $mq-breakpoints
+/// @param {String | Boolean} $and [false] - Additional media query parameters
+/// @param {String} $media-type [$mq-media-type] - Media type: screen, print…
 ///
 /// @ignore Undocumented API, for advanced use only:
-/// @ignore @param {Map} $breakpoints ($mq-breakpoints)
-/// @ignore @param {String} $static-breakpoint ($mq-static-breakpoint)
+/// @ignore @param {Map} $breakpoints [$mq-breakpoints]
+/// @ignore @param {String} $static-breakpoint [$mq-static-breakpoint]
 ///
 /// @content styling rules, wrapped into a @media query when $responsive is true
 ///
@@ -307,8 +319,8 @@ $mq-media-type: all !default;
 /// Show the active breakpoint in the top right corner of the viewport
 /// @link https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint
 ///
-/// @param {List} $show-breakpoints ($mq-show-breakpoints) - List of breakpoints to show in the top right corner
-/// @param {Map} $breakpoints ($mq-breakpoints) - Breakpoint names and sizes
+/// @param {List} $show-breakpoints [$mq-show-breakpoints] - List of breakpoints to show in the top right corner
+/// @param {Map} $breakpoints [$mq-breakpoints] - Breakpoint names and sizes
 ///
 /// @requires {Variable} $mq-breakpoints
 /// @requires {Variable} $mq-show-breakpoints

@@ -146,3 +146,8 @@ body:before {
 @media print and (max-width: 19.99em) {
   body {
     font-size: 2rem; } }
+
+/* Override $mq-base-font-size (should log a warning) */
+@media print and (min-width: 26.6666666667em) {
+  body {
+    font-size: 2rem; } }
