@@ -46,7 +46,7 @@ WARNING: Overriding $mq-base-font-size will break things, see https://github.com
     test/_after-import.scss 170:5  @import
     test/test.scss 6:9             root stylesheet
 
-WARNING: The $base-font-size argument will be removed in sass-mq v4, as overriding it breaks things, see https://github.com/sass-mq/sass-mq/issues/122.
+WARNING: The $base-font-size argument will be removed in sass-mq v6.0.0, as overriding it breaks things, see https://github.com/sass-mq/sass-mq/issues/122.
     _mq.scss 103:9                 mq-px2em()
     _mq.scss 198:25                mq()
     test/_after-import.scss 170:5  @import
