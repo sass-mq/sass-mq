@@ -56,6 +56,7 @@
   "devDependencies": {
     "eyeglass": "^2.4.1",
     "node-sass": "^4.12.0",
+    "sass": "^1.23.0-module.beta.1",
     "sassdoc": "^2.7.1"
   }
 }

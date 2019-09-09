@@ -8,7 +8,7 @@ before_install:
   - rvm install 2.2.2
   - npm i npx
 before_script:
-  - gem install sass
+  - bundle install
   - npm install
 script:
   - npm test
