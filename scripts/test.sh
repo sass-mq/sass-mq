@@ -1,9 +1,9 @@
-#!/bin/sh
-sass --update --force test/test.scss:test/output/test-ruby.css --sourcemap=none 2>test/output/ruby-sass.log
-# `sass` is an ambiguous binary (could be the gem or the npm package),
-# so we use npx to run it and ensure it's the Dart version of Sass
+#!/bin/bash
+
+bundle exec scss --update --force test/test.scss:test/output/test-ruby.css --sourcemap=none 2>test/output/ruby-sass.log
 npx --ignore-existing --quiet sass ./test/test.scss ./test/output/test-dart.css --no-source-map --no-color --style=expanded 2>test/output/dart-sass.log
-node-sass test/test.scss test/output/test-node.css --sourcemap=none --quiet 2>test/output/node-sass.log
+npx --ignore-existing --quiet sass ./test/test-modules.scss ./test/output/test-dart-modules.css --no-source-map --no-color --style=expanded 2>test/output/dart-sass-modules.log
+npx node-sass test/test.scss test/output/test-node.css --sourcemap=none --quiet 2>test/output/node-sass.log
 node test/eyeglass-test.js 2>test/output/eyeglass.log
 
 DIFF=`git diff --name-only test/output`

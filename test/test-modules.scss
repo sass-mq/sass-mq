@@ -1,0 +1,19 @@
+@use '../mq' as * with (
+    $mq-breakpoints: (
+        // Base device classes
+        mobile:     320px,
+        tablet:     640px,
+        desktop:    1024px,
+        widescreen: 1200px,
+        tvscreen:   1920px,
+
+        // Tweakpoints
+        mobileLandscape: 480px
+    ),
+
+    /* Show active breakpoint in top right corner of viewport */
+    $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvscreen)
+);
+
+
+@import 'after-import';
