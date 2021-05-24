@@ -1,54 +1,184 @@
+Debugger attached.
 WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels.
-         on line 106 of _mq.scss, in function `mq-px2em`
-         from line 196 of _mq.scss, in mixin `mq`
-         from line 17 of test/_after-import.scss, in mixin `styles`
-         from line 117 of test/_after-import.scss
-         from line 6 of test/test-eyeglass.scss
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 196:25                mq()
+    test/_after-import.scss 17:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
 
 WARNING: Assuming 768 to be in pixels, attempting to convert it into pixels.
-         on line 106 of _mq.scss, in function `mq-px2em`
-         from line 196 of _mq.scss, in mixin `mq`
-         from line 37 of test/_after-import.scss, in mixin `styles`
-         from line 117 of test/_after-import.scss
-         from line 6 of test/test-eyeglass.scss
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 196:25                mq()
+    test/_after-import.scss 37:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
 
 WARNING: Assuming 1023 to be in pixels, attempting to convert it into pixels.
-         on line 106 of _mq.scss, in function `mq-px2em`
-         from line 205 of _mq.scss, in mixin `mq`
-         from line 37 of test/_after-import.scss, in mixin `styles`
-         from line 117 of test/_after-import.scss
-         from line 6 of test/test-eyeglass.scss
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 205:25                mq()
+    test/_after-import.scss 37:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Breakpoint widescreen wasn't found in $breakpoints.
+    _mq.scss 129:5                 mq-get-breakpoint-width()
+    _mq.scss 207:34                mq()
+    test/_after-import.scss 53:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Assuming 0 to be in pixels, attempting to convert it into pixels.
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 207:25                mq()
+    test/_after-import.scss 53:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Breakpoint widescreen wasn't found in $breakpoints.
+    _mq.scss 129:5                 mq-get-breakpoint-width()
+    _mq.scss 198:34                mq()
+    test/_after-import.scss 57:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Assuming 0 to be in pixels, attempting to convert it into pixels.
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 198:25                mq()
+    test/_after-import.scss 57:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Breakpoint widescreen wasn't found in $breakpoints.
+    _mq.scss 129:5                 mq-get-breakpoint-width()
+    _mq.scss 198:34                mq()
+    test/_after-import.scss 61:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Assuming 0 to be in pixels, attempting to convert it into pixels.
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 198:25                mq()
+    test/_after-import.scss 61:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Breakpoint tvscreen wasn't found in $breakpoints.
+    _mq.scss 129:5                 mq-get-breakpoint-width()
+    _mq.scss 207:34                mq()
+    test/_after-import.scss 61:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Assuming 0 to be in pixels, attempting to convert it into pixels.
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 207:25                mq()
+    test/_after-import.scss 61:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Breakpoint tvscreen wasn't found in $breakpoints.
+    _mq.scss 129:5                 mq-get-breakpoint-width()
+    _mq.scss 198:34                mq()
+    test/_after-import.scss 65:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Assuming 0 to be in pixels, attempting to convert it into pixels.
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 198:25                mq()
+    test/_after-import.scss 65:5   styles()
+    test/_after-import.scss 117:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
 
 WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels.
-         on line 106 of _mq.scss, in function `mq-px2em`
-         from line 196 of _mq.scss, in mixin `mq`
-         from line 17 of test/_after-import.scss, in mixin `styles`
-         from line 126 of test/_after-import.scss
-         from line 6 of test/test-eyeglass.scss
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 196:25                mq()
+    test/_after-import.scss 17:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
 
 WARNING: Assuming 768 to be in pixels, attempting to convert it into pixels.
-         on line 106 of _mq.scss, in function `mq-px2em`
-         from line 196 of _mq.scss, in mixin `mq`
-         from line 37 of test/_after-import.scss, in mixin `styles`
-         from line 126 of test/_after-import.scss
-         from line 6 of test/test-eyeglass.scss
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 196:25                mq()
+    test/_after-import.scss 37:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
 
 WARNING: Assuming 1023 to be in pixels, attempting to convert it into pixels.
-         on line 106 of _mq.scss, in function `mq-px2em`
-         from line 205 of _mq.scss, in mixin `mq`
-         from line 37 of test/_after-import.scss, in mixin `styles`
-         from line 126 of test/_after-import.scss
-         from line 6 of test/test-eyeglass.scss
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 205:25                mq()
+    test/_after-import.scss 37:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
 
-WARNING: Overriding $mq-base-font-size will break things, see https://github.com/sass-mq/sass-mq/issues/122.
-         on line 100 of _mq.scss, in function `mq-px2em`
-         from line 198 of _mq.scss, in mixin `mq`
-         from line 170 of test/_after-import.scss
-         from line 6 of test/test-eyeglass.scss
+WARNING: Breakpoint widescreen wasn't found in $breakpoints.
+    _mq.scss 129:5                 mq-get-breakpoint-width()
+    _mq.scss 207:34                mq()
+    test/_after-import.scss 53:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
 
-WARNING: The $base-font-size argument will be removed in sass-mq v6.0.0, as overriding it breaks things, see https://github.com/sass-mq/sass-mq/issues/122.
-         on line 103 of _mq.scss, in function `mq-px2em`
-         from line 198 of _mq.scss, in mixin `mq`
-         from line 170 of test/_after-import.scss
-         from line 6 of test/test-eyeglass.scss
+WARNING: Assuming 0 to be in pixels, attempting to convert it into pixels.
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 207:25                mq()
+    test/_after-import.scss 53:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
 
+WARNING: Breakpoint widescreen wasn't found in $breakpoints.
+    _mq.scss 129:5                 mq-get-breakpoint-width()
+    _mq.scss 198:34                mq()
+    test/_after-import.scss 57:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Assuming 0 to be in pixels, attempting to convert it into pixels.
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 198:25                mq()
+    test/_after-import.scss 57:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Breakpoint widescreen wasn't found in $breakpoints.
+    _mq.scss 129:5                 mq-get-breakpoint-width()
+    _mq.scss 198:34                mq()
+    test/_after-import.scss 61:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Assuming 0 to be in pixels, attempting to convert it into pixels.
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 198:25                mq()
+    test/_after-import.scss 61:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Breakpoint tvscreen wasn't found in $breakpoints.
+    _mq.scss 129:5                 mq-get-breakpoint-width()
+    _mq.scss 207:34                mq()
+    test/_after-import.scss 61:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Assuming 0 to be in pixels, attempting to convert it into pixels.
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 207:25                mq()
+    test/_after-import.scss 61:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Breakpoint tvscreen wasn't found in $breakpoints.
+    _mq.scss 129:5                 mq-get-breakpoint-width()
+    _mq.scss 198:34                mq()
+    test/_after-import.scss 65:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+WARNING: Assuming 0 to be in pixels, attempting to convert it into pixels.
+    _mq.scss 106:9                 mq-px2em()
+    _mq.scss 198:25                mq()
+    test/_after-import.scss 65:5   styles()
+    test/_after-import.scss 126:5  @use
+    test/test-eyeglass.scss 6:1    root stylesheet
+
+Waiting for the debugger to disconnect...

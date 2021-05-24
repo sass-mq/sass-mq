@@ -1,57 +1,12 @@
-@charset "UTF-8";
 /* Show active breakpoint in top right corner of viewport */
-body:before {
-  background-color: #FCF8E3;
-  border-bottom: 1px solid #FBEED5;
-  border-left: 1px solid #FBEED5;
-  color: #C09853;
-  font: small-caption;
-  padding: 3px 6px;
-  pointer-events: none;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 100;
-}
-@media (min-width: 20em) {
-  body:before {
-    content: "mobile ≥ 320px (20em)";
-  }
-}
-@media (min-width: 30em) {
-  body:before {
-    content: "mobileLandscape ≥ 480px (30em)";
-  }
-}
-@media (min-width: 40em) {
-  body:before {
-    content: "tablet ≥ 640px (40em)";
-  }
-}
-@media (min-width: 64em) {
-  body:before {
-    content: "desktop ≥ 1024px (64em)";
-  }
-}
-@media (min-width: 75em) {
-  body:before {
-    content: "widescreen ≥ 1200px (75em)";
-  }
-}
-@media (min-width: 120em) {
-  body:before {
-    content: "tvscreen ≥ 1920px (120em)";
-  }
-}
-
 /* Responsive styles for devices that understand media queries */
 .responsive:after {
-  /* Added a custom breakpoint: (mobile: 320px, mobileLandscape: 480px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* Added a tiny breakpoint: (tiny: 16px, mobile: 320px, mobileLandscape: 480px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* Added a tiny2 breakpoint at a previously added size: (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+  /* Added a custom breakpoint: (mobile: 320px, tablet: 740px, desktop: 980px, wide: 1300px, cinema: 4096px) */
+  /* Added a tiny breakpoint: (tiny: 16px, mobile: 320px, tablet: 740px, desktop: 980px, wide: 1300px, cinema: 4096px) */
+  /* Added a tiny2 breakpoint at a previously added size: (tiny: 16px, tiny2: 16px, mobile: 320px, tablet: 740px, desktop: 980px, wide: 1300px, cinema: 4096px) */
   /* Added a tablet2 breakpoint at an existing initial size (already in $mq-breakpoints):
-      (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* Added a breakpoint in the middle (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
+      (tiny: 16px, tiny2: 16px, mobile: 320px, tablet2: 640px, tablet: 740px, desktop: 980px, wide: 1300px, cinema: 4096px) */
+  /* Added a breakpoint in the middle (tiny: 16px, tiny2: 16px, mobile: 320px, middle: 550px, tablet2: 640px, tablet: 740px, desktop: 980px, wide: 1300px, cinema: 4096px) */
 }
 @media (max-width: 19.99em) {
   .responsive:after {
@@ -63,7 +18,7 @@ body:before {
     content: "from-mobile";
   }
 }
-@media (min-width: 20em) and (max-width: 39.99em) {
+@media (min-width: 20em) and (max-width: 46.24em) {
   .responsive:after {
     content: "from-mobile-to-tablet";
   }
@@ -73,22 +28,22 @@ body:before {
     content: "from-640";
   }
 }
-@media (max-width: 39.99em) {
+@media (max-width: 46.24em) {
   .responsive:after {
     content: "to-tablet";
   }
 }
-@media (max-width: 39.99em) and (orientation: landscape) {
+@media (max-width: 46.24em) and (orientation: landscape) {
   .responsive:after {
     content: "to-tablet-and-orientation-landscape";
   }
 }
-@media (min-width: 40em) {
+@media (min-width: 46.25em) {
   .responsive:after {
     content: "from-tablet";
   }
 }
-@media (min-width: 40em) and (max-width: 63.99em) {
+@media (min-width: 46.25em) and (max-width: 61.24em) {
   .responsive:after {
     content: "from-tablet-to-desktop";
   }
@@ -98,7 +53,7 @@ body:before {
     content: "from-768-to-1023-and-orientation-portrait";
   }
 }
-@media (min-width: 64em) {
+@media (min-width: 61.25em) {
   .responsive:after {
     content: "from-desktop";
   }
@@ -113,22 +68,22 @@ body:before {
     content: "to-1100px";
   }
 }
-@media (min-width: 64em) and (max-width: 74.99em) {
+@media (min-width: 61.25em) and (max-width: -0.01em) {
   .responsive:after {
     content: "from-desktop-to-widescreen";
   }
 }
-@media (min-width: 75em) {
+@media (min-width: 0em) {
   .responsive:after {
     content: "from-widescreen";
   }
 }
-@media (min-width: 75em) and (max-width: 119.99em) {
+@media (min-width: 0em) and (max-width: -0.01em) {
   .responsive:after {
     content: "from-widescreen-to-tvscreen";
   }
 }
-@media (min-width: 120em) {
+@media (min-width: 0em) {
   .responsive:after {
     content: "from-tvscreen";
   }
@@ -171,24 +126,127 @@ body:before {
 
 /* Rasterized styles that span or start at the "desktop" breakpoint */
 .static:after {
-  content: "from-mobile";
-  content: "from-640";
-  content: "from-tablet";
-  content: "from-desktop";
-  content: "to-70em";
-  content: "to-1100px";
-  content: "from-desktop-to-widescreen";
-  content: "empty-media-query";
-  /* Added a custom breakpoint: (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* Added a tiny breakpoint: (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  content: "from-tiny2";
-  /* Added a tiny2 breakpoint at a previously added size: (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  content: "from-tablet2";
+  /* Added a custom breakpoint: (tiny: 16px, tiny2: 16px, mobile: 320px, middle: 550px, tablet2: 640px, tablet: 740px, desktop: 980px, wide: 1300px, cinema: 4096px) */
+  /* Added a tiny breakpoint: (tiny: 16px, tiny2: 16px, mobile: 320px, middle: 550px, tablet2: 640px, tablet: 740px, desktop: 980px, wide: 1300px, cinema: 4096px) */
+  /* Added a tiny2 breakpoint at a previously added size: (tiny: 16px, tiny2: 16px, mobile: 320px, middle: 550px, tablet2: 640px, tablet: 740px, desktop: 980px, wide: 1300px, cinema: 4096px) */
   /* Added a tablet2 breakpoint at an existing initial size (already in $mq-breakpoints):
-      (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* Added a breakpoint in the middle (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  content: "to-cinema";
-  content: "custom-breakpoint-list";
+      (tiny: 16px, tiny2: 16px, mobile: 320px, middle: 550px, tablet2: 640px, tablet: 740px, desktop: 980px, wide: 1300px, cinema: 4096px) */
+  /* Added a breakpoint in the middle (tiny: 16px, tiny2: 16px, mobile: 320px, middle: 550px, tablet2: 640px, tablet: 740px, desktop: 980px, wide: 1300px, cinema: 4096px) */
+}
+@media (max-width: 19.99em) {
+  .static:after {
+    content: "to-mobile";
+  }
+}
+@media (min-width: 20em) {
+  .static:after {
+    content: "from-mobile";
+  }
+}
+@media (min-width: 20em) and (max-width: 46.24em) {
+  .static:after {
+    content: "from-mobile-to-tablet";
+  }
+}
+@media (min-width: 40em) {
+  .static:after {
+    content: "from-640";
+  }
+}
+@media (max-width: 46.24em) {
+  .static:after {
+    content: "to-tablet";
+  }
+}
+@media (max-width: 46.24em) and (orientation: landscape) {
+  .static:after {
+    content: "to-tablet-and-orientation-landscape";
+  }
+}
+@media (min-width: 46.25em) {
+  .static:after {
+    content: "from-tablet";
+  }
+}
+@media (min-width: 46.25em) and (max-width: 61.24em) {
+  .static:after {
+    content: "from-tablet-to-desktop";
+  }
+}
+@media (min-width: 48em) and (max-width: 63.9375em) and (orientation: portrait) {
+  .static:after {
+    content: "from-768-to-1023-and-orientation-portrait";
+  }
+}
+@media (min-width: 61.25em) {
+  .static:after {
+    content: "from-desktop";
+  }
+}
+@media (max-width: 70em) {
+  .static:after {
+    content: "to-70em";
+  }
+}
+@media (max-width: 68.75em) {
+  .static:after {
+    content: "to-1100px";
+  }
+}
+@media (min-width: 61.25em) and (max-width: -0.01em) {
+  .static:after {
+    content: "from-desktop-to-widescreen";
+  }
+}
+@media (min-width: 0em) {
+  .static:after {
+    content: "from-widescreen";
+  }
+}
+@media (min-width: 0em) and (max-width: -0.01em) {
+  .static:after {
+    content: "from-widescreen-to-tvscreen";
+  }
+}
+@media (min-width: 0em) {
+  .static:after {
+    content: "from-tvscreen";
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 124.8dpi), (min-resolution: 1.3dppx) {
+  .static:after {
+    content: "hidpi-screen";
+  }
+}
+@media all {
+  .static:after {
+    content: "empty-media-query";
+  }
+}
+@media (min-width: 256em) {
+  .static:after {
+    content: "from-cinema";
+  }
+}
+@media (min-width: 1em) {
+  .static:after {
+    content: "from-tiny2";
+  }
+}
+@media (min-width: 40em) {
+  .static:after {
+    content: "from-tablet2";
+  }
+}
+@media (max-width: 255.99em) {
+  .static:after {
+    content: "to-cinema";
+  }
+}
+@media (min-width: 56.25em) {
+  .static:after {
+    content: "custom-breakpoint-list";
+  }
 }
 
 .static-forced:after {
@@ -196,8 +254,13 @@ body:before {
 }
 
 /* Do not rasterize print media queries into when $mq-responsive is false */
+@media print {
+  .print:after {
+    content: "Should not appear, because print style only";
+  }
+}
 /* Only style screen media type */
-@media screen and (max-width: 19.99em) {
+@media (max-width: 19.99em) {
   body {
     font-size: 1rem;
   }
@@ -209,14 +272,14 @@ body:before {
 }
 
 /* Only style print media type */
-@media print and (max-width: 19.99em) {
+@media (max-width: 19.99em) {
   body {
     font-size: 2rem;
   }
 }
 
 /* Override $mq-base-font-size (should log a warning) */
-@media print and (min-width: 26.6666666667em) {
+@media (min-width: 20em) {
   body {
     font-size: 2rem;
   }

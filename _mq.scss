@@ -1,6 +1,6 @@
+@use 'sass:math';
 @charset "UTF-8"; // Fixes an issue where Ruby locale is not set properly
                   // See https://github.com/sass-mq/sass-mq/pull/10
-
 /// Base font size on the `<body>` element
 ///
 /// Do not override this value, or things will break
@@ -22,7 +22,7 @@ $mq-base-font-size: 16px !default;
 /// @example scss
 ///  // old-ie.scss
 ///  $mq-responsive: false;
-///  @import 'main'; // @media queries in this file will be rasterized up to $mq-static-breakpoint
+///  @use 'main'; // @media queries in this file will be rasterized up to $mq-static-breakpoint
 ///                   // larger breakpoints will be ignored
 ///
 /// @type Boolean
@@ -57,7 +57,7 @@ $mq-breakpoints: (
 ///  // and fix the styles (such as the layout) at tablet width
 ///  $mq-responsive: false;
 ///  $mq-static-breakpoint: tablet;
-///  @import 'main'; // @media queries in this file will be rasterized up to tablet
+///  @use 'main'; // @media queries in this file will be rasterized up to tablet
 ///                   // larger breakpoints will be ignored
 ///
 /// @type String
@@ -72,7 +72,7 @@ $mq-static-breakpoint: desktop !default;
 ///
 /// @example scss
 ///   $mq-show-breakpoints: (mobile, tablet, desktop);
-///   @import 'path/to/mq';
+///   @use 'path/to/mq';
 ///
 /// @type map
 $mq-show-breakpoints: () !default;
@@ -108,7 +108,7 @@ $mq-media-type: all !default;
     } @else if unit($px) == em {
         @return $px;
     }
-    @return ($px / $base-font-size) * 1em;
+    @return (math.div($px, $base-font-size) * 1em);
 }
 
 /// Get a breakpoint's width
@@ -125,9 +125,9 @@ $mq-media-type: all !default;
 @function mq-get-breakpoint-width($name, $breakpoints: $mq-breakpoints) {
     @if map-has-key($breakpoints, $name) {
         @return map-get($breakpoints, $name);
-    } @else {
-        @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
     }
+    @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
+    @return 0;
 }
 
 /// Media Query mixin
@@ -257,7 +257,7 @@ $mq-media-type: all !default;
     $large: ();
 
     @if length($list) > 1 {
-        $seed: nth($list, ceil(length($list) / 2));
+        $seed: nth($list, ceil(math.div(length($list), 2)));
 
         @each $item in $list {
             @if ($item == $seed) {

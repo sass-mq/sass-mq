@@ -21,7 +21,7 @@ $mq-breakpoints: (
     wide:    1300px
 );
 
-@import 'mq';
+@use 'mq';
 
 .foo {
     @include mq($from: mobile, $until: tablet) {
@@ -52,7 +52,7 @@ _Sass MQ was crafted in-house at the Guardian. Today, many more companies and de
 
 ## How to use it
 
-Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq';`.
+Immediately play with it on [SassMeister](http://sassmeister.com/): `@use 'mq';`.
 
 OR:
 
@@ -97,11 +97,11 @@ OR:
     $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 
     // If _mq.scss is in your project:
-    @import 'path/to/mq';
+    @use 'path/to/mq';
     // With eyeglass:
-    @import 'sass-mq';
+    @use 'sass-mq';
     // With webpack (and boilerplates such as create-react-app)
-    @import '~sass-mq';
+    @use '~sass-mq';
     ```
 3. Play around with `mq()` (see below)
 
@@ -345,5 +345,5 @@ These companies and projects use Sass MQ:
 
 ----
 
-Looking for a more advanced sass-mq, with support for height and other niceties?  
+Looking for a more advanced sass-mq, with support for height and other niceties?
 Give [@mcaskill's fork of sass-mq](https://github.com/mcaskill/sass-mq) a try.

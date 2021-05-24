@@ -1,105 +1,105 @@
-
+@use '../mq';
 // Styles for responsive and static output, wrapped in a mixin for reuse.
 @mixin styles {
     // Up to mobile
-    @include mq($until: mobile) {
+    @include mq.mq($until: mobile) {
         content: "to-mobile";
     }
     // From mobile and up
-    @include mq($from: mobile) {
+    @include mq.mq($from: mobile) {
         content: "from-mobile";
     }
     // From mobile to tablet (exclusive)
-    @include mq($from: mobile, $until: tablet) {
+    @include mq.mq($from: mobile, $until: tablet) {
         content: "from-mobile-to-tablet";
     }
     // From unitless value
-    @include mq(640) {
+    @include mq.mq(640) {
         content: "from-640";
     }
     // Up to tablet
-    @include mq($until: tablet) {
+    @include mq.mq($until: tablet) {
         content: "to-tablet";
     }
     // Combine upper limit and custom directive
-    @include mq($until: tablet, $and: '(orientation: landscape)') {
+    @include mq.mq($until: tablet, $and: '(orientation: landscape)') {
         content: "to-tablet-and-orientation-landscape";
     }
     // From tablet and up
-    @include mq($from: tablet) {
+    @include mq.mq($from: tablet) {
         content: "from-tablet";
     }
     // From tablet to desktop (exclusive)
-    @include mq($from: tablet, $until: desktop) {
+    @include mq.mq($from: tablet, $until: desktop) {
         content: "from-tablet-to-desktop";
     }
     // Combine unitless boundaries and custom directive
-    @include mq(768, 1023, $and: '(orientation: portrait)') {
+    @include mq.mq(768, 1023, $and: '(orientation: portrait)') {
         content: "from-768-to-1023-and-orientation-portrait";
     }
     // From desktop and up
-    @include mq($from: desktop) {
+    @include mq.mq($from: desktop) {
         content: "from-desktop";
     }
     // From em value
-    @include mq($until: 70em) {
+    @include mq.mq($until: 70em) {
         content: "to-70em";
     }
     // To pixel value
-    @include mq($until: 1100px) {
+    @include mq.mq($until: 1100px) {
         content: "to-1100px";
     }
     // From desktop to widescreen (exclusive)
-    @include mq($from: desktop, $until: widescreen) {
+    @include mq.mq($from: desktop, $until: widescreen) {
         content: "from-desktop-to-widescreen";
     }
     // From widescreen and up
-    @include mq($from: widescreen) {
+    @include mq.mq($from: widescreen) {
         content: "from-widescreen";
     }
     // From widescreen to tvscreen (exclusive)
-    @include mq($from: widescreen, $until: tvscreen) {
+    @include mq.mq($from: widescreen, $until: tvscreen) {
         content: "from-widescreen-to-tvscreen";
     }
     // From tvscreen and up
-    @include mq($from: tvscreen) {
+    @include mq.mq($from: tvscreen) {
         content: "from-tvscreen";
     }
     // Custom @media query
-    @include mq($and: '(-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 124.8dpi), (min-resolution: 1.3dppx)') {
+    @include mq.mq($and: '(-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 124.8dpi), (min-resolution: 1.3dppx)') {
         content: "hidpi-screen";
     }
     // Empty @media query
-    @include mq() {
+    @include mq.mq() {
         content: "empty-media-query";
     }
 
-    @include mq-add-breakpoint(cinema, 4096px);
-    @include mq(cinema) {
+    @include mq.mq-add-breakpoint(cinema, 4096px);
+    @include mq.mq(cinema) {
         content: "from-cinema";
     }
-    /* Added a custom breakpoint: #{inspect($mq-breakpoints)} */
+    /* Added a custom breakpoint: #{inspect(mq.$mq-breakpoints)} */
 
-    @include mq-add-breakpoint(tiny, 16px);
-    /* Added a tiny breakpoint: #{inspect($mq-breakpoints)} */
+    @include mq.mq-add-breakpoint(tiny, 16px);
+    /* Added a tiny breakpoint: #{inspect(mq.$mq-breakpoints)} */
 
-    @include mq-add-breakpoint(tiny2, 16px);
-    @include mq(tiny2) {
+    @include mq.mq-add-breakpoint(tiny2, 16px);
+    @include mq.mq(tiny2) {
         content: "from-tiny2";
     }
-    /* Added a tiny2 breakpoint at a previously added size: #{inspect($mq-breakpoints)} */
+    /* Added a tiny2 breakpoint at a previously added size: #{inspect(mq.$mq-breakpoints)} */
 
-    @include mq-add-breakpoint(tablet2, 640px);
-    @include mq(tablet2) {
+    @include mq.mq-add-breakpoint(tablet2, 640px);
+    @include mq.mq(tablet2) {
         content: "from-tablet2";
     }
     /* Added a tablet2 breakpoint at an existing initial size (already in $mq-breakpoints):
-        #{inspect($mq-breakpoints)} */
+        #{inspect(mq.$mq-breakpoints)} */
 
-    @include mq-add-breakpoint(middle, 550px);
-    /* Added a breakpoint in the middle #{inspect($mq-breakpoints)} */
+    @include mq.mq-add-breakpoint(middle, 550px);
+    /* Added a breakpoint in the middle #{inspect(mq.$mq-breakpoints)} */
 
-    @include mq($until: cinema) {
+    @include mq.mq($until: cinema) {
         content: "to-cinema";
     }
     $my-breakpoints: (
@@ -107,7 +107,7 @@
         XL: 1200px
     );
     $my-static-breakpoint: L;
-    @include mq($from: L, $breakpoints: $my-breakpoints, $static-breakpoint: $my-static-breakpoint) {
+    @include mq.mq($from: L, $breakpoints: $my-breakpoints, $static-breakpoint: $my-static-breakpoint) {
         content: "custom-breakpoint-list";
     }
 }
@@ -127,10 +127,10 @@ $mq-static-breakpoint: desktop;
 }
 
 .static-forced:after {
-    @include mq(mobile, desktop, $static-breakpoint: tablet, $responsive: false) {
+    @include mq.mq(mobile, desktop, $static-breakpoint: tablet, $responsive: false) {
         content: "Static, forced to tablet";
     }
-    @include mq(desktop, $static-breakpoint: tablet, $responsive: false) {
+    @include mq.mq(desktop, $static-breakpoint: tablet, $responsive: false) {
         content: "Should not appear, because out of the bounds of $static-breakpoint";
     }
 }
@@ -139,7 +139,7 @@ $mq-static-breakpoint: desktop;
 $mq-responsive: false;
 $mq-media-type: all;
 
-@include mq($media-type: 'print') {
+@include mq.mq($media-type: 'print') {
     .print:after {
         content: "Should not appear, because print style only";
     }
@@ -149,17 +149,17 @@ $mq-media-type: all;
 $mq-responsive: true;
 $mq-media-type: screen;
 body {
-    @include mq($until: mobile) {
+    @include mq.mq($until: mobile) {
         font-size: 1rem;
     }
-    @include mq($until: mobile, $media-type: 'screen, print') {
+    @include mq.mq($until: mobile, $media-type: 'screen, print') {
         content: "screen-and-print";
     }
 }
 /* Only style print media type */
 $mq-media-type: print;
 body {
-    @include mq($until: mobile) {
+    @include mq.mq($until: mobile) {
         font-size: 2rem;
     }
 }
@@ -167,7 +167,7 @@ body {
 /* Override $mq-base-font-size (should log a warning) */
 $mq-base-font-size: 12px;
 body {
-    @include mq(mobile) {
+    @include mq.mq(mobile) {
         font-size: 2rem;
     }
 }

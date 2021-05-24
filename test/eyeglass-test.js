@@ -1,7 +1,7 @@
 'use strict';
 
 var fs = require('fs');
-var sass = require('node-sass');
+var sass = require('sass');
 var eyeglass = require('eyeglass');
 var path = require('path');
 
