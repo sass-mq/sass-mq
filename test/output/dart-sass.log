@@ -1,3 +1,19 @@
+DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($px, $base-font-size)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+111 │     @return ($px / $base-font-size) * 1em;
+    │              ^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    _mq.scss 111:14     mq-px2em()
+    _mq.scss 198:25     mq()
+    _mq.scss 351:13     mq-show-breakpoints()
+    _mq.scss 359:5      @import
+    test/test.scss 4:9  root stylesheet
+
 WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels.
     _mq.scss 106:9                 mq-px2em()
     _mq.scss 196:25                mq()
@@ -16,6 +32,23 @@ WARNING: Assuming 1023 to be in pixels, attempting to convert it into pixels.
     _mq.scss 106:9                 mq-px2em()
     _mq.scss 205:25                mq()
     test/_after-import.scss 37:5   styles()
+    test/_after-import.scss 117:5  @import
+    test/test.scss 6:9             root stylesheet
+
+DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div(length($list), 2)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+260 │         $seed: nth($list, ceil(length($list) / 2));
+    │                                ^^^^^^^^^^^^^^^^^
+    ╵
+    _mq.scss 260:32                -mq-quick-sort()
+    _mq.scss 287:25                -mq-map-sort-by-value()
+    _mq.scss 316:22                mq-add-breakpoint()
+    test/_after-import.scss 77:5   styles()
     test/_after-import.scss 117:5  @import
     test/test.scss 6:9             root stylesheet
 

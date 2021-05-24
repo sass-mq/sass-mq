@@ -54,8 +54,8 @@
     "exports": false
   },
   "devDependencies": {
-    "eyeglass": "^2.4.1",
-    "node-sass": "^4.12.0",
-    "sassdoc": "^2.7.1"
+    "eyeglass": "^3.0.3",
+    "node-sass": "^6.0.0",
+    "sassdoc": "^2.7.3"
   }
 }
