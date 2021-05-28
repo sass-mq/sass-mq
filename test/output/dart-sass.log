@@ -1,54 +1,54 @@
 WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels.
-    _mq.scss 106:9                 mq-px2em()
-    _mq.scss 196:25                mq()
+    _mq.scss 108:9                 mq-px2em()
+    _mq.scss 198:25                mq()
     test/_after-import.scss 17:5   styles()
     test/_after-import.scss 117:5  @import
     test/test.scss 6:9             root stylesheet
 
 WARNING: Assuming 768 to be in pixels, attempting to convert it into pixels.
-    _mq.scss 106:9                 mq-px2em()
-    _mq.scss 196:25                mq()
+    _mq.scss 108:9                 mq-px2em()
+    _mq.scss 198:25                mq()
     test/_after-import.scss 37:5   styles()
     test/_after-import.scss 117:5  @import
     test/test.scss 6:9             root stylesheet
 
 WARNING: Assuming 1023 to be in pixels, attempting to convert it into pixels.
-    _mq.scss 106:9                 mq-px2em()
-    _mq.scss 205:25                mq()
+    _mq.scss 108:9                 mq-px2em()
+    _mq.scss 207:25                mq()
     test/_after-import.scss 37:5   styles()
     test/_after-import.scss 117:5  @import
     test/test.scss 6:9             root stylesheet
 
 WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels.
-    _mq.scss 106:9                 mq-px2em()
-    _mq.scss 196:25                mq()
+    _mq.scss 108:9                 mq-px2em()
+    _mq.scss 198:25                mq()
     test/_after-import.scss 17:5   styles()
     test/_after-import.scss 126:5  @import
     test/test.scss 6:9             root stylesheet
 
 WARNING: Assuming 768 to be in pixels, attempting to convert it into pixels.
-    _mq.scss 106:9                 mq-px2em()
-    _mq.scss 196:25                mq()
+    _mq.scss 108:9                 mq-px2em()
+    _mq.scss 198:25                mq()
     test/_after-import.scss 37:5   styles()
     test/_after-import.scss 126:5  @import
     test/test.scss 6:9             root stylesheet
 
 WARNING: Assuming 1023 to be in pixels, attempting to convert it into pixels.
-    _mq.scss 106:9                 mq-px2em()
-    _mq.scss 205:25                mq()
+    _mq.scss 108:9                 mq-px2em()
+    _mq.scss 207:25                mq()
     test/_after-import.scss 37:5   styles()
     test/_after-import.scss 126:5  @import
     test/test.scss 6:9             root stylesheet
 
 WARNING: Overriding $mq-base-font-size will break things, see https://github.com/sass-mq/sass-mq/issues/122.
-    _mq.scss 100:9                 mq-px2em()
-    _mq.scss 198:25                mq()
+    _mq.scss 102:9                 mq-px2em()
+    _mq.scss 200:25                mq()
     test/_after-import.scss 170:5  @import
     test/test.scss 6:9             root stylesheet
 
 WARNING: The $base-font-size argument will be removed in sass-mq v6.0.0, as overriding it breaks things, see https://github.com/sass-mq/sass-mq/issues/122.
-    _mq.scss 103:9                 mq-px2em()
-    _mq.scss 198:25                mq()
+    _mq.scss 105:9                 mq-px2em()
+    _mq.scss 200:25                mq()
     test/_after-import.scss 170:5  @import
     test/test.scss 6:9             root stylesheet
 
