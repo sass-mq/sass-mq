@@ -1,0 +1,41 @@
+@use 'true' as *;
+@use '_mq' as mq;
+
+
+// TEST MIXIN
+@include describe('mq-get-breakpoint-width [function]') {
+  @include it('should return the value of a default breakpoint') {
+    @include assert-equal(
+        mq.mq-get-breakpoint-width('mobile'),
+        320px,
+        'mobile keyword is defined in breakpoints map'
+    );
+  }
+
+  @include it('should throw a warn and return null if name is not set in breakpoints map') {
+    @include assert-equal(
+        mq.mq-get-breakpoint-width('noName'),
+        null
+    );
+  }
+
+  @include describe('given custom breakpoints ') {
+    @include it('should return the value of a custom breakpoint') {
+
+        $custom-breakpoints: (
+            vga: 640px,
+            svga: 800px,
+            xga:  1024px,
+            uxga:  1600px,
+        );
+
+        @include assert-equal(
+            mq.mq-get-breakpoint-width('svga',$custom-breakpoints),
+            800px
+        );
+    }
+  }
+
+}
+
+
