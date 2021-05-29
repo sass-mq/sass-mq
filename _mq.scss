@@ -1,18 +1,5 @@
 @use "sass:math";
-
-@charset "UTF-8"; // Fixes an issue where Ruby locale is not set properly
-                  // See https://github.com/sass-mq/sass-mq/pull/10
-
-/// Base font size on the `<body>` element
-///
-/// Do not override this value, or things will break
-///
-/// @link https://github.com/sass-mq/sass-mq/issues/122
-/// @deprecated This setting will be removed in sass-mq v6.0.0
-/// @access private
-/// @type Number (unit)
-$mq-base-font-size: 16px !default;
-
+@use "sass:map";
 /// Responsive mode
 ///
 /// Set to `false` to enable support for browsers that do not support @media queries,
@@ -89,28 +76,21 @@ $mq-media-type: all !default;
 /// Convert pixels to ems
 ///
 /// @param {Number} $px - value to convert
-/// @ignore @param {Number} $base-font-size [$mq-base-font-size] - `<body>` font size (deprecated)
 ///
 /// @example scss
 ///  $font-size-in-ems: mq-px2em(16px);
 ///  p { font-size: mq-px2em(16px); }
 ///
-/// @requires $mq-base-font-size
 /// @returns {Number}
-@function mq-px2em($px, $base-font-size: $mq-base-font-size) {
-    @if ($mq-base-font-size != 16px) {
-        @warn "Overriding $mq-base-font-size will break things, see https://github.com/sass-mq/sass-mq/issues/122.";
-    }
-    @if ($base-font-size != 16px) {
-        @warn "The $base-font-size argument will be removed in sass-mq v6.0.0, as overriding it breaks things, see https://github.com/sass-mq/sass-mq/issues/122.";
-    }
+
+@function mq-px2em($px) {
     @if unitless($px) {
         @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
-        @return mq-px2em($px * 1px, $base-font-size);
+        @return mq-px2em($px * 1px, 16px);
     } @else if unit($px) == em {
         @return $px;
     }
-    @return math.div($px, $base-font-size) * 1em;
+    @return math.div($px, 16px) * 1em;
 }
 
 /// Get a breakpoint's width
@@ -125,11 +105,13 @@ $mq-media-type: all !default;
 ///
 /// @returns {Number} Value in pixels
 @function mq-get-breakpoint-width($name, $breakpoints: $mq-breakpoints) {
-    @if map-has-key($breakpoints, $name) {
-        @return map-get($breakpoints, $name);
+    @if map.has-key($breakpoints, $name) {
+        @return map.get($breakpoints, $name);
     } @else {
         @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
+        @return null;
     }
+
 }
 
 /// Media Query mixin
