@@ -24,7 +24,8 @@ This is a major version bump
 * Division , now we use sass:math.div(...) instead of ` / `
 * `mq-get-breakpoint-width` added return when no key found ( a function must always return something)
 * change all `map-*` global function in favor of  built-in module `map.*` (ie map-keys() Vs map.keys())
-*  `mq-px2em` remove param `$base-font-size` and set value to 16px
+*  `mq-px2em` remove param `$base-font-size` and set value to 16px.
+*  change `unit` in favor of  (https://sass-lang.com/documentation/modules/math). It look that this function is intended for debugging; its output format is not guaranteed to be consistent across Sass versions or implementations.
 
 
 

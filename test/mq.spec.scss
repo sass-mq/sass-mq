@@ -1,9 +1,7 @@
 @use 'true' as *;
 @use '_mq' as mq;
 
-
-// TEST MIXIN
-@include describe('mq-get-breakpoint-width [function]') {
+@include describe('[function] mq-get-breakpoint-width') {
   @include it('should return the value of a default breakpoint') {
     @include assert-equal(
         mq.mq-get-breakpoint-width('mobile'),
@@ -37,5 +35,26 @@
   }
 
 }
+
+@include describe('[function] mq-px2em') {
+    @include describe('Given a unitless param'){
+        @include it('should throw a warn and return value converted in em') {
+            @include assert-equal(
+                mq.mq-px2em(16),
+                1em,
+            );
+        }
+    }
+    @include describe('Given a px param'){
+        @include it('should return value converted in em') {
+            @include assert-equal(
+                mq.mq-px2em(16px),
+                1em,
+            );
+        }
+    }
+
+
+};
 
 
