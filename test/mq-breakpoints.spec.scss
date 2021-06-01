@@ -5,13 +5,9 @@ $custom-breakpoints: (
             uxga:  1600px,
         );
 
-
 @use 'true' as *;
 @use '_mq' as mq with ($mq-breakpoints : $custom-breakpoints);
 @use 'sass:meta';
-
-
-
 
 @include describe('[variable] $mq-breakpoints') {
     @include describe('Given new values to override $mq-breakpoints') {
