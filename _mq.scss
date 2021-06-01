@@ -51,8 +51,7 @@ $mq-media-type: all !default;
     @if math.is-unitless($px) {
         @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
         @return mq-px2em($px * 1px);
-        // TODO change unit in favor of srting or something else like math.compatible(2px, 1px)
-    } @else if unit($px) == em {
+    } @else if math.compatible($px, 1em) == em {
         @return $px;
     }
     @return math.div($px, 16px) * 1em;
