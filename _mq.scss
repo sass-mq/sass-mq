@@ -1,5 +1,6 @@
 @use "sass:math";
 @use "sass:map";
+@use "sass:list";
 
 /// Breakpoint list
 ///
@@ -180,15 +181,15 @@ $mq-media-type: all !default;
     $large: ();
 
     @if length($list) > 1 {
-        $seed: nth($list, ceil(math.div(length($list), 2)));
+        $seed: list.nth($list, math.ceil(math.div(length($list), 2)));
 
         @each $item in $list {
             @if ($item == $seed) {
-                $equal: append($equal, $item);
+                $equal: list.append($equal, $item);
             } @else if ($item < $seed) {
-                $less: append($less, $item);
+                $less: list.append($less, $item);
             } @else if ($item > $seed) {
-                $large: append($large, $item);
+                $large: list.append($large, $item);
             }
         }
 
@@ -205,19 +206,19 @@ $mq-media-type: all !default;
 /// @returns {Map} Map sorted by value
 @function _mq-map-sort-by-value($map) {
     $map-sorted: ();
-    $map-keys: map-keys($map);
-    $map-values: map-values($map);
+    $map-keys: map.keys($map);
+    $map-values: map.values($map);
     $map-values-sorted: _mq-quick-sort($map-values);
 
     // Reorder key/value pairs based on key values
     @each $value in $map-values-sorted {
         $index: index($map-values, $value);
-        $key: nth($map-keys, $index);
+        $key: list.nth($map-keys, $index);
         $map-sorted: map-merge($map-sorted, ($key: $value));
 
         // Unset the value in $map-values to prevent the loop
         // from finding the same index twice
-        $map-values: set-nth($map-values, $index, 0);
+        $map-values: list.set-nth($map-values, $index, 0);
     }
 
     @return $map-sorted;
@@ -235,7 +236,7 @@ $mq-media-type: all !default;
 ///  @include mq(tvscreen) {}
 @mixin mq-add-breakpoint($name, $width) {
     $new-breakpoint: ($name: $width);
-    $mq-breakpoints: map-merge($mq-breakpoints, $new-breakpoint) !global;
+    $mq-breakpoints: map.merge($mq-breakpoints, $new-breakpoint) !global;
     $mq-breakpoints: _mq-map-sort-by-value($mq-breakpoints) !global;
 }
 
@@ -254,7 +255,6 @@ $mq-media-type: all !default;
 ///
 ///  // Show breakpoints using custom settings
 ///  @include mq-show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));
-
 @mixin mq-show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) {
     body:before {
         background-color: #FCF8E3;
@@ -279,6 +279,6 @@ $mq-media-type: all !default;
     }
 }
 
-@if length($mq-show-breakpoints) > 0 {
+@if list.length($mq-show-breakpoints) > 0 {
     @include mq-show-breakpoints;
 }
