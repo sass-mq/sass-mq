@@ -1,223 +1,31 @@
-@charset "UTF-8";
-/* Show active breakpoint in top right corner of viewport */
-body:before {
-  background-color: #FCF8E3;
-  border-bottom: 1px solid #FBEED5;
-  border-left: 1px solid #FBEED5;
-  color: #C09853;
-  font: small-caption;
-  padding: 3px 6px;
-  pointer-events: none;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 100;
-}
-@media (min-width: 20em) {
-  body:before {
-    content: "mobile ≥ 320px (20em)";
-  }
-}
-@media (min-width: 30em) {
-  body:before {
-    content: "mobileLandscape ≥ 480px (30em)";
-  }
-}
-@media (min-width: 40em) {
-  body:before {
-    content: "tablet ≥ 640px (40em)";
-  }
-}
-@media (min-width: 64em) {
-  body:before {
-    content: "desktop ≥ 1024px (64em)";
-  }
-}
-@media (min-width: 75em) {
-  body:before {
-    content: "widescreen ≥ 1200px (75em)";
-  }
-}
-@media (min-width: 120em) {
-  body:before {
-    content: "tvscreen ≥ 1920px (120em)";
-  }
-}
+/* Error: No argument named $static-breakpoint.
+ *     ,--> test/_after-import.scss
+ * 110 |       @include mq($from: L, $breakpoints: $my-breakpoints, $static-breakpoint: $my-static-breakpoint) {
+ *     |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invocation
+ *     '
+ *     ,--> _mq.scss
+ * 127 |   @mixin mq(
+ *     | ,--------^
+ * 128 | |     $from: false,
+ * 129 | |     $until: false,
+ * 130 | |     $and: false,
+ * 131 | |     $media-type: $mq-media-type,
+ * 132 | |     $breakpoints: $mq-breakpoints,
+ * 133 | | ) {
+ *     | '-^ declaration
+ *     '
+ *   test/_after-import.scss 110:5  mq()
+ *   test/_after-import.scss 110:5  styles()
+ *   test/_after-import.scss 117:5  @import
+ *   test/test.scss 6:9             root stylesheet */
 
-/* Responsive styles for devices that understand media queries */
-.responsive:after {
-  /* Added a custom breakpoint: (mobile: 320px, mobileLandscape: 480px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* Added a tiny breakpoint: (tiny: 16px, mobile: 320px, mobileLandscape: 480px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* Added a tiny2 breakpoint at a previously added size: (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, tablet: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* Added a tablet2 breakpoint at an existing initial size (already in $mq-breakpoints):
-      (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* Added a breakpoint in the middle (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-}
-@media (max-width: 19.99em) {
-  .responsive:after {
-    content: "to-mobile";
-  }
-}
-@media (min-width: 20em) {
-  .responsive:after {
-    content: "from-mobile";
-  }
-}
-@media (min-width: 20em) and (max-width: 39.99em) {
-  .responsive:after {
-    content: "from-mobile-to-tablet";
-  }
-}
-@media (min-width: 40em) {
-  .responsive:after {
-    content: "from-640";
-  }
-}
-@media (max-width: 39.99em) {
-  .responsive:after {
-    content: "to-tablet";
-  }
-}
-@media (max-width: 39.99em) and (orientation: landscape) {
-  .responsive:after {
-    content: "to-tablet-and-orientation-landscape";
-  }
-}
-@media (min-width: 40em) {
-  .responsive:after {
-    content: "from-tablet";
-  }
-}
-@media (min-width: 40em) and (max-width: 63.99em) {
-  .responsive:after {
-    content: "from-tablet-to-desktop";
-  }
-}
-@media (min-width: 48em) and (max-width: 63.9375em) and (orientation: portrait) {
-  .responsive:after {
-    content: "from-768-to-1023-and-orientation-portrait";
-  }
-}
-@media (min-width: 64em) {
-  .responsive:after {
-    content: "from-desktop";
-  }
-}
-@media (max-width: 70em) {
-  .responsive:after {
-    content: "to-70em";
-  }
-}
-@media (max-width: 68.75em) {
-  .responsive:after {
-    content: "to-1100px";
-  }
-}
-@media (min-width: 64em) and (max-width: 74.99em) {
-  .responsive:after {
-    content: "from-desktop-to-widescreen";
-  }
-}
-@media (min-width: 75em) {
-  .responsive:after {
-    content: "from-widescreen";
-  }
-}
-@media (min-width: 75em) and (max-width: 119.99em) {
-  .responsive:after {
-    content: "from-widescreen-to-tvscreen";
-  }
-}
-@media (min-width: 120em) {
-  .responsive:after {
-    content: "from-tvscreen";
-  }
-}
-@media (-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 124.8dpi), (min-resolution: 1.3dppx) {
-  .responsive:after {
-    content: "hidpi-screen";
-  }
-}
-@media all {
-  .responsive:after {
-    content: "empty-media-query";
-  }
-}
-@media (min-width: 256em) {
-  .responsive:after {
-    content: "from-cinema";
-  }
-}
-@media (min-width: 1em) {
-  .responsive:after {
-    content: "from-tiny2";
-  }
-}
-@media (min-width: 40em) {
-  .responsive:after {
-    content: "from-tablet2";
-  }
-}
-@media (max-width: 255.99em) {
-  .responsive:after {
-    content: "to-cinema";
-  }
-}
-@media (min-width: 56.25em) {
-  .responsive:after {
-    content: "custom-breakpoint-list";
-  }
-}
-
-/* Rasterized styles that span or start at the "desktop" breakpoint */
-.static:after {
-  content: "from-mobile";
-  content: "from-640";
-  content: "from-tablet";
-  content: "from-desktop";
-  content: "to-70em";
-  content: "to-1100px";
-  content: "from-desktop-to-widescreen";
-  content: "empty-media-query";
-  /* Added a custom breakpoint: (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* Added a tiny breakpoint: (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  content: "from-tiny2";
-  /* Added a tiny2 breakpoint at a previously added size: (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  content: "from-tablet2";
-  /* Added a tablet2 breakpoint at an existing initial size (already in $mq-breakpoints):
-      (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  /* Added a breakpoint in the middle (tiny: 16px, tiny2: 16px, mobile: 320px, mobileLandscape: 480px, middle: 550px, tablet: 640px, tablet2: 640px, desktop: 1024px, widescreen: 1200px, tvscreen: 1920px, cinema: 4096px) */
-  content: "to-cinema";
-  content: "custom-breakpoint-list";
-}
-
-.static-forced:after {
-  content: "Static, forced to tablet";
-}
-
-/* Do not rasterize print media queries into when $mq-responsive is false */
-/* Only style screen media type */
-@media screen and (max-width: 19.99em) {
-  body {
-    font-size: 1rem;
-  }
-}
-@media screen, print and (max-width: 19.99em) {
-  body {
-    content: "screen-and-print";
-  }
-}
-
-/* Only style print media type */
-@media print and (max-width: 19.99em) {
-  body {
-    font-size: 2rem;
-  }
-}
-
-/* Override $mq-base-font-size (should log a warning) */
-@media print and (min-width: 26.6666666667em) {
-  body {
-    font-size: 2rem;
-  }
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: No argument named $static-breakpoint.\a     \250c \2500 \2500 > test/_after-import.scss\a 110 \2502        @include mq($from: L, $breakpoints: $my-breakpoints, $static-breakpoint: $my-static-breakpoint) {\a     \2502        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invocation\a     \2575 \a     \250c \2500 \2500 > _mq.scss\a 127 \2502    @mixin mq(\a     \2502  \250c \2500 \2500 \2500 \2500 \2500 \2500 \2500 \2500 ^\a 128 \2502  \2502      $from: false,\a 129 \2502  \2502      $until: false,\a 130 \2502  \2502      $and: false,\a 131 \2502  \2502      $media-type: $mq-media-type,\a 132 \2502  \2502      $breakpoints: $mq-breakpoints,\a 133 \2502  \2502  ) {\a     \2502  \2514 \2500 ^ declaration\a     \2575 \a   test/_after-import.scss 110:5  mq()\a   test/_after-import.scss 110:5  styles()\a   test/_after-import.scss 117:5  @import\a   test/test.scss 6:9             root stylesheet";
 }

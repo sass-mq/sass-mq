@@ -26,6 +26,7 @@ This is a major version bump
 * change all `map-*` global function in favor of  built-in module `map.*` (ie map-keys() Vs map.keys())
 *  `mq-px2em` remove param `$base-font-size` and set value to 16px.
 *  change `unit` in favor of  (https://sass-lang.com/documentation/modules/math). It look that this function is intended for debugging; its output format is not guaranteed to be consistent across Sass versions or implementations.
+*  Change all other global sass functions for its new build in module name (ie: `map-merge` Vs  `map.merge`, `append` Vs `list.append` )
 
 
 

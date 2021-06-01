@@ -1,54 +1,41 @@
 WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels.
-    _mq.scss 108:9                 mq-px2em()
-    _mq.scss 198:25                mq()
+    _mq.scss 52:9                  mq-px2em()
+    _mq.scss 141:25                mq()
     test/_after-import.scss 17:5   styles()
     test/_after-import.scss 117:5  @import
     test/test.scss 6:9             root stylesheet
 
 WARNING: Assuming 768 to be in pixels, attempting to convert it into pixels.
-    _mq.scss 108:9                 mq-px2em()
-    _mq.scss 198:25                mq()
+    _mq.scss 52:9                  mq-px2em()
+    _mq.scss 141:25                mq()
     test/_after-import.scss 37:5   styles()
     test/_after-import.scss 117:5  @import
     test/test.scss 6:9             root stylesheet
 
 WARNING: Assuming 1023 to be in pixels, attempting to convert it into pixels.
-    _mq.scss 108:9                 mq-px2em()
-    _mq.scss 207:25                mq()
+    _mq.scss 52:9                  mq-px2em()
+    _mq.scss 150:25                mq()
     test/_after-import.scss 37:5   styles()
     test/_after-import.scss 117:5  @import
     test/test.scss 6:9             root stylesheet
 
-WARNING: Assuming 640 to be in pixels, attempting to convert it into pixels.
-    _mq.scss 108:9                 mq-px2em()
-    _mq.scss 198:25                mq()
-    test/_after-import.scss 17:5   styles()
-    test/_after-import.scss 126:5  @import
-    test/test.scss 6:9             root stylesheet
-
-WARNING: Assuming 768 to be in pixels, attempting to convert it into pixels.
-    _mq.scss 108:9                 mq-px2em()
-    _mq.scss 198:25                mq()
-    test/_after-import.scss 37:5   styles()
-    test/_after-import.scss 126:5  @import
-    test/test.scss 6:9             root stylesheet
-
-WARNING: Assuming 1023 to be in pixels, attempting to convert it into pixels.
-    _mq.scss 108:9                 mq-px2em()
-    _mq.scss 207:25                mq()
-    test/_after-import.scss 37:5   styles()
-    test/_after-import.scss 126:5  @import
-    test/test.scss 6:9             root stylesheet
-
-WARNING: Overriding $mq-base-font-size will break things, see https://github.com/sass-mq/sass-mq/issues/122.
-    _mq.scss 102:9                 mq-px2em()
-    _mq.scss 200:25                mq()
-    test/_after-import.scss 170:5  @import
-    test/test.scss 6:9             root stylesheet
-
-WARNING: The $base-font-size argument will be removed in sass-mq v6.0.0, as overriding it breaks things, see https://github.com/sass-mq/sass-mq/issues/122.
-    _mq.scss 105:9                 mq-px2em()
-    _mq.scss 200:25                mq()
-    test/_after-import.scss 170:5  @import
-    test/test.scss 6:9             root stylesheet
-
+Error: No argument named $static-breakpoint.
+    ┌──> test/_after-import.scss
+110 │       @include mq($from: L, $breakpoints: $my-breakpoints, $static-breakpoint: $my-static-breakpoint) {
+    │       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invocation
+    ╵
+    ┌──> _mq.scss
+127 │   @mixin mq(
+    │ ┌────────^
+128 │ │     $from: false,
+129 │ │     $until: false,
+130 │ │     $and: false,
+131 │ │     $media-type: $mq-media-type,
+132 │ │     $breakpoints: $mq-breakpoints,
+133 │ │ ) {
+    │ └─^ declaration
+    ╵
+  test/_after-import.scss 110:5  mq()
+  test/_after-import.scss 110:5  styles()
+  test/_after-import.scss 117:5  @import
+  test/test.scss 6:9             root stylesheet

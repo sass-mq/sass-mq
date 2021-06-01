@@ -214,7 +214,7 @@ $mq-media-type: all !default;
     @each $value in $map-values-sorted {
         $index: index($map-values, $value);
         $key: list.nth($map-keys, $index);
-        $map-sorted: map-merge($map-sorted, ($key: $value));
+        $map-sorted: map.merge($map-sorted, ($key: $value));
 
         // Unset the value in $map-values to prevent the loop
         // from finding the same index twice
