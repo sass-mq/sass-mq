@@ -1,0 +1,36 @@
+$custom-breakpoints: (
+            vga: 640px,
+            svga: 800px,
+            xga:  1024px,
+            uxga:  1600px,
+        );
+
+
+@use 'true' as *;
+@use '_mq' as mq with ($mq-breakpoints : $custom-breakpoints);
+@use 'sass:meta';
+
+
+
+
+@include describe('[variable] $mq-breakpoints') {
+    @include describe('Given new values to override $mq-breakpoints') {
+        @include it('should use new values to build the named breakpoints') {
+            @include assert {
+                @include output {
+                    @include mq.mq('uxga'){
+                        content: 'uxga content';
+                    };
+                }
+
+                @include expect {
+                    @media (min-width: 100em) {
+                            content: "uxga content";
+                    }
+                }
+            }
+        }
+    }
+}
+
+
