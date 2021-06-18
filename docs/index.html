@@ -9,8 +9,7 @@
     @if math.is-unitless($px) {
         @warn &quot;Assuming #{$px} to be in pixels, attempting to convert it into pixels.&quot;;
         @return mq-px2em($px * 1px);
-        // TODO change unit in favor of srting or something else like math.compatible(2px, 1px)
-    } @else if unit($px) == em {
+    } @else if math.compatible($px, 1em) == em {
         @return $px;
     }
     @return math.div($px, 16px) * 1em;
@@ -56,7 +55,7 @@ p { font-size: mq-px2em(16px); }</code></pre></div><h3 class="item__sub-heading"
     @each $value in $map-values-sorted {
         $index: index($map-values, $value);
         $key: list.nth($map-keys, $index);
-        $map-sorted: map-merge($map-sorted, ($key: $value));
+        $map-sorted: map.merge($map-sorted, ($key: $value));
 
         // Unset the value in $map-values to prevent the loop
         // from finding the same index twice
