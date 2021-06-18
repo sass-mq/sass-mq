@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 This is a major version bump
 
 ### Added
-* Support  for dart-sass 1.34.0
+* Support  for dart-sass 1.35.1
 * Jest test with "sass-true"
 
 ### Removed

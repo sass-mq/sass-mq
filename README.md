@@ -5,8 +5,7 @@
 # Media Queries with superpowers [![Build Status](https://api.travis-ci.org/sass-mq/sass-mq.svg?branch=master)](https://travis-ci.org/sass-mq/sass-mq)
 
 `mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
-Stylesheets") mixin that helps you compose media queries in an elegant
-way.
+Stylesheets") mixin that helps you compose media queries elegantly.
 
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
 - provides fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
@@ -21,13 +20,13 @@ $mq-breakpoints: (
     wide:    1300px
 );
 
-@import 'mq';
+@use 'mq';
 
 .foo {
-    @include mq($from: mobile, $until: tablet) {
+    @include mq.mq($from: mobile, $until: tablet) {
         background: red;
     }
-    @include mq($from: tablet) {
+    @include mq.mq($from: tablet) {
         background: green;
     }
 }
@@ -52,7 +51,7 @@ _Sass MQ was crafted in-house at the Guardian. Today, many more companies and de
 
 ## How to use it
 
-Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq';`.
+Immediately play with it on [SassMeister](http://sassmeister.com/): `@use 'mq';`.
 
 OR:
 
@@ -65,13 +64,8 @@ OR:
 
 2. Import the partial in your Sass files and override default settings
    with your own preferences before the file is imported:
-    ```scss
-    // To enable support for browsers that do not support @media queries,
-    // (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
-    // Create a separate stylesheet served exclusively to these browsers,
-    // meaning @media queries will be rasterized, relying on the cascade itself
-    $mq-responsive: true;
 
+```scss
     // Name your breakpoints in a way that creates a ubiquitous language
     // across team members. It will improve communication between
     // stakeholders, designers, developers, and testers.
@@ -86,26 +80,22 @@ OR:
         mobileLandscape: 480px
     );
 
-    // Define the breakpoint from the $mq-breakpoints list that should
-    // be used as the target width when outputting a static stylesheet
-    // (when $mq-responsive is set to 'false').
-    $mq-static-breakpoint: desktop;
-
     // If you want to display the currently active breakpoint in the top
     // right corner of your site during development, add the breakpoints
     // to this list, ordered by width. For example: (mobile, tablet, desktop).
     $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 
     // If _mq.scss is in your project:
-    @import 'path/to/mq';
+    @use 'path/to/mq';
     // With eyeglass:
     @import 'sass-mq';
     // With webpack (and boilerplates such as create-react-app)
     @import '~sass-mq';
-    ```
+```
+
 3. Play around with `mq()` (see below)
 
-### Responsive mode ON (default)
+### Responsive mode
 
 `mq()` takes up to three optional parameters:
 
@@ -116,86 +106,41 @@ OR:
 Note that `$until` as a keyword is a hard limit i.e. it's breakpoint - 1.
 
 ```scss
+@use 'mq';
+
 .responsive {
     // Apply styling to mobile and upwards
-    @include mq($from: mobile) {
+    @include mq.mq($from: mobile) {
         color: red;
     }
     // Apply styling up to devices smaller than tablets (exclude tablets)
-    @include mq($until: tablet) {
+    @include mq.mq($until: tablet) {
         color: blue;
     }
     // Same thing, in landscape orientation
-    @include mq($until: tablet, $and: '(orientation: landscape)') {
+    @include mq.mq($until: tablet, $and: '(orientation: landscape)') {
         color: hotpink;
     }
     // Apply styling to tablets up to desktop (exclude desktop)
-    @include mq(tablet, desktop) {
+    @include mq.mq(tablet, desktop) {
         color: green;
     }
 }
 ```
 
-### Responsive mode OFF
-
-To enable support for browsers that do not support `@media` queries,
-(IE <= 8, Firefox <= 3, Opera <= 9) set `$mq-responsive: false`.
-
-Tip: create a separate stylesheet served exclusively to these browsers,
-for example with conditional comments.
-
-When `@media` queries are rasterized, browsers rely on the cascade
-itself. Learn more about this technique on [Jake’s blog](http://jakearchibald.github.io/sass-ie/ "IE-friendly mobile-first CSS with Sass 3.2").
-
-To avoid rasterizing styles intended for displays larger than what those
-older browsers typically run on, set `$mq-static-breakpoint` to match
-a breakpoint from the `$mq-breakpoints` list. The default is
-`desktop`.
-
-The static output will only include `@media` queries that start at or
-span this breakpoint and which have no custom `$and` directives:
-
-```scss
-$mq-responsive:        false;
-$mq-static-breakpoint: desktop;
-
-.static {
-    // Queries that span or start at desktop are compiled:
-    @include mq($from: mobile) {
-        color: lawngreen;
-    }
-    @include mq(tablet, wide) {
-        color: seagreen;
-    }
-    @include mq($from: desktop) {
-        color: forestgreen;
-    }
-
-    // But these queries won’t be compiled:
-    @include mq($until: tablet) {
-        color: indianred;
-    }
-    @include mq($until: tablet, $and: '(orientation: landscape)') {
-        color: crimson;
-    }
-    @include mq(mobile, desktop) {
-        color: firebrick;
-    }
-}
-```
-
-### Verbose and shortand notations
+### Verbose and shorthand notations
 
 Sometimes you’ll want to be extra verbose (for example, if you’re developing a
 library based on top of sass-mq), however for readability in a codebase,
 the shorthand notation is recommended.
 
-All of these examples output the exact same thing, and are here for
+All of these examples output the exact same thing and are here for
 reference so you can use the notation that best matches your needs:
 
 ```scss
+@use 'mq';
 // Verbose
-@include mq(
+@include mq.mq(
     $from: false,
     $until: desktop,
     $and: false,
@@ -205,7 +150,7 @@ reference so you can use the notation that best matches your needs:
 }
 
 // Omitting argument names
-@include mq(
+@include mq.mq(
     false,
     desktop,
     false,
@@ -262,10 +207,10 @@ for screens only, set `$mq-media-type`:
 #### SCSS
 
 ```scss
-$mq-media-type: screen;
+@use 'mq' with ( $mq-media-type: screen );
 
 .screen-only-element {
-    @include mq(mobile) {
+    @include mq.mq(mobile) {
         width: 300px;
     }
 }
@@ -341,6 +286,7 @@ These companies and projects use Sass MQ:
 - [Shopify Polaris](https://polaris.shopify.com)
 - [Taylor / Thomas](https://www.taylorthomas.co.uk/)
 - [GOV.UK Design System](https://design-system.service.gov.uk/)
+- [Cabify](https://cabify.com/en)  
 - You? [Open an issue](https://github.com/sass-mq/sass-mq/issues/new?title=My%20company%20uses%20Sass%20MQ&body=Hi,%20we%27re%20using%20Sass%20MQ%20at%20[name%20of%20your%20company]%20and%20we%27d%20like%20to%20be%20mentionned%20in%20the%20README%20of%20the%20project.%20Cheers!)
 
 ----
