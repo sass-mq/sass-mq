@@ -5,7 +5,7 @@
 # Media Queries with superpowers [![Build Status](https://api.travis-ci.org/sass-mq/sass-mq.svg?branch=master)](https://travis-ci.org/sass-mq/sass-mq)
 
 `mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
-Stylesheets") mixin that helps you compose media queries elegantly.
+Stylesheets") mixin that helps you compose media queries in an elegant way.
 
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
 - provides fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
@@ -135,7 +135,7 @@ library based on top of sass-mq), however for readability in a codebase,
 the shorthand notation is recommended.
 
 All of these examples output the exact same thing and are here for
-reference so you can use the notation that best matches your needs:
+reference, so you can use the notation that best matches your needs:
 
 ```scss
 @use 'mq';
