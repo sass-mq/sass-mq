@@ -13,7 +13,7 @@ This is a major version bump
 * Jest test with "sass-true"
 
 ### Removed
-* drop test for sass engines other than dart-sass
+* Dropped tests for Sass engines other than dart-sass
 * Deprecate `$mq-base-font-size` (https://github.com/sass-mq/sass-mq/pull/123)
 * Removed compatibility with browsers that do not support media-queries.
   - remove `$mq-responsive`
