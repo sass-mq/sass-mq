@@ -8,19 +8,19 @@
 Stylesheets") mixin that helps you compose media queries in an elegant way.
 
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
-- provides fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
+- For version 6 and up we removed  fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
 
 Here is a very basic example:
 
 ```scss
-$mq-breakpoints: (
+@use 'mq' with (
+  $breakpoints: (
     mobile:  320px,
     tablet:  740px,
     desktop: 980px,
     wide:    1300px
+  )
 );
-
-@use 'mq';
 
 .foo {
     @include mq.mq($from: mobile, $until: tablet) {
@@ -69,7 +69,7 @@ OR:
     // Name your breakpoints in a way that creates a ubiquitous language
     // across team members. It will improve communication between
     // stakeholders, designers, developers, and testers.
-    $mq-breakpoints: (
+    $breakpoints: (
         mobile:  320px,
         tablet:  740px,
         desktop: 980px,
@@ -83,7 +83,7 @@ OR:
     // If you want to display the currently active breakpoint in the top
     // right corner of your site during development, add the breakpoints
     // to this list, ordered by width. For example: (mobile, tablet, desktop).
-    $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
+    $show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 
     // If _mq.scss is in your project:
     @use 'path/to/mq';
@@ -144,7 +144,7 @@ reference, so you can use the notation that best matches your needs:
     $from: false,
     $until: desktop,
     $and: false,
-    $media-type: $mq-media-type // defaults to 'all'
+    $media-type: $media-type // defaults to 'all'
 ) {
     .foo {}
 }
@@ -154,7 +154,7 @@ reference, so you can use the notation that best matches your needs:
     false,
     desktop,
     false,
-    $mq-media-type
+    $media-type
 ) {
     .foo {}
 }
@@ -187,27 +187,27 @@ reference, so you can use the notation that best matches your needs:
 ### Seeing the currently active breakpoint
 
 While developing, it can be nice to always know which breakpoint is
-active. To achieve this, set the `$mq-show-breakpoints` variable to
+active. To achieve this, set the `$show-breakpoints` variable to
 be a list of the breakpoints you want to debug, ordered by width.
 The name of the active breakpoint and its pixel and em values will
 then be shown in the top right corner of the viewport.
 
 ```scss
 // Adapt the list to include breakpoint names from your project
-$mq-show-breakpoints: (phone, phablet, tablet);
+$show-breakpoints: (phone, phablet, tablet);
 ```
 
-![$mq-show-breakpoints](https://raw.githubusercontent.com/sass-mq/sass-mq/master/show-breakpoints.gif)
+![$show-breakpoints](https://raw.githubusercontent.com/sass-mq/sass-mq/master/show-breakpoints.gif)
 
 ### Changing media type
 
 If you want to specify a media type, for example to output styles
-for screens only, set `$mq-media-type`:
+for screens only, set `$media-type`:
 
 #### SCSS
 
 ```scss
-@use 'mq' with ( $mq-media-type: screen );
+@use 'mq' with ($media-type: screen);
 
 .screen-only-element {
     @include mq.mq(mobile) {

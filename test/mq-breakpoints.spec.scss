@@ -6,11 +6,11 @@ $custom-breakpoints: (
 );
 
 @use 'true' as *;
-@use '_mq' as mq with ($mq-breakpoints : $custom-breakpoints);
+@use '_mq' as mq with ($breakpoints : $custom-breakpoints);
 @use 'sass:meta';
 
-@include describe("[variable] $mq-breakpoints") {
-  @include describe("Given new values to override $mq-breakpoints") {
+@include describe("[variable] $breakpoints") {
+  @include describe("Given new values to override $breakpoints") {
     @include it("should use new values to build the named breakpoints") {
       @include assert {
         @include output {

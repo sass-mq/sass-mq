@@ -10,7 +10,7 @@ This is a major version bump
 
 ### Added
 * Support for dart-sass@1.35.1
-* Jest test with "sass-true"
+* Test suite using [Jest](https://jestjs.io/) and [True](https://www.oddbird.net/true/), a unit-testing framework designed specifically for the Sass language
 
 ### Removed
 * Dropped tests for Sass engines other than dart-sass
@@ -22,15 +22,17 @@ This is a major version bump
 ### Changed
 
 * Divisions are now performed with `sass:math.div(...)` instead of ` / `
-* `mq-get-breakpoint-width` added `return null` when no key found ( a function must always return something or we will get an error)
-* change all `map-*` global function in favor of  built-in module `map.*` (ie map-keys() Vs map.keys())
-*  `mq-px2em` remove param `$base-font-size` (deprecated from previous version) and set value to 16px.
-*  change `unit` in favor of  `math.compatible()`, (https://sass-lang.com/documentation/modules/math). It looks that this function is intended for debugging; its output format is not guaranteed to be consistent across Sass versions or implementations.
-*  Change all other global sass functions for its new build in module name (ie: `map-merge` Vs  `map.merge`, `append` Vs `list.append` )
+* `get-breakpoint-width`: added `@return null` when no breakpoint could be found (a function must always return something, or Sass will throw an error).
+* Updated all `map-*` global functions in favor of the built-in module `map.*` (for example: `map-keys()` ➡️ `map.keys()`).
+* `px2em`: removed param `$base-font-size` (deprecated in v5.0.1), and use 16px instead.
+* Removed usage of `unit()` in favor of [`math.compatible()`](https://sass-lang.com/documentation/modules/math#compatible), as the `unit()` function is intended for debugging, and its output format is not guaranteed to be consistent across Sass versions or implementations.
+* Updated all other global Sass functions to use their module equivalents (for example: `map-merge` ➡️ `map.merge`, `append` ➡️ `list.append`)
 
 
 
 ### Fixed
 
 
-## [v5.0.1] - 2019-07-12
+## Changes prior to v6.0.0
+
+Changes prior to v6.0.0 were logged in https://github.com/sass-mq/sass-mq/releases

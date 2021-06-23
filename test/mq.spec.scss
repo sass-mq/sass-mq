@@ -9,10 +9,10 @@ $custom-breakpoints: (
   uxga: 1600px,
 );
 
-@include describe("[function] mq-get-breakpoint-width") {
+@include describe("[function] get-breakpoint-width") {
   @include it("should return the value of a default breakpoint") {
     @include assert-equal(
-      mq.mq-get-breakpoint-width("mobile"),
+      mq.get-breakpoint-width("mobile"),
       320px,
       "mobile keyword is defined in breakpoints map"
     );
@@ -21,28 +21,28 @@ $custom-breakpoints: (
   @include it(
     "should throw a warn and return null if name is not set in breakpoints map"
   ) {
-    @include assert-equal(mq.mq-get-breakpoint-width("noName"), null);
+    @include assert-equal(mq.get-breakpoint-width("noName"), null);
   }
 
   @include describe("given custom breakpoints ") {
     @include it("should return the value of a custom breakpoint") {
       @include assert-equal(
-        mq.mq-get-breakpoint-width("svga", $custom-breakpoints),
+        mq.get-breakpoint-width("svga", $custom-breakpoints),
         800px
       );
     }
   }
 }
 
-@include describe("[function] mq-px2em") {
+@include describe("[function] px2em") {
   @include describe("Given a unitless param") {
     @include it("should throw a warn and return value converted in em") {
-      @include assert-equal(mq.mq-px2em(16), 1em);
+      @include assert-equal(mq.px2em(16), 1em);
     }
   }
   @include describe("Given a px param") {
     @include it("should return value converted in em") {
-      @include assert-equal(mq.mq-px2em(16px), 1em);
+      @include assert-equal(mq.px2em(16px), 1em);
     }
   }
 }
@@ -291,7 +291,7 @@ $custom-breakpoints: (
 
 @include describe("[mixin] mq-add-breakpoint") {
   @include describe("Given a name and a width") {
-    @include it("Should add a new breakpoint to mq-breakpoints map") {
+    @include it("Should add a new breakpoint to breakpoints map") {
       @include assert {
         @include output {
           @include mq.mq-add-breakpoint("ultra-wide", 1440px);
@@ -309,19 +309,19 @@ $custom-breakpoints: (
   }
 }
 
-@include describe("[mixin] mq-show-breakpoints") {
+@include describe("[mixin] show-breakpoints") {
   @include describe("Given a list of named breakpoints") {
     @include it("Should output code for visually see named views") {
       @include assert {
         @include output {
-          @include mq.mq-show-breakpoints(("mobile", "desktop"));
+          @include mq.show-breakpoints(("mobile", "desktop"));
         }
         @include expect {
           body:before {
-            background-color: #fcf8e3;
-            border-bottom: 1px solid #fbeed5;
-            border-left: 1px solid #fbeed5;
-            color: #c09853;
+            background-color: #FCF8E3;
+            border-bottom: 1px solid #FBEED5;
+            border-left: 1px solid #FBEED5;
+            color: #C09853;
             font: small-caption;
             padding: 3px 6px;
             pointer-events: none;
@@ -330,11 +330,13 @@ $custom-breakpoints: (
             top: 0;
             z-index: 100;
           }
+
           @media (min-width: 20em) {
             body:before {
               content: "mobile ≥ 320px (20em)";
             }
           }
+
           @media (min-width: 61.25em) {
             body:before {
               content: "desktop ≥ 980px (61.25em)";
@@ -348,30 +350,32 @@ $custom-breakpoints: (
   @include describe(
     "Given a list of named breakpoints and a custom breakpoint map"
   ) {
-    @include it("Should output code for visually seein named custom views") {
+    @include it("Should output code for visually seeing named custom views") {
       @include assert {
         @include output {
-          @include mq.mq-show-breakpoints(("vga", "xga"), $custom-breakpoints);
+          @include mq.show-breakpoints(("vga", "xga"), $custom-breakpoints);
         }
         @include expect {
           body:before {
-            background-color: #fcf8e3;
-            border-bottom: 1px solid #fbeed5;
-            border-left: 1px solid #fbeed5;
-            color: #c09853;
-            font: small-caption;
-            padding: 3px 6px;
-            pointer-events: none;
-            position: fixed;
-            right: 0;
-            top: 0;
-            z-index: 100;
-          }
+          background-color: #FCF8E3;
+          border-bottom: 1px solid #FBEED5;
+          border-left: 1px solid #FBEED5;
+          color: #C09853;
+          font: small-caption;
+          padding: 3px 6px;
+          pointer-events: none;
+          position: fixed;
+          right: 0;
+          top: 0;
+          z-index: 100;
+        }
+
           @media (min-width: 40em) {
             body:before {
               content: "vga ≥ 640px (40em)";
             }
           }
+
           @media (min-width: 64em) {
             body:before {
               content: "xga ≥ 1024px (64em)";
@@ -382,3 +386,4 @@ $custom-breakpoints: (
     }
   }
 }
+
