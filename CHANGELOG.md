@@ -9,19 +9,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 This is a major version bump
 
 ### Added
-* Support  for dart-sass 1.35.1
+* Support for dart-sass@1.35.1
 * Jest test with "sass-true"
 
 ### Removed
 * Dropped tests for Sass engines other than dart-sass
-* Deprecate `$mq-base-font-size` (https://github.com/sass-mq/sass-mq/pull/123)
-* Removed compatibility with browsers that do not support media-queries.
-  - remove `$mq-responsive`
-  - remove `$mq-static-breakpoint`
+* Dropped deprecated var `$mq-base-font-size`  (https://github.com/sass-mq/sass-mq/pull/123)
+* Dropped compatibility with browsers that don’t support media queries:
+  - Removed `$mq-responsive`
+  - Removed `$mq-static-breakpoint`
 
 ### Changed
 
-* Division , now we use sass:math.div(...) instead of ` / `
+* Divisions are now performed with `sass:math.div(...)` instead of ` / `
 * `mq-get-breakpoint-width` added `return null` when no key found ( a function must always return something or we will get an error)
 * change all `map-*` global function in favor of  built-in module `map.*` (ie map-keys() Vs map.keys())
 *  `mq-px2em` remove param `$base-font-size` (deprecated from previous version) and set value to 16px.

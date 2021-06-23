@@ -286,7 +286,6 @@ These companies and projects use Sass MQ:
 - [Shopify Polaris](https://polaris.shopify.com)
 - [Taylor / Thomas](https://www.taylorthomas.co.uk/)
 - [GOV.UK Design System](https://design-system.service.gov.uk/)
-- [Cabify](https://cabify.com/en)  
 - You? [Open an issue](https://github.com/sass-mq/sass-mq/issues/new?title=My%20company%20uses%20Sass%20MQ&body=Hi,%20we%27re%20using%20Sass%20MQ%20at%20[name%20of%20your%20company]%20and%20we%27d%20like%20to%20be%20mentionned%20in%20the%20README%20of%20the%20project.%20Cheers!)
 
 ----
