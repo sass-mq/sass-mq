@@ -1,30 +1,14 @@
-@use '../mq'  with (
-  $breakpoints: (
-    vga: 640px,
-    svga: 800px,
-    xga: 1024px ,
-    uxga: 1600px,
-  )
+$breakpoints: (
+  vga: 640px,
+  svga: 800px,
+  xga: 1024px ,
+  uxga: 1600px,
 );
 
-// now we need to expose the main  mq function with custom params.
-// we can name it mq to maintain  backwards compatibility or any other name that we think it may be
-// suitable for our purpose
-@mixin mq(
-  $from: false,
-  $until: false,
-  $and: false,
-  $media-type: mq.$media-type,
-  $breakpoints: $breakpoints,
-) {
-  @include mq.mq(
-      $from,
-      $until,
-      $and,
-      $media-type,
-      $breakpoints
-  ) {
-    @content;
-  }
-}
+$media-type: 'screen';
 
+
+@use '../mq'  with (
+  $breakpoints: $breakpoints,
+  $media-type: $media-type
+);

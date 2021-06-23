@@ -289,12 +289,12 @@ $custom-breakpoints: (
   }
 }
 
-@include describe("[mixin] mq-add-breakpoint") {
+@include describe("[mixin] add-breakpoint") {
   @include describe("Given a name and a width") {
     @include it("Should add a new breakpoint to breakpoints map") {
       @include assert {
         @include output {
-          @include mq.mq-add-breakpoint("ultra-wide", 1440px);
+          @include mq.add-breakpoint("ultra-wide", 1440px);
           @include mq.mq($until: "ultra-wide") {
             content: "ultra-wide";
           }

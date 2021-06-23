@@ -1,18 +1,19 @@
-/* Error: Undefined mixin.
- *    ,
- * 13 | /   @include customMQ.mq(svga) {
- * 14 | |     background-color: green;
- * 15 | \   }
- *    '
- *   examples/advanced.scss 13:3  root stylesheet */
+/* typography partial */
+h1 {
+  font-size: 40px;
+}
+@media screen and (min-width: 50em) {
+  h1 {
+    font-size: 48px;
+  }
+}
 
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 13 \2502  \250c    @include customMQ.mq(svga) {\a 14 \2502  \2502      background-color: green;\a 15 \2502  \2514    }\a    \2575 \a   examples/advanced.scss 13:3  root stylesheet";
+/* layout partial */
+* + * {
+  padding: 8px;
+}
+@media screen and (min-width: 50em) {
+  * + * {
+    padding: 12px;
+  }
 }

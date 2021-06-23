@@ -21,16 +21,16 @@ $breakpoints: (
 ///
 /// If you want to display the currently active breakpoint in the top
 /// right corner of your site during development, add the breakpoints
-/// to this list, ordered by width. For example: (mobile, tablet, desktop).
+/// to this list, ordered by width. For examples: (mobile, tablet, desktop).
 ///
-/// @example scss
+/// @examples scss
 ///   $show-breakpoints: (mobile, tablet, desktop);
 ///   @import 'path/to/mq';
 ///
 /// @type map
 $show-breakpoints: () !default;
 
-/// Customize the media type (for example: `@media screen` or `@media print`)
+/// Customize the media type (for examples: `@media screen` or `@media print`)
 /// By default sass-mq uses an "all" media type (`@media all and …`)
 ///
 /// @type String
@@ -41,7 +41,7 @@ $media-type: all !default;
 ///
 /// @param {Number} $px - value to convert
 ///
-/// @example scss
+/// @examples scss
 ///  $font-size-in-ems: px2em(16px);
 ///  p { font-size: px2em(16px); }
 ///
@@ -63,7 +63,7 @@ $media-type: all !default;
 ///
 /// @param {String} $name - Name of the breakpoint. One of $breakpoints
 ///
-/// @example scss
+/// @examples scss
 ///  $tablet-width: get-breakpoint-width(tablet);
 ///  @media (min-width: get-breakpoint-width(desktop)) {}
 ///
@@ -99,7 +99,7 @@ $media-type: all !default;
 ///
 /// @link https://github.com/sass-mq/sass-mq#responsive-mode-on-default Full documentation and examples
 ///
-/// @example scss
+/// @examples scss
 ///  .element {
 ///    @include mq($from: mobile) {
 ///      color: red;
@@ -238,10 +238,10 @@ $media-type: all !default;
 ///
 /// @requires {Variable} $breakpoints
 ///
-/// @example scss
-///  @include mq-add-breakpoint(tvscreen, 1920px);
+/// @examples scss
+///  @include add-breakpoint(tvscreen, 1920px);
 ///  @include mq(tvscreen) {}
-@mixin mq-add-breakpoint($name, $width) {
+@mixin add-breakpoint($name, $width) {
   $new-breakpoint: ($name: $width);
   $breakpoints: map.merge($breakpoints, $new-breakpoint) !global;
   $breakpoints: _map-sort-by-value($breakpoints) !global;
@@ -256,7 +256,7 @@ $media-type: all !default;
 /// @requires {Variable} $breakpoints
 /// @requires {Variable} $show-breakpoints
 ///
-/// @example scss
+/// @examples scss
 ///  // Show breakpoints using global settings
 ///  @include show-breakpoints;
 ///

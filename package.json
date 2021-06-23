@@ -30,7 +30,8 @@
   "main": "_mq.scss",
   "scripts": {
     "test": "jest",
-    "sassdoc": "./scripts/sassdoc.sh"
+    "sassdoc": "./scripts/sassdoc.sh",
+    "build:examples": "sass ./examples:./examples --no-source-map"
   },
   "contributors": [
     {

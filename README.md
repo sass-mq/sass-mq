@@ -13,7 +13,7 @@ Stylesheets") mixin that helps you compose media queries in an elegant way.
 Here is a very basic example:
 
 ```scss
-@use 'mq' with (
+@use 'mq' as * with (
   $breakpoints: (
     mobile:  320px,
     tablet:  740px,
@@ -23,10 +23,10 @@ Here is a very basic example:
 );
 
 .foo {
-    @include mq.mq($from: mobile, $until: tablet) {
+    @include mq($from: mobile, $until: tablet) {
         background: red;
     }
-    @include mq.mq($from: tablet) {
+    @include mq($from: tablet) {
         background: green;
     }
 }
@@ -63,8 +63,7 @@ OR:
     OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss) into your Sass project.
 
 2. Import the partial in your Sass files and override default settings
-   with your own preferences before the file is imported:
-
+   with your own preferences:
 ```scss
     // Name your breakpoints in a way that creates a ubiquitous language
     // across team members. It will improve communication between
@@ -82,16 +81,93 @@ OR:
 
     // If you want to display the currently active breakpoint in the top
     // right corner of your site during development, add the breakpoints
-    // to this list, ordered by width. For example: (mobile, tablet, desktop).
-    $show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
+    // to this list, ordered by width. For examples: (mobile, tablet, desktop).
+    $breakpoints-shown: (mobile, mobileLandscape, tablet, desktop, wide);
 
-    // If _mq.scss is in your project:
-    @use 'path/to/mq';
-    // With eyeglass:
-    @import 'sass-mq';
-    // With webpack (and boilerplates such as create-react-app)
-    @import '~sass-mq';
+    @use 'path/to/mq' with (
+      $breakpoints: $breakpoints,
+      $show-breakpoints: $breakpoints-shown,
+    );
+
 ```
+### Notes about `@use` Vs `@import`
+
+Now when using the `@use` directive you have to change your main about how to reason about vars,
+functions or mixins and how they are now seen by Sass.
+
+Previously with the `@import` statement any var, function, or mixing were exposed in the global scope.
+That means that you could define a var like `$mq-media-type: all` in your main sass file and use
+it anywhere as long as the main file had been loaded previously.
+
+This was possible because vars functions and mixins were set in the global scope.
+
+One drawback of this behavior was that we need to ensure not to pollute the global scope
+with common names or names that may be already taken by any other library.
+
+To solve this matter we mainly use a prefix in vars, functions, or mixins  in order to avoid
+collapsing names.
+
+Now with the new `@use` directive, no var, function, or mixin is placed in global scope, and they are
+all scoped within the file.
+
+That means that we explicitly need to include  the partial file in each file that may use its vars,
+functions or mixins (analog to ES6 import modules).
+
+So previously we could have a typical setup like this:
+```scss
+// main.scss
+@import 'mq';
+@import 'typography';
+@import 'layout';
+@include mq($from:tablet) {
+    ...
+}
+
+...
+
+// typography.scss
+@include mq($from:tablet) {
+    ...
+}
+
+```
+
+Now you will need to explicit import `_mq.scss` file in each file that needs to use any var, function
+or mixin from it:
+```scss
+// main.scss
+@use 'mq';
+@use 'typography';
+@use 'layout';
+@include mq.mq($from:tablet) {
+    ...
+}
+...
+
+// typography.scss
+@use 'mq';
+@include mq.mq($from:tablet) {
+    ...
+}
+```
+
+Other important things about `@use`:
+
+* The file is only imported once, no matter how many times you @use it in a project.
+
+* Variables, mixins, and functions (what Sass calls “members”) that start with an underscore (_)
+  or hyphen (-) are considered private, and not imported.
+
+* Members from the used file are only made available locally, but not passed along to future
+  imports.
+
+* Similarly, `@extends` will only apply up the chain; extending selectors in imported files,
+  but not extending files that import this one.
+
+* All imported members are namespaced by default.
+
+Please see [introducing-sass-modules](https://css-tricks.com/introducing-sass-modules/) for more
+info about sass modules.
 
 3. Play around with `mq()` (see below)
 
@@ -175,7 +251,7 @@ reference, so you can use the notation that best matches your needs:
 ### Adding custom breakpoints
 
 ```scss
-@include mq-add-breakpoint(tvscreen, 1920px);
+@include add-breakpoint(tvscreen, 1920px);
 
 .hide-on-tv {
     @include mq(tvscreen) {
@@ -225,6 +301,17 @@ for screens only, set `$media-type`:
     }
 }
 ```
+
+### Implementing sass-mq in your project
+
+Please see the `examples` folder which contains a variety of examples on how to implement "sass-mq"
+
+### backward compatibility with `@import`
+
+Just in case you need to have backward compatibility and want to use`@import` instead of  `@use`, 
+you can do so by importing  `_mq.import.scss` instead of `_mq.scss`.
+
+Please see `legacy.scss` on `examples` folder.
 
 ## Running tests
 
