@@ -1,0 +1,10 @@
+body {
+  font-size: 16px;
+}
+@media (min-width: 46.25em) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/*# sourceMappingURL=minimal.css.map */

@@ -1,0 +1,10 @@
+body {
+  font-size: 16px;
+}
+@media (max-width: 63.99em) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/*# sourceMappingURL=custom.css.map */
