@@ -1,0 +1,10 @@
+/* typography partial */
+
+@use '../mq';
+
+h1 {
+  font-size: 40px;
+  @include mq.mq(svga) {
+    font-size: 48px;
+  }
+}

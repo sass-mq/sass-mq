@@ -1,0 +1,10 @@
+@import '../mq.import';
+
+body {
+  font-size: 16px;
+  @include mq($from:tablet) {
+    font-size: 18px;
+  }
+}
+
+@include mq-show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));
