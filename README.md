@@ -92,28 +92,28 @@ OR:
 ```
 ### Notes about `@use` Vs `@import`
 
-Now when using the `@use` directive you have to change your main about how to reason about vars,
+When using the `@use` directive, you have to change your mindset when working with vars,
 functions or mixins and how they are now seen by Sass.
 
-Previously with the `@import` statement any var, function, or mixing were exposed in the global scope.
+Previously, with the `@import` statement any var, function, or mixin were exposed in the global scope.
 That means that you could define a var like `$mq-media-type: all` in your main sass file and use
 it anywhere as long as the main file had been loaded previously.
 
-This was possible because vars functions and mixins were set in the global scope.
+This was possible because vars, functions, and mixins were set in the global scope.
 
-One drawback of this behavior was that we need to ensure not to pollute the global scope
+One drawback of this behaviour was that we needed to ensure not to pollute the global scope
 with common names or names that may be already taken by any other library.
 
-To solve this matter we mainly use a prefix in vars, functions, or mixins  in order to avoid
+To solve this matter, we mostly used a prefix in vars, functions, or mixins in order to avoid
 collapsing names.
 
 Now with the new `@use` directive, no var, function, or mixin is placed in global scope, and they are
 all scoped within the file.
 
-That means that we explicitly need to include  the partial file in each file that may use its vars,
-functions or mixins (analog to ES6 import modules).
+That means that we explicitly need to include the partial file in each file that may use its vars,
+functions or mixins (similar to ES6 import modules).
 
-So previously we could have a typical setup like this:
+So, previously we could have a typical setup like this:
 ```scss
 // main.scss
 @import 'mq';
@@ -132,7 +132,7 @@ So previously we could have a typical setup like this:
 
 ```
 
-Now you will need to explicit import `_mq.scss` file in each file that needs to use any var, function
+Now, you will need to explicitly import the `_mq.scss` file in each file that needs to use any var, function
 or mixin from it:
 ```scss
 // main.scss
