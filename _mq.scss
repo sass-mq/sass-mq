@@ -1,6 +1,8 @@
 @charset "UTF-8"; // Fixes an issue where Ruby locale is not set properly
                   // See https://github.com/sass-mq/sass-mq/pull/10
 
+@use "sass:math";
+
 /// Base font size on the `<body>` element
 ///
 /// Do not override this value, or things will break
@@ -108,7 +110,7 @@ $mq-media-type: all !default;
     } @else if unit($px) == em {
         @return $px;
     }
-    @return ($px / $base-font-size) * 1em;
+    @return math.div($px, $base-font-size) * 1em;
 }
 
 /// Get a breakpoint's width
