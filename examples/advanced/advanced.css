@@ -1,0 +1,46 @@
+/**
+ * Typography headings partial
+ * This file is imported by _typography.scss, and still inherits
+ * parameters set in _mq-settings.scss Sass MQ, itself imported by advanced.scss
+ */
+h1 {
+  font-size: 3rem;
+}
+@media screen and (min-width: 50em) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+}
+@media screen and (min-width: 50em) {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+/**
+ * Typography partial
+ */
+p {
+  font-size: 1rem;
+}
+@media screen and (min-width: 50em) {
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+/**
+ * Layout partial
+ */
+* + * {
+  padding: 0.5rem;
+}
+@media screen and (min-width: 50em) {
+  * + * {
+    padding: 0.75rem;
+  }
+}

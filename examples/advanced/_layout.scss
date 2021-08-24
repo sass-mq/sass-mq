@@ -1,0 +1,13 @@
+/**
+ * Layout partial
+ */
+
+@use '../../mq';
+
+* + * {
+  padding: 0.5rem;
+
+  @include mq.mq(svga) {
+    padding: 0.75rem;
+  }
+}

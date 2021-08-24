@@ -1,9 +1,0 @@
-// this is an advanced way to use mq with custom params and multiple files
-
-// first we create a customMQ partial that will have all the overrides for mq
-@use 'customMQ';
-// Since we already use 'mq' inside  'customMQ' and this is our first file been called, we have set
-// mq with custom params for all files.
-// So whenever we do `@use '../mq'` we will be using our custom implementation
-@use 'typography';
-@use 'layout';
