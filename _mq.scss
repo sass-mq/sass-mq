@@ -1,6 +1,6 @@
-@use "sass:math";
-@use "sass:map";
-@use "sass:list";
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:list';
 
 /// Breakpoint list
 ///
@@ -14,7 +14,7 @@ $breakpoints: (
   mobile: 320px,
   tablet: 740px,
   desktop: 980px,
-  wide: 1300px
+  wide: 1300px,
 ) !default;
 
 /// Show breakpoints in the top right corner
@@ -53,7 +53,7 @@ $media-type: all !default;
     @return px2em($px * 1px);
   }
   // if $px is compatible with em units then return value unchanged
-  @if math.compatible($px, 1em){
+  @if math.compatible($px, 1em) {
     @return $px;
   }
   @return math.div($px, 16px) * 1em;
@@ -77,7 +77,6 @@ $media-type: all !default;
     @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
     @return null;
   }
-
 }
 
 /// Media Query mixin
@@ -130,7 +129,7 @@ $media-type: all !default;
   $until: false,
   $and: false,
   $media-type: $media-type,
-  $breakpoints: $breakpoints,
+  $breakpoints: $breakpoints
 ) {
   $min-width: 0;
   $max-width: 0;
@@ -150,7 +149,7 @@ $media-type: all !default;
     @if type-of($until) == number {
       $max-width: px2em($until);
     } @else {
-      $max-width: px2em(get-breakpoint-width($until, $breakpoints)) - .01em;
+      $max-width: px2em(get-breakpoint-width($until, $breakpoints)) - 0.01em;
     }
   }
 
@@ -173,7 +172,6 @@ $media-type: all !default;
   @media #{$media-type + $media-query} {
     @content;
   }
-
 }
 
 /// Quick sort
@@ -221,7 +219,12 @@ $media-type: all !default;
   @each $value in $map-values-sorted {
     $index: index($map-values, $value);
     $key: list.nth($map-keys, $index);
-    $map-sorted: map.merge($map-sorted, ($key: $value));
+    $map-sorted: map.merge(
+      $map-sorted,
+      (
+        $key: $value,
+      )
+    );
 
     // Unset the value in $map-values to prevent the loop
     // from finding the same index twice
@@ -242,7 +245,9 @@ $media-type: all !default;
 ///  @include add-breakpoint(tvscreen, 1920px);
 ///  @include mq(tvscreen) {}
 @mixin add-breakpoint($name, $width) {
-  $new-breakpoint: ($name: $width);
+  $new-breakpoint: (
+    $name: $width,
+  );
   $breakpoints: map.merge($breakpoints, $new-breakpoint) !global;
   $breakpoints: _map-sort-by-value($breakpoints) !global;
 }
@@ -262,12 +267,15 @@ $media-type: all !default;
 ///
 ///  // Show breakpoints using custom settings
 ///  @include show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));
-@mixin show-breakpoints($show-breakpoints: $show-breakpoints, $breakpoints: $breakpoints) {
+@mixin show-breakpoints(
+  $show-breakpoints: $show-breakpoints,
+  $breakpoints: $breakpoints
+) {
   body:before {
-    background-color: #FCF8E3;
-    border-bottom: 1px solid #FBEED5;
-    border-left: 1px solid #FBEED5;
-    color: #C09853;
+    background-color: #fcf8e3;
+    border-bottom: 1px solid #fbeed5;
+    border-left: 1px solid #fbeed5;
+    color: #c09853;
     font: small-caption;
     padding: 3px 6px;
     pointer-events: none;
@@ -280,10 +288,9 @@ $media-type: all !default;
     @each $show-breakpoint in $show-breakpoints {
       $width: get-breakpoint-width($show-breakpoint, $breakpoints);
       @include mq($show-breakpoint, $breakpoints: $breakpoints) {
-        content: "#{$show-breakpoint} ≥ #{$width} (#{px2em($width)})";
+        content: '#{$show-breakpoint} ≥ #{$width} (#{px2em($width)})';
       }
     }
-
   }
 }
 

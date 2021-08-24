@@ -9,19 +9,19 @@ $custom-breakpoints: (
 @use '_mq' as mq with ($breakpoints : $custom-breakpoints);
 @use 'sass:meta';
 
-@include describe("[variable] $breakpoints") {
-  @include describe("Given new values to override $breakpoints") {
-    @include it("should use new values to build the named breakpoints") {
+@include describe('[variable] $breakpoints') {
+  @include describe('Given new values to override $breakpoints') {
+    @include it('should use new values to build the named breakpoints') {
       @include assert {
         @include output {
-          @include mq.mq("uxga") {
-            content: "uxga content";
+          @include mq.mq('uxga') {
+            content: 'uxga content';
           }
         }
 
         @include expect {
           @media (min-width: 100em) {
-            content: "uxga content";
+            content: 'uxga content';
           }
         }
       }
