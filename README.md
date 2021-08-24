@@ -2,7 +2,7 @@
 	<img width="500" height="500" src="https://avatars3.githubusercontent.com/u/9341289?v=3&s=500" alt="Awesome">
 </div>
 
-# Media Queries with superpowers [![Build Status](https://api.travis-ci.org/sass-mq/sass-mq.svg?branch=master)](https://travis-ci.org/sass-mq/sass-mq)
+# Media Queries with superpowers [![Build Status](https://api.travis-ci.org/sass-mq/sass-mq.svg?branch=main)](https://travis-ci.org/sass-mq/sass-mq)
 
 `mq()` is a [Sass](http://sass-lang.com/ 'Sass - Syntactically Awesome
 Stylesheets') mixin that helps you compose media queries in an elegant way.
@@ -61,7 +61,7 @@ OR:
    - with [npm](https://www.npmjs.com/): `npm install sass-mq --save` _supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
    - with [yarn](https://www.yarnpkg.com/): `yarn add sass-mq` _supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
 
-   OR [Download \_mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss) into your Sass project.
+   OR [Download \_mq.scss](https://raw.github.com/sass-mq/sass-mq/main/_mq.scss) into your Sass project.
 
 2. Import the partial in your Sass files and override default settings
    with your own preferences:
@@ -275,7 +275,7 @@ then be shown in the top right corner of the viewport.
 $show-breakpoints: (phone, phablet, tablet);
 ```
 
-![$show-breakpoints](https://raw.githubusercontent.com/sass-mq/sass-mq/master/show-breakpoints.gif)
+![$show-breakpoints](https://raw.githubusercontent.com/sass-mq/sass-mq/main/show-breakpoints.gif)
 
 ### Changing media type
 
