@@ -1,14 +1,9 @@
 language: node_js
 node_js:
-  - "8"
-  - "9"
-  - "10"
-  - "11"
-before_install:
-  - rvm install 2.2.2
-  - npm i npx
+  - '12'
+  - '13'
+  - '14'
 before_script:
-  - gem install sass
   - npm install
 script:
   - npm test

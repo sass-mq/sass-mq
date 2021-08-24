@@ -1,0 +1,15 @@
+/**
+ * Typography partial
+ */
+
+@use '../../mq';
+
+@use 'typography-headings';
+
+p {
+  font-size: 1rem;
+
+  @include mq.mq(svga) {
+    font-size: 1.2rem;
+  }
+}

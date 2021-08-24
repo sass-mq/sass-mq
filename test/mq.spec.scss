@@ -1,0 +1,388 @@
+@use 'true' as *;
+@use '_mq' as mq;
+@use 'sass:meta';
+
+$custom-breakpoints: (
+  vga: 640px,
+  svga: 800px,
+  xga: 1024px,
+  uxga: 1600px,
+);
+
+@include describe('[function] get-breakpoint-width') {
+  @include it('should return the value of a default breakpoint') {
+    @include assert-equal(
+      mq.get-breakpoint-width('mobile'),
+      320px,
+      'mobile keyword is defined in breakpoints map'
+    );
+  }
+
+  @include it(
+    'should throw a warn and return null if name is not set in breakpoints map'
+  ) {
+    @include assert-equal(mq.get-breakpoint-width('noName'), null);
+  }
+
+  @include describe('given custom breakpoints ') {
+    @include it('should return the value of a custom breakpoint') {
+      @include assert-equal(
+        mq.get-breakpoint-width('svga', $custom-breakpoints),
+        800px
+      );
+    }
+  }
+}
+
+@include describe('[function] px2em') {
+  @include describe('Given a unitless param') {
+    @include it('should throw a warn and return value converted in em') {
+      @include assert-equal(mq.px2em(16), 1em);
+    }
+  }
+  @include describe('Given a px param') {
+    @include it('should return value converted in em') {
+      @include assert-equal(mq.px2em(16px), 1em);
+    }
+  }
+}
+
+@include describe('[mixin] mq') {
+  @include describe('Given none params to mq mixin') {
+    @include it('Should outputs a media all query') {
+      @include assert {
+        @include output {
+          @include mq.mq() {
+            content: 'mobile content';
+          }
+        }
+
+        @include expect {
+          @media all {
+            content: 'mobile content';
+          }
+        }
+      }
+    }
+  }
+
+  @include describe('Given only one parameter as number in pixels') {
+    @include it('Should output a min-width media query') {
+      @include assert {
+        @include output {
+          @include mq.mq(320px) {
+            content: 'mobile content';
+          }
+        }
+
+        @include expect {
+          @media (min-width: 20em) {
+            content: 'mobile content';
+          }
+        }
+      }
+    }
+  }
+
+  @include describe('Given only one parameter as named breakpoint') {
+    @include it(
+      'Should output a min-width media query acording to named breakpoint'
+    ) {
+      @include assert {
+        @include output {
+          @include mq.mq('desktop') {
+            content: 'desktop content';
+          }
+        }
+
+        @include expect {
+          @media (min-width: 61.25em) {
+            content: 'desktop content';
+          }
+        }
+      }
+    }
+  }
+
+  @include describe('Given two parameters , first one set to fasle') {
+    @include it('Should output max-width') {
+      @include assert {
+        @include output {
+          @include mq.mq(false, 320px) {
+            content: 'mobile content';
+          }
+        }
+
+        @include expect {
+          @media (max-width: 20em) {
+            content: 'mobile content';
+          }
+        }
+      }
+    }
+  }
+
+  @include describe('Given two parameters') {
+    @include it('Should output min-width and max-width') {
+      @include assert {
+        @include output {
+          @include mq.mq(740px, 980px) {
+            content: 'in between tablet and desktop';
+          }
+        }
+
+        @include expect {
+          @media (min-width: 46.25em) and (max-width: 61.25em) {
+            content: 'in between tablet and desktop';
+          }
+        }
+      }
+    }
+  }
+
+  @include describe('Given three parameters') {
+    @include it('Should output media-query with additional custom directives') {
+      @include assert {
+        @include output {
+          @include mq.mq(740px, 980px, '(orientation: landscape)') {
+            content: 'in between tablet and desktop';
+          }
+        }
+
+        @include expect {
+          @media (min-width: 46.25em) and (max-width: 61.25em) and (orientation: landscape) {
+            content: 'in between tablet and desktop';
+          }
+        }
+      }
+    }
+  }
+
+  @include describe('Given four parameters') {
+    @include it('Should output media-query with media type') {
+      @include assert {
+        @include output {
+          @include mq.mq(740px, 980px, '(orientation: landscape)', 'print') {
+            content: 'in between tablet and desktop only for media print';
+          }
+        }
+
+        @include expect {
+          @media print and(min-width: 46.25em) and (max-width: 61.25em) and (orientation: landscape) {
+            content: 'in between tablet and desktop only for media print';
+          }
+        }
+      }
+    }
+  }
+
+  @include describe('Given five parameters with custom breakpoints') {
+    @include it('Should output media-query acording to named breakpoint') {
+      @include assert {
+        @include output {
+          @include mq.mq('svga', 'xga', false, 'all', $custom-breakpoints) {
+            content: 'in between two named breakpoints';
+          }
+        }
+
+        @include expect {
+          @media (min-width: 50em) and (max-width: 63.99em) {
+            content: 'in between two named breakpoints';
+          }
+        }
+      }
+    }
+  }
+
+  @include describe('Given named parameters') {
+    @include describe('Given $from') {
+      @include it('Should output a media-query with min-width') {
+        @include assert {
+          @include output {
+            @include mq.mq($from: 720px) {
+              content: 'min-width media query';
+            }
+          }
+
+          @include expect {
+            @media (min-width: 45em) {
+              content: 'min-width media query';
+            }
+          }
+        }
+      }
+    }
+
+    @include describe('Given $until') {
+      @include it('Should output a media-query with max-width') {
+        @include assert {
+          @include output {
+            @include mq.mq($until: 720px) {
+              content: 'max-width media query';
+            }
+          }
+
+          @include expect {
+            @media (max-width: 45em) {
+              content: 'max-width media query';
+            }
+          }
+        }
+      }
+    }
+
+    @include describe('Given $and') {
+      @include it(
+        'Should output a media-query with additional custom directives'
+      ) {
+        @include assert {
+          @include output {
+            @include mq.mq($until: 720px, $and: '(orientation: landscape)') {
+              content: 'max-width media query landscape';
+            }
+          }
+
+          @include expect {
+            @media (max-width: 45em) and (orientation: landscape) {
+              content: 'max-width media query landscape';
+            }
+          }
+        }
+      }
+    }
+
+    @include describe('Given $media-type') {
+      @include it('Should output a media-query with custom media-type') {
+        @include assert {
+          @include output {
+            @include mq.mq($media-type: 'print') {
+              content: 'media print';
+            }
+          }
+
+          @include expect {
+            @media print {
+              content: 'media print';
+            }
+          }
+        }
+      }
+    }
+
+    @include describe('Given $breakpoints') {
+      @include it('Should output a media-query using custom breakpoints') {
+        @include assert {
+          @include output {
+            @include mq.mq($from: 'xga', $breakpoints: $custom-breakpoints) {
+              content: 'custom named media query';
+            }
+          }
+
+          @include expect {
+            @media (min-width: 64em) {
+              content: 'custom named media query';
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include describe('[mixin] add-breakpoint') {
+  @include describe('Given a name and a width') {
+    @include it('Should add a new breakpoint to breakpoints map') {
+      @include assert {
+        @include output {
+          @include mq.add-breakpoint('ultra-wide', 1440px);
+          @include mq.mq($until: 'ultra-wide') {
+            content: 'ultra-wide';
+          }
+        }
+        @include expect {
+          @media (max-width: 89.99em) {
+            content: 'ultra-wide';
+          }
+        }
+      }
+    }
+  }
+}
+
+@include describe('[mixin] show-breakpoints') {
+  @include describe('Given a list of named breakpoints') {
+    @include it('Should output code for visually see named views') {
+      @include assert {
+        @include output {
+          @include mq.show-breakpoints(('mobile', 'desktop'));
+        }
+        @include expect {
+          body:before {
+            background-color: #fcf8e3;
+            border-bottom: 1px solid #fbeed5;
+            border-left: 1px solid #fbeed5;
+            color: #c09853;
+            font: small-caption;
+            padding: 3px 6px;
+            pointer-events: none;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 100;
+          }
+
+          @media (min-width: 20em) {
+            body:before {
+              content: 'mobile ≥ 320px (20em)';
+            }
+          }
+
+          @media (min-width: 61.25em) {
+            body:before {
+              content: 'desktop ≥ 980px (61.25em)';
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include describe(
+    'Given a list of named breakpoints and a custom breakpoint map'
+  ) {
+    @include it('Should output code for visually seeing named custom views') {
+      @include assert {
+        @include output {
+          @include mq.show-breakpoints(('vga', 'xga'), $custom-breakpoints);
+        }
+        @include expect {
+          body:before {
+            background-color: #fcf8e3;
+            border-bottom: 1px solid #fbeed5;
+            border-left: 1px solid #fbeed5;
+            color: #c09853;
+            font: small-caption;
+            padding: 3px 6px;
+            pointer-events: none;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 100;
+          }
+
+          @media (min-width: 40em) {
+            body:before {
+              content: 'vga ≥ 640px (40em)';
+            }
+          }
+
+          @media (min-width: 64em) {
+            body:before {
+              content: 'xga ≥ 1024px (64em)';
+            }
+          }
+        }
+      }
+    }
+  }
+}

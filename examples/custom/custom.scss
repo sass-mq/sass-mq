@@ -1,0 +1,18 @@
+// Simple way to use Sass MQ with custom params
+
+@use '../../mq' as responsive with (
+  $breakpoints: (
+    vga: 640px,
+    svga: 800px,
+    xga: 1024px,
+    uxga: 1600px,
+  )
+);
+
+body {
+  font-size: 100%;
+
+  @include responsive.mq($until: xga) {
+    font-size: 80%;
+  }
+}

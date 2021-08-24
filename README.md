@@ -4,32 +4,31 @@
 
 # Media Queries with superpowers [![Build Status](https://api.travis-ci.org/sass-mq/sass-mq.svg?branch=master)](https://travis-ci.org/sass-mq/sass-mq)
 
-`mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
-Stylesheets") mixin that helps you compose media queries in an elegant
-way.
+`mq()` is a [Sass](http://sass-lang.com/ 'Sass - Syntactically Awesome
+Stylesheets') mixin that helps you compose media queries in an elegant way.
 
 - compiles keywords and `px`/`em` values to `em`-based queries ([a good thing](http://css-tricks.com/zooming-squishes))
-- provides fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
+- For version 6 and up we removed fallbacks for older browsers (see [Mobile-first Responsive Web Design and IE8](http://www.theguardian.com/info/developer-blog/2013/oct/14/mobile-first-responsive-ie8) on the Guardian's developer blog).
 
 Here is a very basic example:
 
 ```scss
-$mq-breakpoints: (
+@use 'mq' as * with (
+  $breakpoints: (
     mobile:  320px,
     tablet:  740px,
     desktop: 980px,
     wide:    1300px
+  )
 );
 
-@import 'mq';
-
 .foo {
-    @include mq($from: mobile, $until: tablet) {
-        background: red;
-    }
-    @include mq($from: tablet) {
-        background: green;
-    }
+  @include mq($from: mobile, $until: tablet) {
+    background: red;
+  }
+  @include mq($from: tablet) {
+    background: green;
+  }
 }
 ```
 
@@ -52,60 +51,130 @@ _Sass MQ was crafted in-house at the Guardian. Today, many more companies and de
 
 ## How to use it
 
-Immediately play with it on [SassMeister](http://sassmeister.com/): `@import 'mq';`.
+Immediately play with it on [SassMeister](http://sassmeister.com/): `@use 'mq';`.
 
 OR:
 
 1. Install:
-    - with [Bower](http://bower.io/ "Bower: A package manager for the web"): `bower install sass-mq --save`
-    - with [npm](https://www.npmjs.com/): `npm install sass-mq --save` _supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
-    - with [yarn](https://www.yarnpkg.com/): `yarn add sass-mq` _supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
 
-    OR [Download _mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss) into your Sass project.
+   - with [Bower](http://bower.io/ 'Bower: A package manager for the web'): `bower install sass-mq --save`
+   - with [npm](https://www.npmjs.com/): `npm install sass-mq --save` _supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
+   - with [yarn](https://www.yarnpkg.com/): `yarn add sass-mq` _supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
+
+   OR [Download \_mq.scss](https://raw.github.com/sass-mq/sass-mq/master/_mq.scss) into your Sass project.
 
 2. Import the partial in your Sass files and override default settings
-   with your own preferences before the file is imported:
-    ```scss
-    // To enable support for browsers that do not support @media queries,
-    // (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
-    // Create a separate stylesheet served exclusively to these browsers,
-    // meaning @media queries will be rasterized, relying on the cascade itself
-    $mq-responsive: true;
+   with your own preferences:
 
-    // Name your breakpoints in a way that creates a ubiquitous language
-    // across team members. It will improve communication between
-    // stakeholders, designers, developers, and testers.
-    $mq-breakpoints: (
-        mobile:  320px,
-        tablet:  740px,
-        desktop: 980px,
-        wide:    1300px,
+```scss
+// Name your breakpoints in a way that creates a ubiquitous language
+// across team members. It will improve communication between
+// stakeholders, designers, developers, and testers.
+$breakpoints: (
+  mobile: 320px,
+  tablet: 740px,
+  desktop: 980px,
+  wide: 1300px,
+  // Tweakpoints
+  desktopAd: 810px,
+  mobileLandscape: 480px,
+);
 
-        // Tweakpoints
-        desktopAd: 810px,
-        mobileLandscape: 480px
-    );
+// If you want to display the currently active breakpoint in the top
+// right corner of your site during development, add the breakpoints
+// to this list, ordered by width. For examples: (mobile, tablet, desktop).
+$breakpoints-shown: (mobile, mobileLandscape, tablet, desktop, wide);
 
-    // Define the breakpoint from the $mq-breakpoints list that should
-    // be used as the target width when outputting a static stylesheet
-    // (when $mq-responsive is set to 'false').
-    $mq-static-breakpoint: desktop;
+@use 'path/to/mq' with (
+  $breakpoints: $breakpoints,
+  $show-breakpoints: $breakpoints-shown,
+);
+```
 
-    // If you want to display the currently active breakpoint in the top
-    // right corner of your site during development, add the breakpoints
-    // to this list, ordered by width. For example: (mobile, tablet, desktop).
-    $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
+### Notes about `@use` Vs `@import`
 
-    // If _mq.scss is in your project:
-    @import 'path/to/mq';
-    // With eyeglass:
-    @import 'sass-mq';
-    // With webpack (and boilerplates such as create-react-app)
-    @import '~sass-mq';
-    ```
+When using the `@use` directive, you have to change your mindset when working with vars,
+functions or mixins and how they are now seen by Sass.
+
+Previously, with the `@import` statement any var, function, or mixin were exposed in the global scope.
+That means that you could define a var like `$mq-media-type: all` in your main sass file and use
+it anywhere as long as the main file had been loaded previously.
+
+This was possible because vars, functions, and mixins were set in the global scope.
+
+One drawback of this behaviour was that we needed to ensure not to pollute the global scope
+with common names or names that may be already taken by any other library.
+
+To solve this matter, we mostly used a prefix in vars, functions, or mixins in order to avoid
+collapsing names.
+
+Now with the new `@use` directive, no var, function, or mixin is placed in global scope, and they are
+all scoped within the file.
+
+That means that we explicitly need to include the partial file in each file that may use its vars,
+functions or mixins (similar to ES6 import modules).
+
+So, previously we could have a typical setup like this:
+
+```scss
+// main.scss
+@import 'mq';
+@import 'typography';
+@import 'layout';
+@include mq($from:tablet) {
+  ...
+}
+
+...
+
+// typography.scss
+@include mq($from:tablet) {
+  ...
+}
+
+```
+
+Now, you will need to explicitly import the `_mq.scss` file in each file that needs to use any var, function
+or mixin from it:
+
+```scss
+// main.scss
+@use 'mq';
+@use 'typography';
+@use 'layout';
+@include mq.mq($from:tablet) {
+  ...
+}
+...
+
+// typography.scss
+@use 'mq';
+@include mq.mq($from:tablet) {
+  ...
+}
+```
+
+Other important things about `@use`:
+
+- The file is only imported once, no matter how many times you @use it in a project.
+
+- Variables, mixins, and functions (what Sass calls “members”) that start with an underscore (\_)
+  or hyphen (-) are considered private, and not imported.
+
+- Members from the used file are only made available locally, but not passed along to future
+  imports.
+
+- Similarly, `@extends` will only apply up the chain; extending selectors in imported files,
+  but not extending files that import this one.
+
+- All imported members are namespaced by default.
+
+Please see [introducing-sass-modules](https://css-tricks.com/introducing-sass-modules/) for more
+info about sass modules.
+
 3. Play around with `mq()` (see below)
 
-### Responsive mode ON (default)
+### Responsive mode
 
 `mq()` takes up to three optional parameters:
 
@@ -116,112 +185,66 @@ OR:
 Note that `$until` as a keyword is a hard limit i.e. it's breakpoint - 1.
 
 ```scss
+@use 'mq';
+
 .responsive {
-    // Apply styling to mobile and upwards
-    @include mq($from: mobile) {
-        color: red;
-    }
-    // Apply styling up to devices smaller than tablets (exclude tablets)
-    @include mq($until: tablet) {
-        color: blue;
-    }
-    // Same thing, in landscape orientation
-    @include mq($until: tablet, $and: '(orientation: landscape)') {
-        color: hotpink;
-    }
-    // Apply styling to tablets up to desktop (exclude desktop)
-    @include mq(tablet, desktop) {
-        color: green;
-    }
+  // Apply styling to mobile and upwards
+  @include mq.mq($from: mobile) {
+    color: red;
+  }
+  // Apply styling up to devices smaller than tablets (exclude tablets)
+  @include mq.mq($until: tablet) {
+    color: blue;
+  }
+  // Same thing, in landscape orientation
+  @include mq.mq($until: tablet, $and: '(orientation: landscape)') {
+    color: hotpink;
+  }
+  // Apply styling to tablets up to desktop (exclude desktop)
+  @include mq.mq(tablet, desktop) {
+    color: green;
+  }
 }
 ```
 
-### Responsive mode OFF
-
-To enable support for browsers that do not support `@media` queries,
-(IE <= 8, Firefox <= 3, Opera <= 9) set `$mq-responsive: false`.
-
-Tip: create a separate stylesheet served exclusively to these browsers,
-for example with conditional comments.
-
-When `@media` queries are rasterized, browsers rely on the cascade
-itself. Learn more about this technique on [Jake’s blog](http://jakearchibald.github.io/sass-ie/ "IE-friendly mobile-first CSS with Sass 3.2").
-
-To avoid rasterizing styles intended for displays larger than what those
-older browsers typically run on, set `$mq-static-breakpoint` to match
-a breakpoint from the `$mq-breakpoints` list. The default is
-`desktop`.
-
-The static output will only include `@media` queries that start at or
-span this breakpoint and which have no custom `$and` directives:
-
-```scss
-$mq-responsive:        false;
-$mq-static-breakpoint: desktop;
-
-.static {
-    // Queries that span or start at desktop are compiled:
-    @include mq($from: mobile) {
-        color: lawngreen;
-    }
-    @include mq(tablet, wide) {
-        color: seagreen;
-    }
-    @include mq($from: desktop) {
-        color: forestgreen;
-    }
-
-    // But these queries won’t be compiled:
-    @include mq($until: tablet) {
-        color: indianred;
-    }
-    @include mq($until: tablet, $and: '(orientation: landscape)') {
-        color: crimson;
-    }
-    @include mq(mobile, desktop) {
-        color: firebrick;
-    }
-}
-```
-
-### Verbose and shortand notations
+### Verbose and shorthand notations
 
 Sometimes you’ll want to be extra verbose (for example, if you’re developing a
 library based on top of sass-mq), however for readability in a codebase,
 the shorthand notation is recommended.
 
-All of these examples output the exact same thing, and are here for
-reference so you can use the notation that best matches your needs:
+All of these examples output the exact same thing and are here for
+reference, so you can use the notation that best matches your needs:
 
 ```scss
+@use 'mq';
 // Verbose
-@include mq(
-    $from: false,
-    $until: desktop,
-    $and: false,
-    $media-type: $mq-media-type // defaults to 'all'
+@include mq.mq(
+  $from: false,
+  $until: desktop,
+  $and: false,
+  $media-type: $media-type // defaults to 'all'
 ) {
-    .foo {}
+  .foo {
+  }
 }
 
 // Omitting argument names
-@include mq(
-    false,
-    desktop,
-    false,
-    $mq-media-type
-) {
-    .foo {}
+@include mq.mq(false, desktop, false, $media-type) {
+  .foo {
+  }
 }
 
 // Omitting tailing arguments
 @include mq(false, desktop) {
-    .foo {}
+  .foo {
+  }
 }
 
 // Recommended
 @include mq($until: desktop) {
-    .foo {}
+  .foo {
+  }
 }
 ```
 
@@ -230,44 +253,44 @@ reference so you can use the notation that best matches your needs:
 ### Adding custom breakpoints
 
 ```scss
-@include mq-add-breakpoint(tvscreen, 1920px);
+@include add-breakpoint(tvscreen, 1920px);
 
 .hide-on-tv {
-    @include mq(tvscreen) {
-        display: none;
-    }
+  @include mq(tvscreen) {
+    display: none;
+  }
 }
 ```
 
 ### Seeing the currently active breakpoint
 
 While developing, it can be nice to always know which breakpoint is
-active. To achieve this, set the `$mq-show-breakpoints` variable to
+active. To achieve this, set the `$show-breakpoints` variable to
 be a list of the breakpoints you want to debug, ordered by width.
 The name of the active breakpoint and its pixel and em values will
 then be shown in the top right corner of the viewport.
 
 ```scss
 // Adapt the list to include breakpoint names from your project
-$mq-show-breakpoints: (phone, phablet, tablet);
+$show-breakpoints: (phone, phablet, tablet);
 ```
 
-![$mq-show-breakpoints](https://raw.githubusercontent.com/sass-mq/sass-mq/master/show-breakpoints.gif)
+![$show-breakpoints](https://raw.githubusercontent.com/sass-mq/sass-mq/master/show-breakpoints.gif)
 
 ### Changing media type
 
 If you want to specify a media type, for example to output styles
-for screens only, set `$mq-media-type`:
+for screens only, set `$media-type`:
 
 #### SCSS
 
 ```scss
-$mq-media-type: screen;
+@use 'mq' with ($media-type: screen);
 
 .screen-only-element {
-    @include mq(mobile) {
-        width: 300px;
-    }
+  @include mq.mq(mobile) {
+    width: 300px;
+  }
 }
 ```
 
@@ -275,11 +298,22 @@ $mq-media-type: screen;
 
 ```css
 @media screen and (max-width: 19.99em) {
-    .screen-only-element {
-        width: 300px;
-    }
+  .screen-only-element {
+    width: 300px;
+  }
 }
 ```
+
+### Implementing sass-mq in your project
+
+Please see the `examples` folder which contains a variety of examples on how to implement "sass-mq"
+
+### Backward compatibility with `@import`
+
+Just in case you need to have backward compatibility and want to use`@import` instead of `@use`,
+you can do so by importing `_mq.import.scss` instead of `_mq.scss`.
+
+Please see `legacy.scss` on `examples` folder.
 
 ## Running tests
 
@@ -343,7 +377,7 @@ These companies and projects use Sass MQ:
 - [GOV.UK Design System](https://design-system.service.gov.uk/)
 - You? [Open an issue](https://github.com/sass-mq/sass-mq/issues/new?title=My%20company%20uses%20Sass%20MQ&body=Hi,%20we%27re%20using%20Sass%20MQ%20at%20[name%20of%20your%20company]%20and%20we%27d%20like%20to%20be%20mentionned%20in%20the%20README%20of%20the%20project.%20Cheers!)
 
-----
+---
 
 Looking for a more advanced sass-mq, with support for height and other niceties?  
 Give [@mcaskill's fork of sass-mq](https://github.com/mcaskill/sass-mq) a try.

@@ -1,0 +1,24 @@
+// If your project still uses the old module system,
+// import the mq.import file like so:
+
+$mq-breakpoints: (
+  vga: 640px,
+  svga: 800px,
+  xga: 1024px,
+  uxga: 1600px,
+);
+
+$mq-show-breakpoints: (xga, vga);
+
+@import '../../mq.import';
+
+body {
+  font-size: 100%;
+
+  @include mq($from: xga) {
+    font-size: 80%;
+  }
+}
+
+// You may also use the mq-show-breakpoints mixin instead of the $mq-show-breakpoints setting
+// @include mq-show-breakpoints((xga, vga));

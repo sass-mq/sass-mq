@@ -1,0 +1,23 @@
+/**
+ * Typography headings partial
+ * This file is imported by _typography.scss, and still inherits
+ * parameters set in _mq-settings.scss Sass MQ, itself imported by advanced.scss
+ */
+
+@use '../../mq';
+
+h1 {
+  font-size: 3rem;
+
+  @include mq.mq(svga) {
+    font-size: 4rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+
+  @include mq.mq(svga) {
+    font-size: 3rem;
+  }
+}

@@ -1,0 +1,11 @@
+// Advanced way to use Sass MQ with custom params and multiple files
+
+// First, create a partial with custom overrides for Sass MQ
+@use 'mq-settings';
+
+// Then, import all modules below.
+//
+// Custom parameters passed to 'mq' inside '_mq-settings.scss' apply to all Sass modules imported below.
+// This means that `@use '../../mq'` in the following partials will use the settings defined above.
+@use 'typography';
+@use 'layout';

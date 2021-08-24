@@ -1,0 +1,12 @@
+// Minimalistic way to use Sass MQ
+// with the pre-defined set of breakpoints
+
+@use '../../mq';
+
+body {
+  font-size: 100%;
+
+  @include mq.mq($from: tablet) {
+    font-size: 80%;
+  }
+}

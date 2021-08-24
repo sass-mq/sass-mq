@@ -1,7 +1,7 @@
 {
   "name": "sass-mq",
   "description": "mq() is a Sass mixin that helps manipulating media queries in an elegant way.",
-  "version": "5.0.1",
+  "version": "6.0.0-beta.1",
   "keywords": [
     "responsive",
     "sass",
@@ -16,21 +16,23 @@
     "test",
     "sassdoc",
     "**/.*",
-    "sache.json",
     "bower.json",
     "sassdoc.sh",
     "scripts"
   ],
   "files": [
     "_mq.scss",
+    "_mq.import.scss",
+    "CHANGELOG.md",
     "LICENSE.md",
     "README.md",
     "sass/index.scss"
   ],
   "main": "_mq.scss",
   "scripts": {
-    "test": "./scripts/test.sh",
-    "sassdoc": "./scripts/sassdoc.sh"
+    "test": "jest",
+    "sassdoc": "./scripts/sassdoc.sh",
+    "build:examples": "sass ./examples:./examples --no-source-map"
   },
   "contributors": [
     {
@@ -54,8 +56,11 @@
     "exports": false
   },
   "devDependencies": {
-    "eyeglass": "^2.4.1",
-    "node-sass": "^4.12.0",
-    "sassdoc": "^2.7.1"
+    "eyeglass": "^3.0.3",
+    "glob": "^7.1.7",
+    "jest": "^27.0.4",
+    "sass": "^1.35.1",
+    "sass-true": "^6.0.1",
+    "sassdoc": "^2.7.3"
   }
 }

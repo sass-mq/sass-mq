@@ -1,0 +1,8 @@
+body {
+  font-size: 100%;
+}
+@media (max-width: 63.99em) {
+  body {
+    font-size: 80%;
+  }
+}
