@@ -1,7 +1,7 @@
 {
   "name": "sass-mq",
   "description": "mq() is a Sass mixin that helps manipulating media queries in an elegant way.",
-  "version": "6.0.0",
+  "version": "5.0.1",
   "keywords": [
     "responsive",
     "sass",
@@ -23,6 +23,8 @@
   ],
   "files": [
     "_mq.scss",
+    "_mq.import.scss",
+    "CHANGELOG.md",
     "LICENSE.md",
     "README.md",
     "sass/index.scss"
