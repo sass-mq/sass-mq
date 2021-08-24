@@ -16,7 +16,6 @@
     "test",
     "sassdoc",
     "**/.*",
-    "sache.json",
     "bower.json",
     "sassdoc.sh",
     "scripts"

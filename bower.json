@@ -12,14 +12,7 @@
   ],
   "main": "_mq.scss",
   "author": "Guardian Media Group and contributors",
-  "ignore": [
-    "test",
-    "sassdoc",
-    "**/.*",
-    "sache.json",
-    "sassdoc.sh",
-    "test.sh"
-  ],
+  "ignore": ["test", "sassdoc", "**/.*", "sassdoc.sh", "test.sh"],
   "licenses": [
     {
       "type": "MIT",
