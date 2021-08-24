@@ -3,8 +3,6 @@ node_js:
   - '12'
   - '13'
   - '14'
-before_install:
-  - npm i npx
 before_script:
   - npm install
 script:
