@@ -1,0 +1,23 @@
+@use 'true' as *;
+@use '_mq' as mq with ($media-type: 'print');
+@use 'sass:meta';
+
+@include describe('[variable] $media-type') {
+  @include describe('Given new values to override $media-type') {
+    @include it('Should outputs a media print query') {
+      @include assert {
+        @include output {
+          @include mq.mq() {
+            content: 'custom content for print';
+          }
+        }
+
+        @include expect {
+          @media print {
+            content: 'custom content for print';
+          }
+        }
+      }
+    }
+  }
+}
