@@ -5,13 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## Unreleased
+<!-- ## Unreleased -->
 
-This is a major version bump that contains breaking changes. It adds support for the [new Sass module system](https://sass-lang.com/blog/the-module-system-is-launched) and dropping support for deprecated versions of Sass. No new features were added.
+## v6.0.0 - 2022-01-10
+
+This is a major version bump that contains breaking changes. It adds support for the [new Sass module system](https://sass-lang.com/blog/the-module-system-is-launched), drops support for Eyeglass, and drops support for deprecated versions of Sass. No new features were added.
+
+See the updated [README](https://github.com/sass-mq/sass-mq/blob/main/README.md) for instructions on how to use this new version of Sass MQ.
+
+🙌 A huge thanks to [Rodrigo](https://github.com/area73) for his contribution on this major release.
 
 ### Added
 
-- Support for dart-sass@1.35.1
+- Support for dart-sass >= 1.35.1
 - Test suite using [Jest](https://jestjs.io/) and [True](https://www.oddbird.net/true/), a unit-testing framework designed specifically for the Sass language
 
 ### Removed
