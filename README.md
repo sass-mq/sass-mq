@@ -15,10 +15,10 @@ Here is a very basic example:
 ```scss
 @use 'mq' as * with (
   $breakpoints: (
-    mobile:  320px,
-    tablet:  740px,
+    mobile: 320px,
+    tablet: 740px,
     desktop: 980px,
-    wide:    1300px
+    wide: 1300px,
   )
 );
 
@@ -83,11 +83,11 @@ $breakpoints: (
 // If you want to display the currently active breakpoint in the top
 // right corner of your site during development, add the breakpoints
 // to this list, ordered by width. For examples: (mobile, tablet, desktop).
-$breakpoints-shown: (mobile, mobileLandscape, tablet, desktop, wide);
+$show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 
 @use 'path/to/mq' with (
   $breakpoints: $breakpoints,
-  $show-breakpoints: $breakpoints-shown,
+  $show-breakpoints: $show-breakpoints
 );
 ```
 
@@ -273,6 +273,10 @@ then be shown in the top right corner of the viewport.
 ```scss
 // Adapt the list to include breakpoint names from your project
 $show-breakpoints: (phone, phablet, tablet);
+
+@use 'path/to/mq' with (
+  $show-breakpoints: $show-breakpoints
+);
 ```
 
 ![$show-breakpoints](https://raw.githubusercontent.com/sass-mq/sass-mq/main/show-breakpoints.gif)
@@ -285,7 +289,9 @@ for screens only, set `$media-type`:
 #### SCSS
 
 ```scss
-@use 'mq' with ($media-type: screen);
+@use 'mq' with (
+  $media-type: screen
+);
 
 .screen-only-element {
   @include mq.mq(mobile) {
