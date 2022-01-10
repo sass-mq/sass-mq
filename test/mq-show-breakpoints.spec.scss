@@ -1,0 +1,44 @@
+@use 'true' as *;
+@use '_mq' as mq with ($show-breakpoints: ('mobile', 'desktop'));
+@use 'sass:meta';
+
+@include describe('[variable] $show-breakpoints') {
+  @include describe('Given new values to override $show-breakpoints') {
+    @include it(
+      'should print body:before and media queries for given $show-breakpoints names'
+    ) {
+      @include assert {
+        @include output {
+          @include mq.show-breakpoints;
+        }
+        @include expect {
+          body:before {
+            background-color: #fcf8e3;
+            border-bottom: 1px solid #fbeed5;
+            border-left: 1px solid #fbeed5;
+            color: #c09853;
+            font: small-caption;
+            padding: 3px 6px;
+            pointer-events: none;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 100;
+          }
+
+          @media (min-width: 20em) {
+            body:before {
+              content: 'mobile ≥ 320px (20em)';
+            }
+          }
+
+          @media (min-width: 61.25em) {
+            body:before {
+              content: 'desktop ≥ 980px (61.25em)';
+            }
+          }
+        }
+      }
+    }
+  }
+}
