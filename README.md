@@ -58,8 +58,8 @@ OR:
 1. Install:
 
    - with [Bower](http://bower.io/ 'Bower: A package manager for the web'): `bower install sass-mq --save`
-   - with [npm](https://www.npmjs.com/): `npm install sass-mq --save` _supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
-   - with [yarn](https://www.yarnpkg.com/): `yarn add sass-mq` _supports [eyeglass](https://github.com/sass-eyeglass/eyeglass)_
+   - with [npm](https://www.npmjs.com/): `npm install sass-mq --save`
+   - with [yarn](https://www.yarnpkg.com/): `yarn add sass-mq`
 
    OR [Download \_mq.scss](https://raw.github.com/sass-mq/sass-mq/main/_mq.scss) into your Sass project.
 

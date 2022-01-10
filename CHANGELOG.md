@@ -17,6 +17,7 @@ This is a major version bump that contains breaking changes. It adds support for
 ### Removed
 
 - Dropped tests for Sass engines other than dart-sass
+- Dropped support for [Eyeglass](https://github.com/linkedin/eyeglass)
 - Dropped deprecated var `$mq-base-font-size` (https://github.com/sass-mq/sass-mq/pull/123)
 - Dropped compatibility with browsers that don’t support media queries:
   - Removed `$mq-responsive`

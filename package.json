@@ -9,8 +9,7 @@
     "mediaquery",
     "query",
     "queries",
-    "media",
-    "eyeglass-module"
+    "media"
   ],
   "ignore": [
     "test",
@@ -50,13 +49,7 @@
   },
   "license": "MIT",
   "homepage": "https://sass-mq.github.io/sass-mq/",
-  "eyeglass": {
-    "needs": ">= 0.8.2",
-    "sassDir": "./_mq.scss",
-    "exports": false
-  },
   "devDependencies": {
-    "eyeglass": "^3.0.3",
     "glob": "^7.1.7",
     "jest": "^27.0.4",
     "sass": "^1.35.1",
