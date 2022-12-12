@@ -134,7 +134,8 @@ $media-type: all !default;
   $until: false,
   $and: false,
   $media-type: $media-type,
-  $breakpoints: $breakpoints
+  $breakpoints: $breakpoints,
+  $container: false
 ) {
   $min-width: 0;
   $max-width: 0;
@@ -143,7 +144,11 @@ $media-type: all !default;
   // From: this breakpoint (inclusive)
   @if $from {
     @if type-of($from) == number {
-      $min-width: px2em($from);
+      @if $container == false {
+        $min-width: px2em($from);
+      } @else {
+        $min-width: $from;
+      }
     } @else {
       $min-width: px2em(get-breakpoint-width($from, $breakpoints));
     }
@@ -152,7 +157,11 @@ $media-type: all !default;
   // Until: that breakpoint (exclusive)
   @if $until {
     @if type-of($until) == number {
-      $max-width: px2em($until);
+      @if $container == false {
+        $max-width: px2em($until);
+      } @else {
+        $max-width: $until;
+      }
     } @else {
       $max-width: px2em(get-breakpoint-width($until, $breakpoints)) - 0.01em;
     }
@@ -174,8 +183,14 @@ $media-type: all !default;
     $media-query: str-slice(unquote($media-query), 6);
   }
 
-  @media #{$media-type + $media-query} {
-    @content;
+  @if $container == false {
+    @media #{$media-type + $media-query} {
+      @content;
+    }
+  } @else {
+    @container #{$media-type + $media-query} {
+      @content;
+    }
   }
 }
 
