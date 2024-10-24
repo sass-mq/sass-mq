@@ -168,7 +168,7 @@ $custom-breakpoints: (
         }
 
         @include expect {
-          @media print and(min-width: 46.25em) and (max-width: 61.25em) and (orientation: landscape) {
+          @media print and (min-width: 46.25em) and (max-width: 61.25em) and (orientation: landscape) {
             content: 'in between tablet and desktop only for media print';
           }
         }
