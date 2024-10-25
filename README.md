@@ -316,10 +316,9 @@ Please see the `examples` folder which contains a variety of examples on how to 
 
 ### Backward compatibility with `@import`
 
-Just in case you need to have backward compatibility and want to use`@import` instead of `@use`,
-you can do so by importing `_mq.import.scss` instead of `_mq.scss`.
+As of sass-dart 1.80.0, `@import` is officially deprecated, and sass-mq v7.0.0 removes support for it.
 
-Please see `legacy.scss` on `examples` folder.
+[sass-mq v6.0.0](https://github.com/sass-mq/sass-mq/tree/v6.0.0) is the last version that supports `@import`.
 
 ## Running tests
 

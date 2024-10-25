@@ -1,3 +1,5 @@
+@use "sass:meta";
+@use "sass:string";
 @use 'sass:math';
 @use 'sass:map';
 @use 'sass:list';
@@ -142,7 +144,7 @@ $media-type: all !default;
 
   // From: this breakpoint (inclusive)
   @if $from {
-    @if type-of($from) == number {
+    @if meta.type-of($from) == number {
       $min-width: px2em($from);
     } @else {
       $min-width: px2em(get-breakpoint-width($from, $breakpoints));
@@ -151,7 +153,7 @@ $media-type: all !default;
 
   // Until: that breakpoint (exclusive)
   @if $until {
-    @if type-of($until) == number {
+    @if meta.type-of($until) == number {
       $max-width: px2em($until);
     } @else {
       $max-width: px2em(get-breakpoint-width($until, $breakpoints)) - 0.01em;
@@ -171,7 +173,7 @@ $media-type: all !default;
   // Remove unnecessary media query prefix 'all and '
   @if ($media-type == 'all' and $media-query != '') {
     $media-type: '';
-    $media-query: str-slice(unquote($media-query), 6);
+    $media-query: string.slice(string.unquote($media-query), 6);
   }
 
   @media #{$media-type + $media-query} {
@@ -190,8 +192,8 @@ $media-type: all !default;
   $equal: ();
   $large: ();
 
-  @if length($list) > 1 {
-    $seed: list.nth($list, math.ceil(math.div(length($list), 2)));
+  @if list.length($list) > 1 {
+    $seed: list.nth($list, math.ceil(math.div(list.length($list), 2)));
 
     @each $item in $list {
       @if ($item == $seed) {
@@ -203,7 +205,7 @@ $media-type: all !default;
       }
     }
 
-    @return join(join(_quick-sort($less), $equal), _quick-sort($large));
+    @return list.join(list.join(_quick-sort($less), $equal), _quick-sort($large));
   }
 
   @return $list;
@@ -222,7 +224,7 @@ $media-type: all !default;
 
   // Reorder key/value pairs based on key values
   @each $value in $map-values-sorted {
-    $index: index($map-values, $value);
+    $index: list.index($map-values, $value);
     $key: list.nth($map-keys, $index);
     $map-sorted: map.merge(
       $map-sorted,
