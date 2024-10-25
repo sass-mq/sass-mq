@@ -13,7 +13,7 @@ This is a major version bump that contains no breaking changes but may require a
 
 ### Added
 
-- Support for dart-sass >= 1.80.0 (without deprecation warnings)
+- Added support for dart-sass >= 1.80.0 (without deprecation warnings)
 
 ### Changed
 
@@ -24,6 +24,7 @@ This is a major version bump that contains no breaking changes but may require a
 
 - Upgraded Jest and Sass True dependencies to unlock testing with the latest versions of `sass-dart`
 - Fixed a test where a space was missing between `and` and `(` in the generated CSS (caused by the latest version of Sass)
+- Migrated from Travis CI to GitHub Actions for testing
 
 ## v6.0.0 - 2022-01-10
 
