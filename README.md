@@ -2,7 +2,7 @@
 	<img width="500" height="500" src="https://avatars3.githubusercontent.com/u/9341289?v=3&s=500" alt="Awesome">
 </div>
 
-# Media Queries with superpowers [![Build Status](https://api.travis-ci.org/sass-mq/sass-mq.svg?branch=main)](https://travis-ci.org/sass-mq/sass-mq)
+# Media Queries with superpowers
 
 `mq()` is a [Sass](http://sass-lang.com/ 'Sass - Syntactically Awesome
 Stylesheets') mixin that helps you compose media queries in an elegant way.
