@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 <!-- ## Unreleased -->
 
-## v7.0.0 - 2024-10-24
+## v7.0.0 - 2025-06-16
 
 This is a major version bump that contains no breaking changes but may require a newer version of Sass. It ensures compatibility with the latest version of dart-sass and removes support for `@import`, as [`@import` is officially deprecated as of sass-dart 1.80.0](https://sass-lang.com/blog/import-is-deprecated/).
 
