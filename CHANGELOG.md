@@ -5,7 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-<!-- ## Unreleased -->
+## Unreleased
+
+### Fixed
+
+- Vite 8 compatibility: added a `package.json` `exports` field with a `sass` condition so `@use 'sass-mq'` resolves again. Vite 8 dropped the `main`-field fallback that earlier versions relied on ([#179](https://github.com/sass-mq/sass-mq/issues/179)).
+  - Behavior change: adding `exports` encapsulates the package. The documented `@use 'sass-mq'` import is unaffected, but undocumented deep imports such as `@use 'sass-mq/_mq.scss'` are no longer resolvable — use `@use 'sass-mq'` instead.
+
+### Added
+
+- `examples/vite8`: a runnable Vite 8 project that proves `@use 'sass-mq'` resolves and compiles. It runs in CI as a regression test.
 
 ## v7.0.0 - 2025-06-16
 
