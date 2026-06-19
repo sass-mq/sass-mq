@@ -22,3 +22,23 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm test
+
+  vite8:
+    name: Vite 8 compatibility proof
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    # Vite 8 requires Node ^20.19.0 || >=22.12.0. This job pins the current LTS
+    # (Node 24) rather than reusing the unit-test matrix above, which still
+    # covers Node 18 for the Sass suite but cannot run Vite 8.
+    - name: Use Node.js 24.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 24.x
+    - name: Install proof dependencies
+      working-directory: examples/vite8
+      run: npm install
+    - name: Verify sass-mq resolves under Vite 8
+      working-directory: examples/vite8
+      run: npm run verify

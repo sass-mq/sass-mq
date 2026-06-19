@@ -27,10 +27,17 @@
     "sass/index.scss"
   ],
   "main": "_mq.scss",
+  "sass": "_mq.scss",
+  "exports": {
+    ".": {
+      "sass": "./_mq.scss",
+      "default": "./_mq.scss"
+    }
+  },
   "scripts": {
     "test": "jest",
     "sassdoc": "./scripts/sassdoc.sh",
-    "build:examples": "sass ./examples:./examples --no-source-map"
+    "build:examples": "sass ./examples/basic:./examples/basic ./examples/advanced:./examples/advanced ./examples/custom:./examples/custom --no-source-map"
   },
   "contributors": [
     {

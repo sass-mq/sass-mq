@@ -1,0 +1,20 @@
+{
+  "name": "sass-mq-vite8-proof",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Proves that sass-mq resolves under Vite 8 via package.json `exports`.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "verify": "node verify.mjs"
+  },
+  "dependencies": {
+    "sass-mq": "file:../.."
+  },
+  "devDependencies": {
+    "sass": "^1.80.4",
+    "vite": "^8.0.0"
+  }
+}

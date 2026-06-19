@@ -91,6 +91,27 @@ $show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 );
 ```
 
+### Using with Vite, webpack and other bundlers
+
+When you install Sass MQ from npm, import it by its package name and Sass will
+resolve it from `node_modules`:
+
+```scss
+@use 'sass-mq' as mq;
+
+.foo {
+  @include mq.mq($from: tablet) {
+    color: red;
+  }
+}
+```
+
+Sass MQ declares a `sass` [package export](https://sass-lang.com/blog/announcing-pkg-importers/),
+so it resolves out of the box with Vite (including Vite 8, which dropped the
+`main`-field fallback — see [#179](https://github.com/sass-mq/sass-mq/issues/179)),
+webpack's `sass-loader`, and the dart-sass `pkg:` importer. See the example in
+[`examples/vite8`](examples/vite8).
+
 ### Notes about `@use` Vs `@import`
 
 When using the `@use` directive, you have to change your mindset when working with vars,
